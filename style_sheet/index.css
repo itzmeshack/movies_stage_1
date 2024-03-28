@@ -2,3 +2,14 @@
 All styling will take place here
 
 */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* For Desktop layout */
+@media only screen and (min-width: 1280px){
+    
+
+};
