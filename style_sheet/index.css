@@ -11,7 +11,7 @@ All styling will take place here
 /* For Desktop layout */
 @media only screen and (min-width: 1280px) {
   header.header-container {
-    background-color: yellow;
+    background-color: rgb(16, 16, 16);
   }
   nav.navbar-container{
     display: flex;
@@ -27,9 +27,53 @@ All styling will take place here
 
   }
 
-  .major-links.a{
+ a.anchor-links{
     text-decoration: none;
-
-  }
+    color: white;
+    font-family: 'Chillax', sans-serif;
+ }
+ a.logins{
+    text-decoration: none;
+ }
+ /* styling for search container*/
+.search-container{
+    
+    padding: 1em;
+}
+.fa-magnifying-glass{
+    color: white;
+    position: relative;
+    left: 2em;
    
+}
+
+.search-bar{
+    outline: none;
+    width: 30vw;
+    padding: 5px 0px 5px 40px;
+    border: 1px solid white;
+   
+    background-color: rgba(122, 122, 122, 0.457); 
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;  
+
+    font-family: 'Chillax', sans-serif;
+
+  
+}
+
+a.header-links{
+    color: rgb(211, 5, 5);
+    text-decoration: none;
+    font-family: 'Clash Display', sans-serif;
+   
+}
+
+.fa-google-play{
+    color: white;
+    font-size: 30px;
+}
+
+
 }
