@@ -12,6 +12,8 @@ All styling will take place here
 @media only screen and (min-width: 1280px) {
   header.header-container {
     background-color: rgb(16, 16, 16);
+  
+  
   }
   nav.navbar-container{
     display: flex;
@@ -57,7 +59,6 @@ All styling will take place here
     border-radius: 10px;
     color: white;
     font-size: 20px;  
-
     font-family: 'Chillax', sans-serif;
 
   
@@ -73,6 +74,67 @@ a.header-links{
 .fa-google-play{
     color: white;
     font-size: 30px;
+}
+.all-main{
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 100vh;
+   
+}
+.content{
+    background-color: rgb(227, 224, 224);
+    border: 1px solid red;
+    margin-left: 1em;
+    margin-right: 1em;  
+    border-top-left-radius: 2em;
+    border-top-right-radius: 2em;
+    position: relative;
+    padding: 10px 0px 0px 0px;
+    top: 4em;
+    height: 90vh;
+    font-family: 'Chillax', sans-serif;
+
+}
+
+.mymovies-logo{
+    text-decoration: none;
+    color: rgb(221, 1, 1);
+    font-size: 70px;
+}
+
+#google-play{
+    font-size: 70px;
+}
+.small-content{
+    font-size: 20px;
+    color: black;
+}
+.share-links{
+    padding: 3em;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    
+}
+
+a.social-links{
+   
+    font-size: 2em;
+    color: rgb(221, 8, 8);
+}
+
+a.link-to-movies{
+    text-decoration:none;
+    background-color: rgb(6, 5, 5);
+    padding: 20px 20px 20px 20px;
+    color: rgb(245, 245, 245);
+    border: 1px solid black;
+    border-radius: 2em;
+}
+.link-to-movies:hover{
+    background-color: red;
+    transition: all ease-in .4s;
 }
 
 
