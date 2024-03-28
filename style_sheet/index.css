@@ -3,13 +3,33 @@ All styling will take place here
 
 */
 
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 /* For Desktop layout */
-@media only screen and (min-width: 1280px){
-    
+@media only screen and (min-width: 1280px) {
+  header.header-container {
+    background-color: yellow;
+  }
+  nav.navbar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+  }
+  ul.all-links{
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+    list-style: none;
 
-};
+  }
+
+  .major-links.a{
+    text-decoration: none;
+
+  }
+   
+}
