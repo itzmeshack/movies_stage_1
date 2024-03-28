@@ -1,70 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My movies</title>
     <script defer src="js_files/index.js"></script>
     <link rel="stylesheet" href="/style_sheet/index.css">
-    <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap" rel="stylesheet">
+    <link
+        href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
+        rel="stylesheet">
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
- <header class="header-container">
+    <header class="header-container">
 
-    <nav class="navbar-container">
+        <nav class="navbar-container">
 
-        <h1 class="logo-name"><a class="header-links" href="/index.html">MY MOVIES</a>
-            <i class="fa-brands fa-google-play"></i>
+            <h1 class="logo-name"><a class="header-links" href="/index.html">MY MOVIES</a>
+                <i class="fa-brands fa-google-play"></i>
+            </h1>
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass">
+
+                </i>
+                <input class="search-bar" type="text" name="login-details" id="#"
+                    placeholder="search for movies & tv shows">
+            </div>
+
+
+            <ul class="all-links">
+                <li class="major-links"><a class="anchor-links" href="/home.html">HOME</a></li>
+                <li class="major-links"><a class="anchor-links" href="/movies.html">MOVIES</a></li>
+                <li class="major-links"><a class="anchor-links" href="/tvseries.html">TV SERIES</a></li>
+                <li class="major-links"><a class="anchor-links" href="/topimdb.html">TOP IMDB</a></li>
+                <li class="major-links"><a class="logins" href="/logins.html">Logins</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+    <main class="all-main">
+        <h1 class="parent-logo"><a class="mymovies-logo" href="/index.html">MY MOVIES</a>
+
+            <i id="google-play" class="fa-brands fa-google-play"></i>
         </h1>
-       <div class="search-container">
-        <i class="fa-solid fa-magnifying-glass">
- 
-        </i>
-        <input class="search-bar" type="text" name="login-details" id="#" placeholder="search for movies & tv shows">
-       </div>
-       
-  
-        <ul class="all-links">
-            <li class="major-links"><a class="anchor-links" href="/home.html">HOME</a></li>
-            <li class="major-links"><a class="anchor-links"  href="/movies.html">MOVIES</a></li>
-            <li class="major-links"><a class="anchor-links"  href="/tvseries.html">TV SERIES</a></li>
-            <li class="major-links"><a class="anchor-links"  href="/topimdb.html">TOP IMDB</a></li>
-            <li class="major-links"><a class="logins" href="/logins.html">Logins</a></li>
+        <div class="content">
+        </div>
 
-        </ul>
-    </nav>
- </header>   
+        <div class="content-container">
 
+            <div class="your-content">
+                <p class="small-content">
+                    Watch unlimited films, Tv shows and more for free!
+                </p>
+                <p class="browse-links"><a class="link-to-movies" href="/index_files/home.html">Browse all movies & series</a></p>
 
- <main class="all-main">
-  <div class="content">
-     <h1><a class="mymovies-logo" href="/index.html">MY MOVIES</a>
-          
-        <i id="google-play" class="fa-brands fa-google-play"></i>
-    </h1>
+                <p class="small-content">
+                    Please help us by sharing this site with your friends. Thanks!
+                </p>
+                <div class="share-links">
+                    <a href="" class="social-links"> <i class="fa-brands fa-facebook"></i></a>
+                    <a href="" class="social-links"> <i class="fa-brands fa-twitter"></i></a>
+                    <a href="" class="social-links"> <i class="fa-brands fa-instagram"></i></a>
+                    <a href="" class="social-links"> <i class="fa-brands fa-tiktok"></i></a>
+                    <a href="" class="social-links"><i class="fa-brands fa-telegram"></i></a>
 
-    <p class="small-content">
-        Please help us by sharing this site with your friends. Thanks!
-
-    </p>
-
-    <div class="share-links">
-      <a href="" class="social-links">    <i class="fa-brands fa-facebook"></i></a> 
-      <a href="" class="social-links">     <i class="fa-brands fa-twitter"></i></a>     
-    <a href="" class="social-links">   <i class="fa-brands fa-instagram"></i></a>
-    <a href="" class="social-links">  <i class="fa-brands fa-tiktok"></i></a>
-    <a href="" class="social-links"><i class="fa-brands fa-telegram"></i></a>
-    
-    </div>
+                </div>
+            </div>
 
 
- 
-    <p><a class="link-to-movies" href="/index_files/home.html">Browse all movies & series</a></p>   
-    
-  </div>
- </main>
-    
+
+
+
+        </div>
+    </main>
+
 </body>
+
 </html>
