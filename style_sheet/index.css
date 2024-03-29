@@ -47,6 +47,16 @@ will take place here for index files
     color: white;
     font-family: 'Chillax', sans-serif;
  }
+
+
+.anchor-links:hover{
+    border-bottom: 2px solid red;
+}
+.anchor-links:active{
+    border-bottom: 2px solid red;
+}
+
+
  a.logins{
     text-decoration: none;
  }
