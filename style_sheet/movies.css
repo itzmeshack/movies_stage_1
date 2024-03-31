@@ -11,7 +11,7 @@
 
     body{
 
-        background-color: rgba(0, 0, 0, 0.739);
+        background-color: rgba(0, 0, 0, 0.4);
     
         
 
@@ -106,7 +106,7 @@
     border: 1px red solid;
     background-color: black;
     border-radius: 20px;
-    padding: 2em;
+    padding: 1em;
     font-family: 'Clash Display', sans-serif;
     }
 
@@ -127,15 +127,17 @@
 
 
     .image{
-        display: inline-block; /* Ensure the container wraps around the image */
-        overflow: hidden; /* Hide overflow to contain the shadow effect */
+        /* Hide overflow to contain the shadow effect */
+        background-size: contain;
     }
 
 
 
 .img-con{
   width: 100vw;
-  display: block; /* Make the image a block element */
+  position: relative;
+  top: 4em;
+   /* Make the image a block element */
   max-width: 100%; /* Ensure the image fits within the container */
   filter: brightness(80%); /* Apply grayscale to the image */
   /* Add a vignette shadow effect */
@@ -229,5 +231,174 @@ position: relative;
     color: black;
     font-size: 25px;
 }
+
+
+
+
+
+
+
+
+
+
+.scroll-img{
+    width: 20%;
+
+  }
+
+  .scroll-img:hover{
+    transform: translateY(16px);
+    transition: all ease-out .4s;
+    background-color: red;
+    opacity: .7;
+    cursor: pointer;
+  }
+
+
+
+.treading-container{
+    color: white;
+    padding: 2em;
+    position: relative;
+    top: -10em;
+    height: 25vh;
+  
+ 
+    
+   
+}
+
+.treading-control{
+    display: flex;
+    overflow: auto;
+    gap: .3em;
+  
+    
+   
+}
+
+
+
+.treading-control::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  .trend-head{
+    font-family: 'Clash Display', sans-serif;
+   padding: 20px 0px 20px 0px;
+   font-size: 20px;
+  }
+
+
+
+
+  /* footer section */
+  .footer-continer{
+    
+    color: white;
+ 
+    padding: 3em;
+    font-size: 16px;
+    font-family: 'Chillax', sans-serif;
+    display: flex;
+    
+    left: 0;
+    right: 0;
+    top: 37em;
+
+
+}
+.footer-about-us{
+    width: 50vw;
+}
+.about{
+    padding: 10px 0px 10px 0px;
+}
+
+.footer-links{
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 1em;
+    padding: 0px 0px 0px 60px;
+    
+}
+.cat-links{
+    text-decoration: none;
+    color: rgb(238, 2, 2);
+    position: relative;
+    top: 2em;
+    font-size: 15px;
+    
+}
+
+
+/* for preview buttons*/
+
+
+.treading-container button{
+   position: relative;
+   top: -3em;
+   font-size: 2em;
+   padding: 10px 50px 10px 50px;
+   outline: none;
+   border: none;
+  
+   
+    
+
+  
+ 
+}
+.button{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.pre{
+ 
+  background-color: black;
+  color: rgb(255, 0, 0);
+  opacity: .7;
+
+ 
+
+  
+}
+
+
+
+.next{
+   
+    background-color: black;
+    color: rgb(255, 0, 0);
+    opacity: .6;
+
+
+}
+.pre:hover{
+  opacity: 9;
+  cursor: pointer;
+
+
+}
+
+
+.next:hover{
+    opacity: 9;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
 
 }

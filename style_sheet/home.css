@@ -17,7 +17,8 @@ will take place here for index files
   
       body{
 
-         background-color: rgba(0, 0, 0, 0.739);
+  
+        background-color: rgba(0, 0, 0, 0.4);
       
           
 
@@ -112,7 +113,7 @@ will take place here for index files
       border: 1px red solid;
       background-color: black;
       border-radius: 20px;
-      padding: 2em;
+      padding: 1em;
       font-family: 'Clash Display', sans-serif;
       }
   
@@ -138,7 +139,8 @@ will take place here for index files
 
 .img-con{
   width: 100vw;
-  display: block; /* Make the image a block element */
+  position: relative;
+  top: 4em;
   max-width: 100%; /* Ensure the image fits within the container */
   filter: brightness(80%); /* Apply grayscale to the image */
   /* Add a vignette shadow effect */
