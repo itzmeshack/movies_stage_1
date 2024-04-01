@@ -5,7 +5,7 @@
 
 
 
-@media only screen and (min-width: 1280px){
+@media  (min-width: 1024px){
     body{
      
        background-image: url('/images_files/bg-movies.jpeg');
@@ -181,6 +181,267 @@
     border: none;
     width: 10vw;
     padding: 10px 0px 10px 0px;
+    background-color: red;
+    cursor: pointer;
+    font-family: 'Chillax', sans-serif;
+
+}
+.com-login:hover{
+    opacity: .6;
+}
+
+.account{
+    padding: .8em;
+    color: white;
+    font-family: 'Chillax', sans-serif;
+
+}
+.register{
+    color: rgb(58, 58, 209);
+    font-family: 'Chillax', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+   /* footer section */
+   .footer-continer{
+    border-top: solid 1px rgb(162, 5, 5);
+    color: white;
+    background-color: rgba(9, 7, 7, 0.835);
+    padding: 3em;
+    font-size: 16px;
+    font-family: 'Chillax', sans-serif;
+    display: flex;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 37em;
+
+
+}
+.footer-about-us{
+    width: 50vw;
+}
+.about{
+    padding: 10px 0px 10px 0px;
+}
+
+.footer-links{
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 1em;
+    padding: 0px 0px 0px 60px;
+    
+}
+.cat-links{
+    text-decoration: none;
+    color: rgb(238, 2, 2);
+    position: relative;
+    top: 2em;
+    font-size: 15px;
+    
+}
+
+
+}
+
+
+
+
+
+/* FOR MOBILE AND TABLET STYLING   */
+
+
+
+@media (max-width: 1020px) and (max-width: 1024px){
+
+
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    body{
+     
+       background-image: url('/images_files/bg-movies.jpeg');
+       background-size: cover;
+     
+        /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
+        color: white;*/
+
+    }    
+        
+    
+  header.header-container {
+
+
+    background-color: black;
+  
+  
+  }
+  nav.navbar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+  }
+  ul.all-links{
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+    list-style: none;
+
+  }
+
+ a.anchor-links{
+    text-decoration: none;
+    color: white;
+    font-family: 'Chillax', sans-serif;
+ }
+
+
+ .anchor-links:hover{
+    border-bottom: 2px solid red;
+}
+
+.anchor-links:active{
+    border-bottom: 2px solid red;
+}
+
+ a.logins{
+    text-decoration: none;
+ }
+ /* styling for search container*/
+        .search-container{
+            
+            padding: 1em;
+        }
+        .fa-magnifying-glass{
+    color: white;
+    position: relative;
+    left: 2em;
+   
+   }
+
+    .search-bar{
+        outline: none;
+        width: 30vw;
+        padding: 5px 0px 5px 40px;
+        border: 1px solid rgb(181, 1, 1);
+    
+        background-color: rgba(122, 122, 122, 0.457); 
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;  
+        font-family: 'Chillax', sans-serif;
+
+    
+    }
+
+    a.header-links{
+        color: rgb(211, 5, 5);
+        text-decoration: none;
+        font-family: 'Clash Display', sans-serif;
+    
+    }
+    .logins{
+    color: rgb(255, 0, 0);
+    border: 1px red solid;
+    background-color: black;
+    border-radius: 10px;
+    padding: 1em;
+    font-family: 'Clash Display', sans-serif;
+    }
+
+    .fa-google-play{
+        color: white;
+        font-size: 20px;
+    }
+
+
+
+/* for login details*/
+
+
+.login-background{
+   
+    height: 100vh;
+    position: fixed;
+    top: 6em;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    filter: brightness(30%);
+}
+
+.login-container{
+    position:fixed;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 7em;
+    background-color: rgba(0, 0, 0, 0.808);
+   
+    padding: 2em;
+    height: 75vh;
+    border-top: 1px solid red;
+    border-left: 1px solid red;
+    border-right: 1px solid red;
+    border-bottom: 1px solid red;
+
+}
+
+
+.login-forms{
+    text-align: center;
+    font-family: 'Chillax', sans-serif;
+   
+   
+}
+.form-one{
+    text-align: center;
+}
+.form-two{
+    text-align: center; 
+}
+
+.mail{
+   
+   margin-bottom: 2em;
+   padding: 10px 4px 15px 4px;
+   width: 45vw;
+   outline: none;
+  
+}
+.--login{
+    width: 45vw;
+    margin-bottom: 2em;
+    padding: 10px 4px 15px 4px;
+    outline: none;
+}
+.log{
+    margin-bottom: 1em;
+    font-size: 29px;
+    color: white;
+    font-family: 'Chillax', sans-serif;
+    text-decoration: none;
+}
+
+.logging{
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+}
+.com-login{
+    border: none;
+  
+    padding: 1em;
     background-color: red;
     cursor: pointer;
     font-family: 'Chillax', sans-serif;
