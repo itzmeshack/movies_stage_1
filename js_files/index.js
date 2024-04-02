@@ -20,8 +20,42 @@ links.forEach(function(link) {
 */
 
 
+let allmenu = document.getElementById('sidemenu');
+let searching = document.querySelector('#search-incoming');
 
 
-function navigation(){
-    let 
+
+function openmenu(){ 
+ allmenu.style.right ='-30px';
 }
+
+
+function closemenu(){
+ allmenu.style.right ='1000px';
+
+}
+
+function searchbar(){
+    let searching = document.querySelector('#search-incoming');
+     let coolor = document.querySelector('#mycolor');
+    let currentdisplay = searching.style.display;
+
+
+    
+
+    if(currentdisplay == 'none'){
+        searching.style.display = 'block';
+        coolor.style.color = 'red'
+
+    }
+    else{
+        searching.style.display = 'none';
+        coolor.style.color ='white'
+    }
+  
+   
+    
+}
+
+
+
