@@ -31,7 +31,10 @@
             <i class="fa-brands fa-google-play"></i>
           </h1>
           <div class="search-container">
-            <i class="fa-solid fa-magnifying-glass"> </i>
+            <span onclick="searchbar()">
+                <i class="fa-solid fa-magnifying-glass"> </i>
+            </span>
+
             <input
               class="search-bar"
               type="text"
@@ -40,6 +43,12 @@
               placeholder="search for movies & tv shows"
             />
           </div>
+
+
+
+          <div   onclick="closemenu()" id="sidemenu" class="mobile-nav">
+
+       
 
           <ul class="all-links">
             <li class="major-links">
@@ -58,11 +67,19 @@
                 >TOP IMDB</a
               >
             </li>
-            <li class="major-links">
+            <li class="major-link-login">
               <a class="logins" href="/index_files/login.html">Logout</a>
             </li>
           </ul>
+          <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
+
+          </div>
+
+          
+         <img onclick="openmenu()" class="open-menu" src="/images_files/white-open.png" alt="">
+        
         </nav>
+
       </header>
 
 
