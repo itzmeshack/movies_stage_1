@@ -1,27 +1,9 @@
-/*
-
-let links = document.querySelectorAll('.anchor-links');
 
 
-links.forEach(function(link) {
-    link.addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent default link behavior
-
-        // Remove 'active' class from all links
-        links.forEach(function(link) {
-            link.classList.remove("active");
-        });
-
-        // Add 'active' class to the clicked link
-        link.classList.add("active");
-    });
-});
-
-*/
 
 
 let allmenu = document.getElementById('sidemenu');
-let searching = document.querySelector('#search-incoming');
+
 
 
 
@@ -35,23 +17,24 @@ function closemenu(){
 
 }
 
+
+
 function searchbar(){
-    let searching = document.querySelector('#search-incoming');
-     let coolor = document.querySelector('#mycolor');
-    let currentdisplay = searching.style.display;
+    let searching = document.getElementById('search-incoming');
+    let coolor = document.querySelector('#mycolor');
+    let display = searching.style.display;
 
-
-    
-
-    if(currentdisplay == 'none'){
+    if(display == 'none'){
         searching.style.display = 'block';
         coolor.style.color = 'red'
 
     }
     else{
         searching.style.display = 'none';
-        coolor.style.color ='white'
+        coolor.style.color ='white';
     }
+
+    
   
    
     

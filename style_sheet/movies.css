@@ -52,7 +52,7 @@
 
     }
 
-    a.anchor-links{
+    .anchor-links{
     text-decoration: none;
     color: white;
     font-family: 'Chillax', sans-serif;
@@ -98,12 +98,12 @@
         width: 30vw;
         padding: 5px 0px 5px 40px;
         border: 1px solid rgb(181, 1, 1);
-    
         background-color: rgba(122, 122, 122, 0.457); 
         border-radius: 10px;
         color: white;
         font-size: 20px;  
         font-family: 'Chillax', sans-serif;
+       
 
     
     }
