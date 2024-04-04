@@ -485,6 +485,7 @@ padding: 1em;
             width: 100vw;
             z-index: 1;
             height: 40vh;
+            transition: all ease 1s;
           }
     
     
