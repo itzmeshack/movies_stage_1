@@ -267,23 +267,69 @@ position: relative;
 
 .treading-container{
     color: white;
-    padding: 2em;
     position: relative;
     top: -10em;
-    height: 25vh;
+   width: 100%;
+   overflow: hidden;
   
  
     
    
 }
 
-.treading-control{
-    display: flex;
-    overflow: auto;
-    gap: .3em;
-  
-    
-   
+.treading-control {
+  display: flex;
+  gap: .3em;
+  scroll-behavior: smooth;
+  transition: transform 1s ease;
+
+
+}
+
+.treading-control-2{
+  display: flex;
+  gap: .3em;
+  scroll-behavior: smooth;
+  transition: transform 1s ease;
+}
+
+.treading-control-3{
+  display: flex;
+  gap: .3em;
+  scroll-behavior: smooth;
+  transition: transform 1s ease;
+
+}
+
+.treading-control-4{
+  display: flex;
+  gap: .3em;
+  scroll-behavior: smooth;
+  transition: transform 1s ease;
+}
+
+
+
+.treading-control-5{
+  display: flex;
+  gap: .3em;
+  scroll-behavior: smooth;
+  transition: transform 1s ease;
+}
+
+.treading-control-6{
+  display: flex;
+  gap: .3em;
+  scroll-behavior: smooth;
+  transition: transform 1s ease;
+}
+
+
+.treading-control-7{
+  display: flex;
+  gap: .3em;
+  scroll-behavior: smooth;
+  transition: transform 1s ease;
 }
 
 
@@ -295,7 +341,7 @@ position: relative;
 
   .trend-head{
     font-family: 'Clash Display', sans-serif;
-   padding: 20px 0px 20px 0px;
+   padding: 20px 10px 20px 10px;
    font-size: 20px;
   }
 
