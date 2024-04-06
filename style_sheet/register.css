@@ -107,156 +107,73 @@
 /* for login details*/
 
 
-.login-background{
-   
+
+.register{
+    background-color: rgba(0, 0, 0, 0.687);
+    text-align: center;
     height: 100vh;
-    position: fixed;
-    top: 6em;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    filter: brightness(30%);
-}
-
-.login-container{
-    position:fixed;
-    text-align: center;
-    left: 0;
-    right: 0;
-    top: 7em;
-    background-color: rgba(0, 0, 0, 0.808);
-    margin-left: 30em;
-    margin-right: 30em;
-    padding: 2em;
-    height: 71vh;
-    border-top: 1px solid red;
-    border-left: 1px solid red;
-    border-right: 1px solid red;
-    border-bottom: 1px solid red;
-
-}
-
-
-.login-forms{
-    text-align: center;
     font-family: 'Chillax', sans-serif;
+
    
-   
-}
-.form-one{
-    text-align: center;
-}
-.form-two{
-    text-align: center; 
 }
 
-.mail{
-   width: 20vw;
-   margin-bottom: 2em;
-   padding: 10px 4px 10px 4px;
-   outline: none;
-  
+.info-input-container{
+    padding: 15em;
+    background-color: rgba(0, 0, 0, 0.266);
+    background-color: rgba(255, 255, 255, 0.949);
+    margin-top: 2em;
+    margin-left: 5em;
+    margin-right: 5em;
+
 }
-.--login{
-    width: 20vw;
-    margin-bottom: 2em;
+
+.input{
+    width: 50vw;
     padding: 10px 4px 10px 4px;
     outline: none;
-}
-.log{
-    margin-bottom: 1em;
-    font-size: 29px;
-    color: white;
+    margin-bottom: .6em;
     font-family: 'Chillax', sans-serif;
-    text-decoration: none;
-}
+    font-size: 20px;
 
-.logging{
-    text-decoration: none;
-    font-size: 16px;
-    color: white;
-}
-.com-login{
-    border: none;
-    width: 10vw;
-    padding: 10px 0px 10px 0px;
-    background-color: red;
-    cursor: pointer;
-    font-family: 'Chillax', sans-serif;
-
-}
-.com-login:hover{
-    opacity: .6;
-}
-
-.account{
-    padding: .8em;
-    color: white;
-    font-family: 'Chillax', sans-serif;
-
-}
-.register{
-    color: rgb(58, 58, 209);
-    font-family: 'Chillax', sans-serif;
-}
-
-
-
-
-
-
-
-
-
-
-   /* footer section */
-   .footer-continer{
-    border-top: solid 1px rgb(162, 5, 5);
-    color: white;
-    background-color: rgba(9, 7, 7, 0.835);
-    padding: 3em;
-    font-size: 16px;
-    font-family: 'Chillax', sans-serif;
-    display: flex;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 37em;
 
 
 }
-.footer-about-us{
+.input-pass{
     width: 50vw;
-}
-.about{
-    padding: 10px 0px 10px 0px;
-}
+    padding: 10px 4px 10px 4px;
+    outline: none;
+    margin-bottom: .6em;
+    font-family: 'Chillax', sans-serif;
+    font-size: 20px;
 
-.footer-links{
-    display: grid;
-    grid-template-columns: repeat(4, 2fr);
-    gap: 1em;
-    padding: 0px 0px 0px 60px;
-    
+
 }
-.cat-links{
+.input-pass-2{
+    width: 50vw;
+    padding: 10px 4px 10px 4px;
+    outline: none;
+    font-family: 'Chillax', sans-serif;
+    font-size: 20px;
+
+
+}
+.sign-up{
+    color: white;
     text-decoration: none;
-    color: rgb(238, 2, 2);
+    padding: 1em;
+    background-color: red;
     position: relative;
     top: 2em;
-    font-size: 15px;
-    
-}
 
 
 }
 
+.create{
+    color: rgb(255, 0, 0);
+    padding: 1em;
+}
 
-
-
-
-/* FOR MOBILE AND TABLET STYLING   */
-
+}
 
 
 @media (max-width: 1020px) and (max-width: 1024px){
@@ -365,149 +282,74 @@
 
 
 
-/* for login details*/
 
-
-.login-background{
-   
+.register{
+    background-color: rgba(0, 0, 0, 0.687);
+    text-align: center;
     height: 100vh;
-    position: fixed;
-    top: 6em;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    filter: brightness(30%);
-}
-
-.login-container{
-    position:fixed;
-    text-align: center;
-    left: 0;
-    right: 0;
-    top: 7em;
-    background-color: rgba(0, 0, 0, 0.808);
-   
-    padding: 2em;
-    height: 75vh;
-    border-top: 1px solid red;
-    border-left: 1px solid red;
-    border-right: 1px solid red;
-    border-bottom: 1px solid red;
-
-}
-
-
-.login-forms{
-    text-align: center;
     font-family: 'Chillax', sans-serif;
+
    
-   
-}
-.form-one{
-    text-align: center;
-}
-.form-two{
-    text-align: center; 
 }
 
-.mail{
-   
-   margin-bottom: 2em;
-   padding: 10px 4px 15px 4px;
-   width: 45vw;
-   outline: none;
-  
+.info-input-container{
+
+
+    background-color: rgb(255, 255, 255);
+    height: 100vh;
+    
+
+
+
 }
-.--login{
-    width: 45vw;
-    margin-bottom: 2em;
-    padding: 10px 4px 15px 4px;
+
+.input{
+    width: 70vw;
+    padding: 10px 4px 10px 4px;
     outline: none;
-}
-.log{
-    margin-bottom: 1em;
-    font-size: 29px;
-    color: white;
+    margin-bottom: .6em;
     font-family: 'Chillax', sans-serif;
-    text-decoration: none;
-}
+    font-size: 20px;
 
-.logging{
-    text-decoration: none;
-    font-size: 16px;
-    color: white;
+
+
 }
-.com-login{
-    border: none;
-  
+.input-pass{
+    width: 70vw;
+    padding: 10px 4px 10px 4px;
+    outline: none;
+    margin-bottom: .6em;
+    font-family: 'Chillax', sans-serif;
+    font-size: 20px;
+
+
+}
+.input-pass-2{
+    width: 70vw;
+    padding: 10px 4px 10px 4px;
+    outline: none;
+    font-family: 'Chillax', sans-serif;
+    font-size: 20px;
+
+
+}
+.sign-up{
+    color: white;
+    text-decoration: none;
     padding: 1em;
     background-color: red;
-    cursor: pointer;
-    font-family: 'Chillax', sans-serif;
-
-}
-.com-login:hover{
-    opacity: .6;
-}
-
-.account{
-    padding: .8em;
-    color: white;
-    font-family: 'Chillax', sans-serif;
-
-}
-.register{
-    color: rgb(58, 58, 209);
-    font-family: 'Chillax', sans-serif;
-}
-
-
-
-
-
-
-
-
-
-
-   /* footer section */
-   .footer-continer{
-    border-top: solid 1px rgb(162, 5, 5);
-    color: white;
-    background-color: rgba(9, 7, 7, 0.835);
-    padding: 3em;
-    font-size: 16px;
-    font-family: 'Chillax', sans-serif;
-    display: flex;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 37em;
-
-
-}
-.footer-about-us{
-    width: 50vw;
-}
-.about{
-    padding: 10px 0px 10px 0px;
-}
-
-.footer-links{
-    display: grid;
-    grid-template-columns: repeat(4, 2fr);
-    gap: 1em;
-    padding: 0px 0px 0px 60px;
-    
-}
-.cat-links{
-    text-decoration: none;
-    color: rgb(238, 2, 2);
     position: relative;
     top: 2em;
-    font-size: 15px;
-    
+
+
 }
+
+.create{
+    color: rgb(255, 0, 0);
+    padding: 1em;
+}
+
+
 
 
 }

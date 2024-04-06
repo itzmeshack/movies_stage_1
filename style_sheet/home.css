@@ -50,7 +50,7 @@ will take place here for index files
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1em;
+    padding: 0px 5px 0px 5px;
   }
 
   ul.all-links {
@@ -814,6 +814,8 @@ will take place here for index files
     padding: .5em;
     position: relative;
     top: -12em;
+ 
+
 
 
 
@@ -824,16 +826,75 @@ will take place here for index files
   .treading-control {
     display: flex;
     overflow: auto;
-    gap: .4em;
+    gap: .3em;
 
 
 
 
   }
+  .treading-control-2{
+    display: flex;
+    gap: .3em;
+    overflow: auto;
+  }
+
+  .treading-control-3{
+    display: flex;
+    gap: .3em;
+   
+    overflow: auto;
+
+  }
+
+  .treading-control-4{
+    display: flex;
+    gap: .3em;
+   
+    overflow: auto;
+  }
+
+
+  .treading-control-5{
+    display: flex;
+    gap: .3em;
+    
+    overflow: auto;
+  }
+
+  .treading-control-6{
+    display: flex;
+    gap: .3em;
+   
+    overflow: auto;
+  }
+  .treading-control-7{
+    display: flex;
+    gap: .3em;
+
+    overflow: auto;
+  }
 
 
 
   .treading-control::-webkit-scrollbar {
+    display: none;
+  }
+  .treading-control-2::-webkit-scrollbar {
+    display: none;
+  }
+  .treading-control-3::-webkit-scrollbar {
+    display: none;
+  }
+  .treading-control-4::-webkit-scrollbar {
+    display: none;
+  }
+  .treading-control-5::-webkit-scrollbar {
+    display: none;
+  }
+  .treading-control-6::-webkit-scrollbar {
+    display: none;
+  }
+  .treading-control-7::-webkit-scrollbar {
     display: none;
   }
 
