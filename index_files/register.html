@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chillflix</title>
-    <script defer src="js_files/index.js"></script>
+    <script defer src="/backend/authentication/auth.js"></script>
     <link rel="stylesheet" href="/style_sheet/register.css" />
     <link
       href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
@@ -56,8 +56,15 @@
 
   <div class="register">
 
-
+    
     <div class="info-input-container">
+     <form action="" method="post">
+
+
+
+  
+
+
         <h1 class="create">Create an account </h1>
         <div class="email-info">
             <input type="email" name="email" id="" class="input" placeholder="enter email">
@@ -69,11 +76,14 @@
         </div>
 
         <div class="pass-info-2">
-            <input type="password" name="password" id="" class="input-pass-2" placeholder="confirm password">
+            <input type="password" name="current-password" id="" class="input-pass-2" placeholder="confirm password">
 
         </div>
 
         <a class="sign-up" href="/index_files/home.html">Register</a>
+
+
+    </form>
     
     </div>
    
