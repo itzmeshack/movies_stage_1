@@ -158,6 +158,7 @@
 
 }
 .sign-up{
+    border: none;
     color: white;
     text-decoration: none;
     padding: 1em;
@@ -166,6 +167,10 @@
     top: 2em;
 
 
+}
+.sign-up:hover{
+    opacity: .8;
+    cursor: pointer;
 }
 
 .create{
