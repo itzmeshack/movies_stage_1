@@ -1,9 +1,25 @@
-const exp = require('constants');
+/** @_kingmeshack code boss */
+
+
+if (process.env.NODE_ENV  !=='production'){
+    require('dotenv').config()
+}
 const express = require('express');
 const app = express();
 const path = require('path');
 const bcrypt = require('bcrypt');
+const passport = require('passport')
+const flash = require('express-flash');
+const session = require('express-session');
 
+
+const initializePassport = require('./passport-config');
+initializePassport(
+    passport,
+    email => user.find(user => user.email === email),
+    id => user.find(user => user.id === id)
+ 
+    )
 
 const port = 3000;
 
@@ -19,6 +35,8 @@ app.set('view-engine', 'ejs');
 
 
 app.use(express.static('public'));
+app.use(express.static('js_files', express.static(__dirname + 'js_files/')));
+
 app.use('/stylesheet', express.static(__dirname + 'public/stylesheet'));
 app.use('/images_files', express.static(__dirname + 'public/images_files'));
 app.use(express.urlencoded({extended: false}));
