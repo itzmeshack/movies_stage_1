@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon backend/authentication/auth.js"
+    "dev": "nodemon backend/authentication/auth.js"
   },
   "author": "Meshack omonzogebe",
   "license": "ISC",
