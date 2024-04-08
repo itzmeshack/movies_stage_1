@@ -25,7 +25,7 @@ const bcrypt = require('bcrypt');
 
     passport.use(new localStrategy({usernameField: 'email'}, authUser))
     passport.serializeUser((user, done)=> done(null, user.id))
-    passport.deserializeUser((user, done)=> {
+    passport.deserializeUser((id, done)=> {
          return done(null, getUserById(id))
     })
 

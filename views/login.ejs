@@ -63,26 +63,38 @@
   <div class="login-container">
 
 
-    <form action="/login" method="POST"></form>
+  
+
+   
     
     <h4 class="log">Login</h4>
+    <div class="error-message">
+      <% if(messages.error) { %>
+        <%= messages.error%> 
+      <% } %>
+    </div>
+      
+  
     <div class="login-forms">
+      <form action="/login" method="POST">
     
      <div class="form-one">
-      <input placeholder="email address" class="mail" type="email" name="email-" id="#">
+      <input placeholder="email address" class="mail" type="email" name="email" id="email">
 
      </div>
 
      <div class="form-two">
-      <input placeholder="password" class="--login" type="password" name="password-" id="#">
+      <input placeholder="enter password" class="--login" type="password" name="password" id="password">
 
      </div>
-     
-
-    </div>
-    <button class="com-login"><a class="logging" href="home">Login</a></button>
+     <button type="submit"  class="com-login">login</button>
 
     <p class="account">Don't have an account <a class="register" href="register">Register</a></p>
+  </form>
+
+    </div>
+    
+
 
   </div>
 

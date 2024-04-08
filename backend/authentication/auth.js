@@ -14,6 +14,7 @@ const session = require('express-session');
 
 
 const initializePassport = require('./passport-config');
+const { name } = require('ejs');
 initializePassport(
     passport,
     email => user.find(user => user.email === email),
@@ -21,9 +22,11 @@ initializePassport(
  
     )
 
-const port = 3000;
+const port = 5000;
 
 const user = [];
+
+
 
 app.listen(port, ()=>{
     console.log('server running successfully')
@@ -41,11 +44,22 @@ app.use('/stylesheet', express.static(__dirname + 'public/stylesheet'));
 app.use('/images_files', express.static(__dirname + 'public/images_files'));
 app.use(express.urlencoded({extended: false}));
 
+
+app.use(flash())
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+
+app.use(passport.initialize());
+app.use(passport.session())
+
 //renders
 
 
 app.get('/', (req, res) => {
-    res.render('index.ejs')
+    res.render('index.ejs') //{//name: req.user.name => this is to get the name of the user if you have one }
 });
 app.get('/login', (req, res) => {
     res.render('login.ejs')
@@ -80,7 +94,7 @@ app.post( '/register', async (req, res) =>{
     try{
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
         user.push({
-            //id: Date.now().toString,
+            id: Date.now().toString,
             email: req.body.email,
             password: hashedPassword
         })
@@ -95,6 +109,8 @@ app.post( '/register', async (req, res) =>{
 
 });
 
-app.get( '/login', (req, res) =>{
-
-})
+app.post( '/login', passport.authenticate('local', {
+successRedirect: '/home',
+failureRedirect: '/login', 
+failureFlash: true
+}))
