@@ -22,7 +22,7 @@ initializePassport(
  
     )
 
-const port = 5000;
+const port = 3000;
 
 const user = [];
 
@@ -55,29 +55,31 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session())
 
-//renders
+//renders routes
 
 
-app.get('/', (req, res) => {
+app.get('/home',(req, res) =>{
+    res.render('home.ejs')
+});
+
+app.get('/', checkNotAuthenticated,  (req, res) => {
     res.render('index.ejs') //{//name: req.user.name => this is to get the name of the user if you have one }
 });
-app.get('/login', (req, res) => {
+app.get('/login', checkNotAuthenticated, (req, res) => {
     res.render('login.ejs')
 });
-app.get('/register', (req,res) =>{
+app.get('/register', checkNotAuthenticated, (req,res) =>{
     res.render('register.ejs')
 });
 
-app.get('/home', (req, res) =>{
-    res.render('home.ejs')
-});
+
 
 app.get('/movies', (req, res) => {
     res.render('movies.ejs')
 });
 
-app.get('/topimdb', (request, response) => {
-    response.render('topimdb.ejs')
+app.get('/topimdb', (req, res) => {
+    res.render('topimdb.ejs')
 });
 
 app.get('/tvseries', (req, res) => {
@@ -90,18 +92,18 @@ app.get('/tvseries', (req, res) => {
 //post 
 
 
-app.post( '/register', async (req, res) =>{
+app.post( '/register', checkNotAuthenticated, async (req, res) =>{
     try{
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+        const hashedPassword = await bcrypt.hash(req.body.password, 12);
         user.push({
             id: Date.now().toString,
             email: req.body.email,
             password: hashedPassword
         })
-        res.redirect('login');
+        res.redirect('/login');
 
     }catch{
-        res.redirect('register')
+        res.redirect('/register')
 
     }
 
@@ -109,8 +111,25 @@ app.post( '/register', async (req, res) =>{
 
 });
 
-app.post( '/login', passport.authenticate('local', {
+app.post ( '/login', checkNotAuthenticated, passport.authenticate('local', {
 successRedirect: '/home',
 failureRedirect: '/login', 
 failureFlash: true
 }))
+
+
+function  checkAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+   res.redirect('/login');
+     
+}
+
+function checkNotAuthenticated(req, res, next){
+    if(req.isAuthenticated()){
+       res.redirect('/');
+  
+    }
+     return next()
+}

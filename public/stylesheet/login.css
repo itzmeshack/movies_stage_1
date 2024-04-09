@@ -14,7 +14,9 @@
     body{
      
        background-image: url('/images_files/bg-movies.jpeg');
-       background-size: cover;
+       height: 100vh;
+
+      
      
         /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
         color: white;*/
@@ -114,26 +116,20 @@
 
 .login-background{
    
-    height: 100vh;
-    position: fixed;
-    top: 6em;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    filter: brightness(30%);
+    position: relative;
+    
+    filter: brightness(10%);
 }
 
 .login-container{
-    position:fixed;
+   
     text-align: center;
-    left: 0;
-    right: 0;
-    top: 7em;
-    background-color: rgba(0, 0, 0, 0.808);
-    margin-left: 30em;
-    margin-right: 30em;
+   height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.808);
+   
     padding: 2em;
-    height: 71vh;
+
     border-top: 1px solid red;
     border-left: 1px solid red;
     border-right: 1px solid red;

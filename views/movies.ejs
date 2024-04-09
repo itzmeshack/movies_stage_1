@@ -4,8 +4,8 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Chillflix</title>
-        <script defer src="/js_files/index.js"></script>
-        <link rel="stylesheet" href="/style_sheet/topimdb.css" />
+        <script defer src="index.js"></script>
+        <link rel="stylesheet" href="stylesheet/movies.css" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
           rel="stylesheet"
@@ -26,7 +26,7 @@
     <header class="header-container">
         <nav class="navbar-container">
           <h1 class="logo-name">
-            <a class="header-links" href="/index_files/index.html">CHILLFLIX</a>
+            <a class="header-links" href="/">CHILLFLIX</a>
             <i class="fa-brands fa-google-play"></i>
           </h1>
           <div class="search-container">
@@ -42,45 +42,43 @@
             />
           </div>
 
-
-
           <div   onclick="closemenu()" id="sidemenu" class="mobile-nav">
 
           <ul class="all-links">
             <li class="major-links">
-              <a class="anchor-links" href="/index_files/home.html">HOME</a>
+              <a class="anchor-links" href="home">HOME</a>
             </li>
             <li class="major-links">
-              <a class="anchor-links" href="/index_files/movies.html">MOVIES</a>
+              <a class="anchor-links" href="movies">MOVIES</a>
             </li>
             <li class="major-links">
-              <a class="anchor-links" href="/index_files/tvseries.html"
+              <a class="anchor-links" href="tvseries"
                 >TV SERIES</a
               >
             </li>
             <li class="major-links">
-              <a class="anchor-links" href="/index_files/topimdb.html"
+              <a class="anchor-links" href="topimdb"
                 >TOP IMDB</a
               >
             </li>
             <li class="major-link-login">
-              <a class="logins" href="/index_files/login.html">Logout</a>
+              <a class="logins" href="login">Logout</a>
             </li>
+            <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
+
           </ul>
-          <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
-
-
           </div>
 
-          <img onclick="openmenu()" class="open-menu" src="/images_files/white-open.png" alt="">
 
+          <img onclick="openmenu()" class="open-menu" src="/images_files/white-open.png" alt="">
+        
         </nav>
       </header>
     
 
 
       <div class="image">
-        <img class="img-con" src="https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/03/avatar-airbender-korra-characters-all.jpg" alt="video" />
+        <img class="img-con" src="https://images7.alphacoders.com/114/1140475.jpg" alt="video" />
         </div>
     <main class="video-container">
      
@@ -93,7 +91,7 @@
         </div>
 
         <div class="descript">
-            <h1 class="head-name">The last Airbender: Avatar Korea</h1>
+            <h1 class="head-name">Justice League</h1>
             <p class="des-con">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat
              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, ducimus delectus minus qui recusandae veritatis vel adipisci autem quod quae! Ea, aut. Dolorem numquam quibusdam illum laboriosam et asperiores esse.
@@ -184,12 +182,12 @@
       <div class="button">
 
     
-             
         <button id="scroll-btn2" onclick="treadingmoveLeft()" class=" pre"> ❮ </button>
           
-
-             
+        
         <button id="scroll-btn2"   onclick="treadingmoveRight()" class="next "> ❯ </buttonn>
+
+           
 
          
               </div>
@@ -255,9 +253,9 @@
 
     
         <button id="scroll-btn2" onclick="realeasemoveLeft()" class=" pre"> ❮ </button>
-      
+    
 
-        
+       
         <button id="scroll-btn2"   onclick="realeasemoveRight()" class="next "> ❯ </buttonn>
 
      
@@ -328,9 +326,9 @@
 
     
         <button id="scroll-btn2" onclick="actionmoveLeft()" class=" pre"> ❮ </button>
-      
+    
 
-         
+       
         <button id="scroll-btn2"   onclick="actionmoveRight()" class="next "> ❯ </buttonn>
 
      
@@ -393,10 +391,11 @@
 
       <div class="button">
 
+    
         <button id="scroll-btn2" onclick="moviesmoveLeft()" class=" pre"> ❮ </button>
-      
+          
 
-         
+       
         <button id="scroll-btn2"   onclick="moviesmoveRight()" class="next "> ❯ </buttonn>
 
      
@@ -461,10 +460,11 @@
 
     
         <button id="scroll-btn2" onclick="latestmoveLeft()" class=" pre"> ❮ </button>
-      
+    
 
-         
+       
         <button id="scroll-btn2"   onclick="latestmoveRight()" class="next "> ❯ </buttonn>
+
      
           </div>
 
@@ -524,11 +524,12 @@
 
       <div class="button">
 
+    
         <button id="scroll-btn2" onclick="showmoveLeft()" class=" pre"> ❮ </button>
-      
+    
 
-         
         <button id="scroll-btn2"   onclick="showmoveRight()" class="next "> ❯ </buttonn>
+
 
      
           </div>
@@ -592,9 +593,9 @@
 
     
         <button id="scroll-btn2" onclick="animemoveLeft()" class=" pre"> ❮ </button>
-      
+    
 
-         
+       
         <button id="scroll-btn2"   onclick="animemoveRight()" class="next "> ❯ </buttonn>
 
      

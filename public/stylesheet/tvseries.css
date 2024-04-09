@@ -136,7 +136,7 @@ will take place here for index files
 /* for main bodies movies container*/
 
         .content-container{
-        background-color: rgba(0, 0, 0, 0.818); 
+        background-color: black;
     }   
 
 
@@ -164,7 +164,7 @@ position: relative;
 
 .letter-container{
    position: absolute;
-   top: -40em;
+   top: -30em;
    left: 0;
     padding: 1.5em;
     outline: none;
@@ -185,10 +185,7 @@ position: relative;
   }
 
 
-  .head-name{
-    padding: 20px 0px 20px 0px;
-    font-size: 50px;
-}
+
 
   .letter{
     background-color: rgb(234, 0, 0);
@@ -206,7 +203,7 @@ position: relative;
     font-family: 'Chillax', sans-serif;
     font-weight: bold;
     color: rgb(255, 255, 255);
-    width: 33vw;
+    width: 60%;
     height: auto;
 }
 
@@ -256,7 +253,7 @@ position: relative;
 
   /* for tv shows*/
   .poster-tv{
-   
+   background-color: black;
     padding: 2em;
 
     

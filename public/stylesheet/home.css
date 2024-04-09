@@ -154,7 +154,7 @@ will take place here for index files
   /* for main bodies movies container*/
 
   .content-container {
-    background-color: rgba(0, 0, 0, 0.818);
+    background-color: black;
   }
 
 
@@ -186,7 +186,7 @@ will take place here for index files
 
   .letter-container {
     position: absolute;
-    top: -40em;
+    top: -33em;
     left: 0;
     padding: 1.5em;
     outline: none;
@@ -207,10 +207,7 @@ will take place here for index files
   }
 
 
-  .head-name {
-    padding: 20px 0px 20px 0px;
-    font-size: 50px;
-  }
+ 
 
   .letter {
     background-color: rgb(234, 0, 0);
@@ -228,7 +225,7 @@ will take place here for index files
     font-family: 'Chillax', sans-serif;
     font-weight: bold;
     color: rgb(255, 255, 255);
-    width: 33vw;
+    width: 60%;
     height: auto;
   }
 
@@ -290,7 +287,7 @@ will take place here for index files
 
   .treading-container {
     color: white;
-    top: -10em;
+    top: -6em;
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -924,14 +921,13 @@ will take place here for index files
 
   }
 
-  .footer-about-us {}
+ 
 
   .about {
     padding: 1em;
     font-size: 13px;
   }
 
-  .footer-links {}
 
   .cat-links {
     text-decoration: none;
