@@ -42,6 +42,8 @@ app.use(express.static('js_files', express.static(__dirname + 'js_files/')));
 
 app.use('/stylesheet', express.static(__dirname + 'public/stylesheet'));
 app.use('/images_files', express.static(__dirname + 'public/images_files'));
+
+
 app.use(express.urlencoded({extended: false}));
 
 
@@ -61,6 +63,10 @@ app.use(passport.session())
 app.get('/home',(req, res) =>{
     res.render('home.ejs')
 });
+
+app.get('/moviesinfo', (req, res)=>{
+    res.render('movies_info.ejs')
+})
 
 app.get('/', checkNotAuthenticated,  (req, res) => {
     res.render('index.ejs') //{//name: req.user.name => this is to get the name of the user if you have one }
@@ -132,4 +138,4 @@ function checkNotAuthenticated(req, res, next){
   
     }
      return next()
-}
+};

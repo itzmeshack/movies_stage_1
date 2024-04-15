@@ -1,3 +1,5 @@
+
+
 let allmenu = document.getElementById("sidemenu");
 
 function openmenu() {
@@ -129,7 +131,7 @@ let slideIndex = 0;
 
 function treadingmoveSlide(direction) {
 
-    let slides = document.querySelectorAll('.scroll-img'); // getting the div clas by using querySelectorAll
+    let slides = document.querySelectorAll('.scroll-img2'); // getting the div clas by using querySelectorAll
     let totalSlides = slides.length; // getting the legth or the numbers of div class
 
 
@@ -144,7 +146,7 @@ function treadingmoveSlide(direction) {
   
     let slider = document.querySelector('.treading-control');
 
-    let sliderWidth = slides[0].clientWidth;
+    let sliderWidth = slides[0].clientHeight;
 
     let newX = -slideIndex * sliderWidth;
     
@@ -165,7 +167,7 @@ function treadingmoveSlide(direction) {
 
 function releasemoveSlide(move) {
 
-    let slides = document.querySelectorAll('.scroll-img'); // getting the div clas by using querySelectorAll
+    let slides = document.querySelectorAll('.scroll-img2'); // getting the div clas by using querySelectorAll
     let totalSlides = slides.length; // getting the legth or the numbers of div class
 
 
@@ -199,7 +201,7 @@ function releasemoveSlide(move) {
 
 
 function actionmoveSlide(direction){
-    let slides = document.querySelectorAll('.scroll-img'); // getting the div clas by using querySelectorAll
+    let slides = document.querySelectorAll('.scroll-img2'); // getting the div clas by using querySelectorAll
     let totalSlides = slides.length; // getting the legth or the numbers of div class
 
 
@@ -232,7 +234,7 @@ function actionmoveSlide(direction){
 
 
 function moviesmoveSlide(direction){
-    let slides = document.querySelectorAll('.scroll-img'); // getting the div clas by using querySelectorAll
+    let slides = document.querySelectorAll('.scroll-img2'); // getting the div clas by using querySelectorAll
     let totalSlides = slides.length; // getting the legth or the numbers of div class
 
 
@@ -267,7 +269,7 @@ function moviesmoveSlide(direction){
 
 function latetestmoveSlide(direction){
 
-    let slides = document.querySelectorAll('.scroll-img'); // getting the div clas by using querySelectorAll
+    let slides = document.querySelectorAll('.scroll-img2'); // getting the div clas by using querySelectorAll
     let totalSlides = slides.length; // getting the legth or the numbers of div class
 
 
@@ -300,7 +302,7 @@ function latetestmoveSlide(direction){
 
 function  showmoveSlide(direction){
 
-    let slides = document.querySelectorAll('.scroll-img'); // getting the div clas by using querySelectorAll
+    let slides = document.querySelectorAll('.scroll-img2'); // getting the div clas by using querySelectorAll
     let totalSlides = slides.length; // getting the legth or the numbers of div class
 
 
@@ -333,7 +335,7 @@ function  showmoveSlide(direction){
 
 
 function animemoveSlide(direction){
-    let slides = document.querySelectorAll('.scroll-img'); // getting the div clas by using querySelectorAll
+    let slides = document.querySelectorAll('.scroll-img2'); // getting the div clas by using querySelectorAll
     let totalSlides = slides.length; // getting the legth or the numbers of div class
 
 
@@ -404,3 +406,5 @@ function moveSlide(direction) {
 }
 
 */
+
+
