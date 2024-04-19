@@ -1,76 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Chillflix</title>
-        <script defer src="index.js"></script>
-        <link rel="stylesheet" href="stylesheet/movies_info.css" />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@500&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"
-        />
-      </head>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chillflix</title>
+  <script defer src="index.js"></script>
+  <link rel="stylesheet" href="stylesheet/movies_info.css" />
+  <link
+    href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
+    rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 <body>
-    <header class="header-container">
-        <nav class="navbar-container">
-          <h1 class="logo-name">
-            <a class="header-links" href="/">CHILLFLIX</a>
-            <i class="fa-brands fa-google-play"></i>
-          </h1>
-          <div class="search-container">
-            <span  onclick="searchbar()" >
-                <i id="mycolor" class="fa-solid fa-magnifying-glass"> </i>
-            </span>
-            <input
-              class="search-bar"
-              type="text"
-              name="login-details"
-              id="search-incoming"
-              placeholder="search for movies & tv shows"
-            />
+
+<header class="header-container">
+  <nav class="navbar-container">
+    <h1 class="logo-name">
+      <a class="header-links" href="/">CHILLFLIX</a>
+      <i class="fa-brands fa-google-play"></i>
+    </h1>
+    <div class="search-container">
+      <span onclick="searchbar()">
+        <i id="mycolor" class="fa-solid fa-magnifying-glass"> </i>
+      </span>
+      <input class="search-bar" type="text" name="login-details" id="search-incoming"
+        placeholder="search for movies & tv shows" />
+    </div>
+
+    <div onclick="closemenu()" id="sidemenu" class="mobile-nav">
+
+      <ul class="all-links">
+        <li class="major-links">
+          <a class="anchor-links" href="home">HOME</a>
+        </li>
+        <li class="major-links">
+          <a class="anchor-links" href="movies">MOVIES</a>
+        </li>
+        <li class="major-links">
+          <a class="anchor-links" href="tvseries">TV SERIES</a>
+        </li>
+        <li class="major-links">
+          <a class="anchor-links" href="topimdb">TOP IMDB</a>
+        </li>
+        <li class="major-link-login">
+          <a class="logins" href="login">Logout</a>
+        </li>
+        <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
+
+      </ul>
+    </div>
+
+
+    <img onclick="openmenu()" class="open-menu" src="/images_files/white-open.png" alt="">
+
+  </nav>
+</header>
+
+
+<main class="content-area">
+  <div class="all-content">
+    <div class="image-area">
+      <img class="img-content"
+        src="https://imageio.forbes.com/specials-images/imageserve/644c78237b616e7308ad4710/Official-poster-for--Man-of-Steel-/960x0.jpg?height=1037&width=711&fit=bounds alt="">
           </div>
+  
+          <div class=" movie-overview">
+      <h2 class="mid-name">Man Of Steel</h2>
 
-          <div   onclick="closemenu()" id="sidemenu" class="mobile-nav">
+    </div>
 
-          <ul class="all-links">
-            <li class="major-links">
-              <a class="anchor-links" href="home">HOME</a>
-            </li>
-            <li class="major-links">
-              <a class="anchor-links" href="movies">MOVIES</a>
-            </li>
-            <li class="major-links">
-              <a class="anchor-links" href="tvseries"
-                >TV SERIES</a
-              >
-            </li>
-            <li class="major-links">
-              <a class="anchor-links" href="topimdb"
-                >TOP IMDB</a
-              >
-            </li>
-            <li class="major-link-login">
-              <a class="logins" href="login">Logout</a>
-            </li>
-            <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
-
-          </ul>
-          </div>
+  </div>
 
 
-          <img onclick="openmenu()" class="open-menu" src="/images_files/white-open.png" alt="">
-        
-        </nav>
-      </header>
+
+  <div class="descript">
+    <p class="descript-content">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dignissimos veniam eos nostrum hic blanditiis tempore
+      odit praesentium magni illo, aut, maiores error consequatur. Odio, doloremque incidunt. Vel, corporis at.
+      Quidem, nihil fuga. Saepe quos est praesentium, aliquam quisquam, vitae consequatur deleniti qui placeat quas
+      similique tenetur recusandae cumque facere possimus sed sint! Nam aspernatur alias neque enim nemo error?
+      Nam iusto blanditiis facilis ex voluptatem iure, perferendis autem aperiam architecto nisi, ea eligendi
+      necessitatibus assumenda voluptatum cum dicta obcaecati magni, hic dignissimos omnis tempora adipisci beatae
+      accusantium animi. Debitis.
+      Enim soluta porro harum ducimus saepe laudantium quod? Explicabo at voluptatem distinctio natus et iure eaque!
+      Totam saepe similique, praesentium sapiente consectetur, in cupiditate magni recusandae nesciunt accusantium ab
+      enim.
+
+    </p>
+
+
+  </div>
+
+  <div class="watch-area">
+   <div class="watch-">
+    <button class="btn-area">HD</button>
+
+  
+    <button class="btn-area">
+    
+      <a class="btn-link" href="/">Watch</a>
+    </button>
+  </div>
+
+
+  </div>
+
+
+  <div class="group-access">
+
+    <div class="flex-link">
+
+
+      <span>
+        Genres:
+      </span>
+      <a href="/">Action</a>
+      <a href="/">Adventure</a>
+      <a href="/">comedy</a>
+      <a href="/">thriller</a>
+      <a href="/">Fantasy</a>
+    </div>
+
+
+    <div class="flex-link">
+
+
+      <span>
+        Casts:
+      </span>
+       <p class="dura">
+        Jon Meggison, Kent Loomer, Nathan Hamer, Melody Mitchell, Douglas Zwick</p>
+
+    </div>
+
+
+
+    <div class="flex-link">
+
+
+      <span>
+        Duration:
+      </span>
+       <p class="dura">120 min</p>
+
+    </div>
+
+
+
+    <div class="flex-link">
+
+
+      <span>
+        Country:
+      </span>
+       <p class="dura">United state of american</p>
+
+    </div>
+
+
+
+
+    <div class="flex-link">
+
+
+      <span>
+        Language:
+      </span>
+       <p class="dura">English</p>
+
+    </div>
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+</main>
+
+
+</body>
+
+</html>

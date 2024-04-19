@@ -9,9 +9,10 @@
 
     body {
 
-        background-color: black
-            /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
-        color: white;*/
+        background-color: rgb(0, 0, 0);
+        
+       
+     
 
     }
 
@@ -129,7 +130,130 @@
         color: white;
         font-size: 30px;
     }
+.content-area{
+    background-color: rgba(79, 77, 77, 0.74);
 
+    margin-left: 4em;
+    margin-right: 4em ;
+}
+
+    .all-content{
+        display: flex;
+       justify-content: flex-start;
+       position: relative;
+       top: 2em;
+       padding: 3em;
+    }
+
+
+    .mid-name{
+        color: white;
+     font-family: 'Clash Display', sans-serif; 
+     font-size: 3.5em;
+     position: relative;
+     left: 2em;
+   
+    
+    }
+
+
+    .img-content{
+        width: 275px;
+    }
+
+
+    .descript-content{
+        color: white;
+        padding: 2em;
+    }
+
+    .descript{
+        width: 50vw;
+        position: relative;
+        top: -24em;
+        left: 25em;
+        font-family: 'Clash Display', sans-serif; 
+        font-size: 15px;
+    }
+
+    .watch-area{
+   
+        font-family: 'Clash Display', sans-serif; 
+        font-size: 15px;
+        border: none;
+    }
+
+    .btn-area{
+        position: relative;
+        top: -28em;
+        left: 32em;
+        border: none;
+       padding: 10px 20px 10px 20px;
+        background-color: red;
+        border-radius: 5px;
+
+    }
+    .btn-area:hover{
+        opacity: .7;
+    }
+
+    .btn-link{
+        text-decoration: none;
+        color: white;
+        font-family: 'Chillax', sans-serif;
+    }
+
+    .group-access{
+        width: 50vw;
+         display: inline-block;
+         justify-content: center;
+         position: relative;
+        top: -20em;
+        left: 28em;
+        font-family: 'Clash Display', sans-serif; 
+        font-size: 15px;
+      
+      
+
+    }
+
+    .flex-link{
+        display: flex;
+        gap: .7em;
+        text-align: center;
+        padding: 10px;
+       
+
+    }
+
+    .group-access a{
+        color: white;
+        text-decoration: none;
+       font-size: 13px;
+        border: 1px solid red;
+        border-radius: 6px;
+        padding: 5px 10px 5px 10px ;
+    }
+
+    .dura{
+        color: white;
+       font-size: 13px;
+       padding: 5px;
+
+    }
+
+    
+
+    span{
+        color: white;
+        font-size: 17px;
+        text-align: center;
+    
+    }
+
+
+
+    
 }
 
 
