@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chillflix</title>
     <script defer src="index.js"></script>
-    <script defer src="api.js"></script>
+    <script defer src="api.js" type="module"></script>
+    <script defer type="module" src="render.js"></script>
     <link rel="stylesheet" href="stylesheet/home.css" />
     <link
         href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
@@ -72,6 +73,7 @@
     </header>
 
 
+    <div class="content-container">
 
 
 
@@ -105,7 +107,7 @@
 
                     <div class="watch">
                         <i class="fa-solid fa-play"></i>
-                        <p><a class="watch-link" href="/">Watch Now</a></p>
+                        <p><a class="watch-link" href="/moviesinfo">Watch Now</a></p>
                     </div>
                     <!--
 
@@ -911,7 +913,7 @@
             </div>
         </footer>
 
-
+    </div>
 
 
 

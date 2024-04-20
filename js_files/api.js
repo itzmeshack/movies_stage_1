@@ -26,7 +26,7 @@ movies(allmovies).then((data) => {
 
 
 
-async function fetchTrendingMovies() {
+/*async function fetchTrendingMovies() {
     let allResults = [];
     let page = 1;
   
@@ -37,7 +37,16 @@ async function fetchTrendingMovies() {
   
       if (data.results.length === 0) break;
   
-      allResults.push(...data.results);
+      allResults.push(...data.results.map(movie=>({
+        id: movie.id,
+        title: movie.title,
+        poster_path: movie.poster_path,
+        backdrop_path: movie.backdrop_path,
+        original_title: movie.original_title,
+        overview: movie.overview, 
+        release_date: movie.release_date
+
+      })));
       page++;
   
       // Break after fetching 5 pages (adjust as needed)
@@ -51,6 +60,81 @@ async function fetchTrendingMovies() {
   fetchTrendingMovies()
     .then(results => {
       console.log('Trending Movies:');
-      results.forEach(movie => console.log(movie.title));
+      results.forEach(movie => {
+
+      
+        console.log(`id: ${movie.id}`),
+        console.log(`title: ${movie.title}`),
+        console.log(`poster_path: ${movie.poster_path}`),
+        console.log(`backdrop: ${movie.backdrop_path}`),
+        console.log(`overview: ${movie.overview}`),
+        console.log(`release_date: ${movie.release_date}`)
+
+
+      
+      
+      
+      
+    });
     })
     .catch(error => console.error('Error fetching trending movies:', error));
+
+
+    */
+
+
+    export async function fetchTrendingMovieImage() {
+        const url = `${Base_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          if (data.results.length > 0) {
+            const movie = data.results[0];
+            return {
+                title: movie.title,
+                year: movie.release_date.slice(0, 4),
+                description: movie.overview,
+                image: `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
+            };
+            
+            // Return the URL of the first movie's poster image
+            //return `https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}`;
+          } else {
+            return null;
+          }
+        } catch (error) {
+          console.error('Error fetching trending movie image:', error);
+          return null;
+        }
+      }
+
+
+      export async function mobilefetchTrendingMovieImage() {
+        const url = `${Base_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          if (data.results.length > 0) {
+            const movie = data.results[0];
+
+            return {
+                title: movie.title,
+                //year: movie.release_date.slice(0, 4),
+                //description: movie.overview,
+                image: `https://image.tmdb.org/t/p/original${movie.poster_path}`
+            };
+
+            // Return the URL of the first movie's poster image
+            //return `https://image.tmdb.org/t/p/original${data.results[3].poster_path}`;
+          } else {
+            return null;
+          }
+        } catch (error) {
+          console.error('Error fetching trending movie image:', error);
+          return null;
+        }
+      }
+     
+      
+      
+      
