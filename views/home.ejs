@@ -80,44 +80,56 @@
 
         <div class="image">
 
-            <img class="img-con" src="/images_files/spider2.webp" alt="video" />
-            <img src="/images_files/mobile-web.jpg" alt="mobile"   class="img-con2">
+   <!-- Displaying backdrop image of the first movie -->
+   <% if (movies) { %>
+    <img class="img-con" src="https://image.tmdb.org/t/p/original/<%= movies.backdrop_path %>" alt="Backdrop Image">
+<% } else { %>
+    <!-- Fallback image or message if no movie or backdrop path is available -->
+    <img class="img-con" src="/path/to/fallback/image.jpg" alt="Fallback Image">
+<% } %>
+
+
+
+        </div>
+
+
+        <div class="mobile-image">
+            <% if (movies.length > 0 && movies[0].backdrop_path) { %>
+                <img class="img-con2" src="https://image.tmdb.org/t/p/original/<%= movies[1].poster_path %>" alt="Backdrop Image">
+            <% } else { %>
+                <!-- Fallback image or message if no movie or backdrop path is available -->
+                <img src="/images_files/mobile-web.jpg" alt="mobile"   class="img-con2">
+            <% } %>
+
         </div>
         <main class="video-container">
 
-
+            <% if (movies) { %>
             <div class="letter-container">
                 <div class="back-hd">
                     <p class="letter">HD</p>
                     <p class="letter">MOVIE</p>
-                    <p class="letter">2024</p>
+                    <!--if you want to change the year go to auth.js -->
+                    <p class="letter"> <%=movies.release_date.slice(0,4)%></p>
                 </div>
-
-                <div class="descript">
-                    <h1 class="head-name">Madame Web</h1>
-                    <p class="des-con">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat
-                        rerum nesciunt voluptate laborum mollitia consequatur quo.
-                        Exercitationem, placeat! Voluptatum iste obcaecati ad quam eum
-                        facilis omnis aspernatur provident repellendus ut? pturi officia
-                        vero est soluta iusto voluptatum modi doloremque? Illo ea optio
-                        provident alias cum sed voluptas autem quam, ipsa odit dicta sequi
-                        molestias excepturi eum repudiandae adipisci aliquid.
-                    </p>
-
-                    <div class="watch">
-                        <i class="fa-solid fa-play"></i>
-                        <p><a class="watch-link" href="/moviesinfo">Watch Now</a></p>
-                    </div>
-                    <!--
-
-             
-                <div class="rate">
             
-                    <p class="rating"><span class="rated">18</span></p>
+               
+                    <div class="descript">
+                        <!-- Rendering movie title -->
+                        <h1 class="head-name"><%= movies.title %></h1>
+                        <!-- Assuming movie has an overview -->
+                        <p class="des-con"><%= movies.overview %></p>
+                        <!-- Add more movie details as needed -->
+                        <div class="watch">
+                            <i class="fa-solid fa-play"></i>
+                            <!-- Link to watch movie -->
+                            <p><a class="watch-link" href="/watch">Watch Now</a></p>
+                        </div>
                     </div>
-                        -->
-                </div>
+                <% } else { %>
+                    <!-- Fallback message if no movie is available -->
+                    <p>No movie available</p>
+                <% } %>
             </div>
         </main>
 

@@ -89,8 +89,9 @@ movies(allmovies).then((data) => {
           const response = await fetch(url);
           const data = await response.json();
           if (data.results.length > 0) {
-            const movie = data.results[0];
+            const movie = data.results[6];
             return {
+                id: movie.id,
                 title: movie.title,
                 year: movie.release_date.slice(0, 4),
                 description: movie.overview,
@@ -115,7 +116,7 @@ movies(allmovies).then((data) => {
           const response = await fetch(url);
           const data = await response.json();
           if (data.results.length > 0) {
-            const movie = data.results[0];
+            const movie = data.results[1];
 
             return {
                 title: movie.title,
@@ -135,6 +136,6 @@ movies(allmovies).then((data) => {
         }
       }
      
-      
-      
+    
+
       

@@ -61,136 +61,149 @@
 </header>
 
 
-<main class="content-area">
-  <div class="all-content">
-    <div class="image-area">
-      <img class="img-content"
-        src="https://imageio.forbes.com/specials-images/imageserve/644c78237b616e7308ad4710/Official-poster-for--Man-of-Steel-/960x0.jpg?height=1037&width=711&fit=bounds alt="">
-          </div>
-  
-          <div class=" movie-overview">
-      <h2 class="mid-name">Man Of Steel</h2>
-
-    </div>
-
-  </div>
 
 
-
-  <div class="descript">
-    <p class="descript-content">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dignissimos veniam eos nostrum hic blanditiis tempore
-      odit praesentium magni illo, aut, maiores error consequatur. Odio, doloremque incidunt. Vel, corporis at.
-      Quidem, nihil fuga. Saepe quos est praesentium, aliquam quisquam, vitae consequatur deleniti qui placeat quas
-      similique tenetur recusandae cumque facere possimus sed sint! Nam aspernatur alias neque enim nemo error?
-      Nam iusto blanditiis facilis ex voluptatem iure, perferendis autem aperiam architecto nisi, ea eligendi
-      necessitatibus assumenda voluptatum cum dicta obcaecati magni, hic dignissimos omnis tempora adipisci beatae
-      accusantium animi. Debitis.
-      Enim soluta porro harum ducimus saepe laudantium quod? Explicabo at voluptatem distinctio natus et iure eaque!
-      Totam saepe similique, praesentium sapiente consectetur, in cupiditate magni recusandae nesciunt accusantium ab
-      enim.
-
-    </p>
-
-
-  </div>
-
-  <div class="watch-area">
-   <div class="watch-">
-    <button class="btn-area">HD</button>
-
-  
-    <button class="btn-area">
+  <main class="content-area">
+    <div class="all-content">
+      <div class="image-area">
+        <% if (movies) { %>
+          <img class="img-content" src="https://image.tmdb.org/t/p/original/<%= movies.poster_path %>" alt="Backdrop Image">
+        <% } else { %>
+          <!-- Fallback image or message if no movie or backdrop path is available -->
+          <img src="/images_files/mobile-web.jpg" alt="mobile" class="img-con2">
+        <% } %>
+      </div>
     
-      <a class="btn-link" href="/">Watch</a>
-    </button>
-  </div>
+            <div class=" movie-overview">
+              <% if (movies) { %>
+        <h2 class="mid-name">
+          <%= movies.title %>
+        </h2>
 
-
-  </div>
-
-
-  <div class="group-access">
-
-    <div class="flex-link">
-
-
-      <span>
-        Genres:
-      </span>
-      <a href="/">Action</a>
-      <a href="/">Adventure</a>
-      <a href="/">comedy</a>
-      <a href="/">thriller</a>
-      <a href="/">Fantasy</a>
+        <% } else { %>
+          <!-- Fallback message if no movie is available -->
+          <h2>ERROR </h2>
+      <% } %>
+  
+      </div>
+  
     </div>
-
-
-    <div class="flex-link">
-
-
-      <span>
-        Casts:
-      </span>
-       <p class="dura">
-        Jon Meggison, Kent Loomer, Nathan Hamer, Melody Mitchell, Douglas Zwick</p>
-
+  
+  
+  
+    <div class="descript">
+      <% if (movies) { %>
+        <p class="descript-content">
+          <%= movies.overview %>
+        </p>
+      <% } else { %>
+        <!-- Fallback message if no movie is available -->
+        <p>ERROR</p>
+      <% } %>
     </div>
-
-
-
-    <div class="flex-link">
-
-
-      <span>
-        Duration:
-      </span>
-       <p class="dura">120 min</p>
-
+  
+    <div class="watch-area">
+     <div class="watch-">
+      <button class="btn-area">HD</button>
+  
+    
+      <button class="btn-area">
+      
+        <a class="btn-link" href="/">Watch</a>
+      </button>
     </div>
-
-
-
-    <div class="flex-link">
-
-
-      <span>
-        Country:
-      </span>
-       <p class="dura">United state of american</p>
-
+  
+  
     </div>
-
-
-
-
-    <div class="flex-link">
-
-
-      <span>
-        Language:
-      </span>
-       <p class="dura">English</p>
-
+  
+  
+    <div class="group-access">
+  
+      <div class="flex-link">
+  
+  
+        <span>
+          Genres:
+        </span>
+        <a href="/">Action</a>
+        <a href="/">Adventure</a>
+        <a href="/">comedy</a>
+        <a href="/">thriller</a>
+        <a href="/">Fantasy</a>
+      </div>
+  
+  
+      <div class="flex-link">
+  
+  
+        <span>
+          Casts:
+        </span>
+         <p class="dura">
+          Jon Meggison, Kent Loomer, Nathan Hamer, Melody Mitchell, Douglas Zwick</p>
+  
+      </div>
+  
+  
+  
+      <div class="flex-link">
+  
+  
+        <span>
+          Duration:
+        </span>
+         <p class="dura">120 min</p>
+  
+      </div>
+  
+  
+  
+      <div class="flex-link">
+  
+  
+        <span>
+          Country:
+        </span>
+         <p class="dura">United state of american</p>
+  
+      </div>
+  
+  
+  
+  
+      <div class="flex-link">
+  
+  
+        <span>
+          Language:
+        </span>
+         <p class="dura">English</p>
+  
+      </div>
+  
+  
+  
+  
+  
+  
+  
     </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </main>
 
 
 
 
 
 
-
-  </div>
-
-
-
-
-
-
-
-
-
-</main>
 
 
 </body>

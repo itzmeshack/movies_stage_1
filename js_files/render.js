@@ -95,7 +95,7 @@ updateTitle();
 
 
 
-import { fetchTrendingMovieImage } from './api.js'; // Import your API function
+/*import { fetchTrendingMovieImage } from './api.js'; // Import your API function
 
 async function updateMovieDetails() {
     try {
@@ -114,6 +114,9 @@ async function updateMovieDetails() {
         
         const imageElement = document.querySelector('.img-con');
         imageElement.src = movie.image;
+
+        const watchbutton = document.querySelector('.watch-link');
+        watchbutton.href = `/watch/:movieId`
     } catch (error) {
         console.error('Error updating movie details:', error);
     }
@@ -156,6 +159,6 @@ mobileupdateMovieDetails();
 
 
 
-
+*/
 
 
