@@ -150,7 +150,7 @@ function treadingmoveSlide(direction) {
 
     let newX = -slideIndex * sliderWidth;
     
-       if (newX <= -2000) {
+       if (newX <= -5270) {
       // If the new position exceeds a certain threshold, reset to 0
       slider.style.transform = 'translateX(0)';
       slideIndex = 0; // Reset slide index

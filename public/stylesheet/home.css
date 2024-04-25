@@ -328,6 +328,9 @@ will take place here for index files
 
 
   }
+  .mobiletreading-container{
+    display: none;
+  }
 
  
 
@@ -880,7 +883,7 @@ will take place here for index files
   }
 
 
-  .treading-container {
+  .mobiletreading-container {
     color: white;
     padding: .5em;
     position: relative;
@@ -893,6 +896,12 @@ will take place here for index files
 
 
   }
+
+  .treading-container{
+    display: none;
+  }
+
+
   .treading-control2{
     width: 100%;
     }

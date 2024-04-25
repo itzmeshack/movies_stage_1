@@ -30,7 +30,7 @@ initializePassport(
 
 )
 
-const port = 5000;
+const port = 3000;
 
 const user = [];
 
@@ -67,38 +67,50 @@ app.use(passport.initialize());
 app.use(passport.session())
 
 
-//universal url 
+//universal url for main movies
 
 
 const API_KEY = "46affb6ad79782ea4c251824edd9edb6";//try to hide the api key on .env file
 const Base_URL = "https://api.themoviedb.org/3";
 const url = `${Base_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+const urlTrending_movies = `${Base_URL}/trending/movie/week?api_key=${API_KEY}&language=en-US`
 
 
 let movies = []
 
 app.get('/home', async (req, res) => {
-   
 
 
 
+    try {
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        const trendingResponse = await fetch(urlTrending_movies);
+        const trendingData = await trendingResponse.json();
+
+        if (data.results.length > 0) {
+            //const movies = data.results[12];
+
+            movies = data.results[15]
+            // const image = `https://image.tmdb.org/t/p/original${movies.backdrop_path}`
+            //collecting year from auth.js
+            const releaseYear = data.results[1].release_date.split('-');
+            res.render('home.ejs', { releaseYear, movies,  trendingMovies: trendingData.results })
 
 
-    const response = await fetch(url);
-    const data = await response.json()
-    if (data.results.length > 0) {
-        //const movies = data.results[12];
+        }
+        else {
+            res.render('home.ejs', { movies: [] });
+        }
 
-        movies= data.results[17]
-       // const image = `https://image.tmdb.org/t/p/original${movies.backdrop_path}`
-        //collecting year from auth.js
-        const releaseYear = data.results[1].release_date.split('-');
-        res.render('home.ejs', { releaseYear, movies })
 
 
     }
-    else {
-        res.render('home.ejs', { movies: [] });
+    catch (error) {
+        console.error('Error fetching data:', error);
+
     }
 
 
@@ -136,7 +148,7 @@ app.get('/watch', async (req, res) => {
     const data = await response.json()
     if (data.results.length > 0) {
         //const movies = data.results[12];
-       // const image = `https://image.tmdb.org/t/p/original${movies.backdrop_path}`
+        // const image = `https://image.tmdb.org/t/p/original${movies.backdrop_path}`
         //collecting year from auth.js
         const releaseYear = data.results[1].release_date.split('-');
         res.render('movies_info.ejs', { releaseYear, movies })
@@ -152,7 +164,7 @@ app.get('/watch', async (req, res) => {
 
 
 
-    
+
 
 })
 
