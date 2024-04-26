@@ -185,7 +185,7 @@ function releasemoveSlide(move) {
 
     let newX = -slideIndex * sliderWidth;
     
-       if (newX <= -2000) {
+       if (newX <= -5270) {
       // If the new position exceeds a certain threshold, reset to 0
       slider.style.transform = 'translateX(0)';
       slideIndex = 0; // Reset slide index
@@ -219,7 +219,7 @@ function actionmoveSlide(direction){
 
     let newX = -slideIndex * sliderWidth;
     
-       if (newX <= -2000) {
+       if (newX <= -5270) {
       // If the new position exceeds a certain threshold, reset to 0
       slider.style.transform = 'translateX(0)';
       slideIndex = 0; // Reset slide index
@@ -252,7 +252,7 @@ function moviesmoveSlide(direction){
 
     let newX = -slideIndex * sliderWidth;
     
-       if (newX <= -2000) {
+       if (newX <= -5270) {
       // If the new position exceeds a certain threshold, reset to 0
       slider.style.transform = 'translateX(0)';
       slideIndex = 0; // Reset slide index
@@ -287,7 +287,7 @@ function latetestmoveSlide(direction){
 
     let newX = -slideIndex * sliderWidth;
     
-       if (newX <= -2000) {
+       if (newX <= -5270) {
       // If the new position exceeds a certain threshold, reset to 0
       slider.style.transform = 'translateX(0)';
       slideIndex = 0; // Reset slide index
@@ -320,7 +320,7 @@ function  showmoveSlide(direction){
 
     let newX = -slideIndex * sliderWidth;
     
-       if (newX <= -2000) {
+       if (newX <= -5270) {
       // If the new position exceeds a certain threshold, reset to 0
       slider.style.transform = 'translateX(0)';
       slideIndex = 0; // Reset slide index
@@ -353,7 +353,7 @@ function animemoveSlide(direction){
 
     let newX = -slideIndex * sliderWidth;
     
-       if (newX <= -2000) {
+       if (newX <= -5270) {
       // If the new position exceeds a certain threshold, reset to 0
       slider.style.transform = 'translateX(0)';
       slideIndex = 0; // Reset slide index

@@ -72,8 +72,22 @@ app.use(passport.session())
 
 const API_KEY = "46affb6ad79782ea4c251824edd9edb6";//try to hide the api key on .env file
 const Base_URL = "https://api.themoviedb.org/3";
-const url = `${Base_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
-const urlTrending_movies = `${Base_URL}/trending/movie/week?api_key=${API_KEY}&language=en-US`
+const url = `${Base_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;//url for main movie
+const urlTrending_movies = `${Base_URL}/trending/movie/week?api_key=${API_KEY}&language=en-US`//url for trending movies
+const urlLatestMovies = `${Base_URL}/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`; //url for latest movies
+const urlActionMovies =`${Base_URL}/discover/movie?api_key=${API_KEY}&with_genres=28`;// url for action movies
+const urlTvseries =`${Base_URL}/trending/tv/week?api_key=${API_KEY}&language=en-US&page=1`;// url for tv series
+const urlHorrorMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&with_genres=27`;
+const urlRatedMovies = `${Base_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`;
+//const urlBestAnime = `${Base_URL}/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=vote_average.desc&with_genres=16`;
+const urlBestAnime = `${Base_URL}/discover/tv?api_key=${API_KEY}&with_genres=16`;
+
+
+
+
+
+
+
 
 
 let movies = []
@@ -83,21 +97,71 @@ app.get('/home', async (req, res) => {
 
 
     try {
-
+          //main moveis response
         const response = await fetch(url);
         const data = await response.json();
-
+         
+        //trending movies response
         const trendingResponse = await fetch(urlTrending_movies);
         const trendingData = await trendingResponse.json();
+
+        //latest movies response
+        const latestResponse = await fetch(urlLatestMovies);
+        const latestData = await latestResponse.json();
+
+        // action movies response
+
+        const actionResponse = await fetch(urlActionMovies);
+        const actionData = await actionResponse.json();
+        const shuffledMovies = actionData.results.sort(() => 0.5 - Math.random());
+        const randomMovie = shuffledMovies.slice(0, 19);
+
+
+        //tv series response 
+
+        const tvResponse = await fetch(urlTvseries);
+        const tvData = await tvResponse.json();
+
+        // horror movies response 
+
+        const horrorResponse = await fetch(urlHorrorMovies);
+        const horrorData = await horrorResponse.json();
+
+
+        //rated movies 
+
+        const ratedResponse = await fetch(urlRatedMovies);
+        const ratedData = await ratedResponse.json();
+
+
+        //anime movies & tv shows 
+
+        const animeResponse = await fetch(urlBestAnime);
+        const animeData = await animeResponse.json();
 
         if (data.results.length > 0) {
             //const movies = data.results[12];
 
-            movies = data.results[15]
+            movies = data.results[12]//this is where a particular movie is placed on tmdb database you can change the number to see a particular movie trends
             // const image = `https://image.tmdb.org/t/p/original${movies.backdrop_path}`
             //collecting year from auth.js
             const releaseYear = data.results[1].release_date.split('-');
-            res.render('home.ejs', { releaseYear, movies,  trendingMovies: trendingData.results })
+            res.render('home.ejs', { 
+            releaseYear, 
+            randomMovie,
+            movies,  
+            trendingMovies: trendingData.results,
+            latestMovies:latestData.results,  
+            //actionMovies: actionData.results,
+            tvseriesMovies: tvData.results,
+            horrorMovies: horrorData.results,
+            ratedMovies: ratedData.results,
+            animeMovies: animeData.results
+
+        
+        
+        
+        })
 
 
         }
