@@ -1,458 +1,591 @@
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
-
 
 @media (min-width: 1024px) {
+  body {
+    background-color: rgb(0, 0, 0);
+  }
 
+  header.header-container {
+    background-color: black;
+    border-bottom: 1px solid red;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
 
-    body {
+  nav.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5px 0px 5px;
+  }
 
-        background-color: rgb(0, 0, 0);
-        
-       
-     
+  ul.all-links {
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+    list-style: none;
+  }
 
-    }
+  .anchor-links {
+    text-decoration: none;
+    color: white;
+    font-family: "Chillax", sans-serif;
+  }
 
+  a.logins {
+    text-decoration: none;
+  }
 
-    header.header-container {
+  .anchor-links:hover {
+    border-bottom: 2px solid red;
+  }
 
-        background-color: black;
-        border-bottom: 1px solid red;
-        background-color: black;
-        position: fixed;
-        left: 0;
-        right: 0;
-        z-index: 1;
+  a.anchor-links:active {
+    border-bottom: 2px solid red;
+  }
 
+  /* styling for search container*/
+  .search-container {
+    padding: 1em;
+  }
 
+  .fa-magnifying-glass {
+    color: white;
+    position: relative;
+    left: 2em;
+  }
 
+  .close-menu {
+    display: none;
+  }
 
+  .open-menu {
+    display: none;
+  }
 
+  .search-bar {
+    outline: none;
+    width: 30vw;
+    padding: 5px 0px 5px 40px;
+    border: 1px solid rgb(181, 1, 1);
+    background-color: rgba(122, 122, 122, 0.457);
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: "Chillax", sans-serif;
+  }
 
+  a.header-links {
+    color: rgb(211, 5, 5);
+    text-decoration: none;
+    font-family: "Clash Display", sans-serif;
+  }
 
-    }
+  .logins {
+    color: rgb(255, 0, 0);
+    border: 1px red solid;
+    background-color: black;
+    border-radius: 20px;
+    padding: 1em;
+    font-family: "Clash Display", sans-serif;
+  }
 
-    nav.navbar-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 5px 0px 5px;
-    }
+  .fa-google-play {
+    color: white;
+    font-size: 30px;
+  }
+  .img-bg {
+    width: 100%;
+  }
+  .content-area {
+    width: 100%;
+    overflow: hidden;
+  }
 
-    ul.all-links {
-        display: flex;
-        gap: 1.5em;
-        justify-content: center;
-        list-style: none;
+  .mid-name {
+    color: white;
+    text-align: center;
+    font-family: "Clash Display", sans-serif;
+    font-size: 1.8em;
+    position: relative;
+    top: -12em;
+    left: 5%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
 
-    }
+  .img-content {
+    width: 275px;
+    position: relative;
+    top: -2em;
+    right: -2em;
+    border-radius: 10px;
+    border: 2px red solid;
+  }
 
-    .anchor-links {
-        text-decoration: none;
-        color: white;
-        font-family: 'Chillax', sans-serif;
-    }
+  .descript-content {
+    color: white;
+    padding: 2em;
+  }
 
-    a.logins {
-        text-decoration: none;
-    }
+  .descript {
+    width: 50vw;
+    position: relative;
+    top: -24em;
+    left: 25em;
+    font-family: "Clash Display", sans-serif;
+    font-size: 15px;
+  }
 
-    .anchor-links:hover {
-        border-bottom: 2px solid red;
-    }
+  .watch-links {
+    position: relative;
+    display: flex;
+    font-family: "Clash Display", sans-serif;
+    font-size: 15px;
+    border: none;
+    top: -22em;
+    left: 38em;
+  }
 
+  .btn-area {
+    background-color: red;
+    margin-right: 0.9em;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+  }
+  .btn-area-link {
+    background-color: rgb(81, 80, 80);
+    margin-right: 0.9em;
+    padding: 0.3em;
+  }
+  .btn-area:hover {
+    opacity: 0.7;
+  }
 
-    a.anchor-links:active {
-        border-bottom: 2px solid red;
-    }
+  .btn-link {
+    text-decoration: none;
+    color: white;
+    font-family: "Chillax", sans-serif;
+  }
 
-    /* styling for search container*/
-    .search-container {
+  .group-access {
+    width: 50vw;
+    display: inline-block;
+    justify-content: center;
+    position: relative;
+    top: -20em;
+    left: 28em;
+    font-family: "Clash Display", sans-serif;
+    font-size: 15px;
+  }
 
-        padding: 1em;
-    }
+  .flex-link {
+    display: flex;
+    gap: 0.7em;
+    text-align: center;
+    padding: 10px;
+  }
 
-    .fa-magnifying-glass {
-        color: white;
-        position: relative;
-        left: 2em;
+  .group-access a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    border: 1px solid red;
+    border-radius: 6px;
+    padding: 5px 10px 5px 10px;
+  }
 
-    }
+  .dura {
+    color: white;
+    font-size: 13px;
+    padding: 5px;
+  }
 
+  span {
+    color: white;
+    font-size: 17px;
+    text-align: center;
+  }
 
+  /* this styling is for tv series*/
 
-    .close-menu {
-        display: none;
+  .season-area {
+    position: relative;
+    top: -10em;
+    background-color: rgb(0, 0, 0);
+    padding: 2em;
+    height: auto;
+    font-family: "Clash Display", sans-serif;
+  }
 
+  .epi-links {
+    text-decoration: none;
+    font-family: "Clash Display", sans-serif;
+  }
+  .episode-container span {
+    color: rgb(252, 0, 0);
+  }
 
-    }
+  .episode-container {
+    background-color: rgba(128, 128, 128, 0.441);
+    transition: transform 0.3s ease;
+    border-radius: 10px;
 
-    .open-menu {
-        display: none;
-    }
+    margin: 0.3em;
+    padding: 2em;
+  }
+  .episode-container:hover {
+    transform: translate(6px, 4px);
 
-
-    .search-bar {
-        outline: none;
-        width: 30vw;
-        padding: 5px 0px 5px 40px;
-        border: 1px solid rgb(181, 1, 1);
-        background-color: rgba(122, 122, 122, 0.457);
-        border-radius: 10px;
-        color: white;
-        font-size: 20px;
-        font-family: 'Chillax', sans-serif;
-
-
-
-    }
-
-    a.header-links {
-        color: rgb(211, 5, 5);
-        text-decoration: none;
-        font-family: 'Clash Display', sans-serif;
-
-    }
-
-    .logins {
-        color: rgb(255, 0, 0);
-        border: 1px red solid;
-        background-color: black;
-        border-radius: 20px;
-        padding: 1em;
-        font-family: 'Clash Display', sans-serif;
-    }
-
-    .fa-google-play {
-        color: white;
-        font-size: 30px;
-    }
-.content-area{
-    background-color: rgba(79, 77, 77, 0.74);
-
-    margin-left: 4em;
-    margin-right: 4em ;
+    background-color: rgba(255, 0, 0, 0.471);
+    color: white;
+  }
+  .all-seasons {
+    position: relative;
+    color: white;
+    background-color: black;
+    right: 0.6em;
+    font-size: 17px;
+    padding-left: 0.8em;
+    padding-right: 10em;
+    padding-bottom: 0.9em;
+    padding-top: 0.9em;
+    border-radius: 6px;
+    border: 2px red solid;
+    font-weight: 700;
+    margin-bottom: 0.9em;
+    font-family: "Clash Display", sans-serif;
+  }
 }
-
-    .all-content{
-        display: flex;
-       justify-content: flex-start;
-       position: relative;
-       top: 2em;
-       padding: 3em;
-    }
-
-
-    .mid-name{
-        color: white;
-     font-family: 'Clash Display', sans-serif; 
-     font-size: 3.5em;
-     position: relative;
-     left: 2em;
-   
-    
-    }
-
-
-    .img-content{
-        width: 275px;
-    }
-
-
-    .descript-content{
-        color: white;
-        padding: 2em;
-    }
-
-    .descript{
-        width: 50vw;
-        position: relative;
-        top: -24em;
-        left: 25em;
-        font-family: 'Clash Display', sans-serif; 
-        font-size: 15px;
-    }
-
-    .watch-area{
-   
-        font-family: 'Clash Display', sans-serif; 
-        font-size: 15px;
-        border: none;
-    }
-
-    .btn-area{
-        position: relative;
-        top: -28em;
-        left: 32em;
-        border: none;
-       padding: 10px 20px 10px 20px;
-        background-color: red;
-        border-radius: 5px;
-
-    }
-    .btn-area:hover{
-        opacity: .7;
-    }
-
-    .btn-link{
-        text-decoration: none;
-        color: white;
-        font-family: 'Chillax', sans-serif;
-    }
-
-    .group-access{
-        width: 50vw;
-         display: inline-block;
-         justify-content: center;
-         position: relative;
-        top: -20em;
-        left: 28em;
-        font-family: 'Clash Display', sans-serif; 
-        font-size: 15px;
-      
-      
-
-    }
-
-    .flex-link{
-        display: flex;
-        gap: .7em;
-        text-align: center;
-        padding: 10px;
-       
-
-    }
-
-    .group-access a{
-        color: white;
-        text-decoration: none;
-       font-size: 13px;
-        border: 1px solid red;
-        border-radius: 6px;
-        padding: 5px 10px 5px 10px ;
-    }
-
-    .dura{
-        color: white;
-       font-size: 13px;
-       padding: 5px;
-
-    }
-
-    
-
-    span{
-        color: white;
-        font-size: 17px;
-        text-align: center;
-    
-    }
-
-
-
-    
-}
-
-
-
-
-
-
-
-
-
 
 @media (max-width: 1020px) and (max-width: 1024px) {
-    * {
-        padding: 0;
-        margin: 0;
-    }
+  * {
+    padding: 0;
+    margin: 0;
+  }
 
+  body {
+    background-color: black;
 
-
-    body {
-
-
-        background-color: black;
-
-
-
-        /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
+    /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
               color: white;*/
+  }
 
-    }
+  header.header-container {
+    background-color: black;
+    border-bottom: 1px solid red;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
 
+  nav.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7em;
+  }
 
-    header.header-container {
+  ul.all-links {
+    list-style: none;
+  }
 
-        background-color: black;
-        border-bottom: 1px solid red;
-        position: fixed;
-        left: 0;
-        right: 0;
-        z-index: 1;
+  .major-links {
+    border-bottom: 1px solid white;
+    padding: 1em;
+  }
 
+  a.anchor-links {
+    text-decoration: none;
 
+    color: white;
+    font-family: "Chillax", sans-serif;
+  }
 
+  a.logins {
+    text-decoration: none;
+  }
 
+  .anchor-links:hover {
+    border-bottom: 2px solid red;
+  }
 
+  a.anchor-links:active {
+    border-bottom: 2px solid red;
+  }
 
+  /* styling for search container*/
+  .search-container {
+    padding: 1em;
+  }
 
+  .fa-magnifying-glass {
+    color: white;
+    position: relative;
+    font-size: 20px;
+    left: 3em;
+  }
 
-    }
+  .search-bar {
+    outline: none;
+    width: 80%;
+    padding: 5px 0px 5px 40px;
+    border: 1px solid rgb(181, 1, 1);
+    position: absolute;
+    left: 10px;
+    top: 4em;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: "Chillax", sans-serif;
+    display: none;
+  }
 
-    nav.navbar-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: .7em;
-    }
+  /* STYLING FOR NAVIGATION FOR MOBILE AND TABLET LAYOUT*/
 
-    ul.all-links {
+  .mobile-nav {
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    padding: 1em;
+    right: 1000px;
+    /* to remove it is 500px to add it is -30px */
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+    height: 40vh;
+    transition: all ease 1s;
+  }
 
-        list-style: none;
+  .close-menu {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    width: 6%;
+  }
 
-    }
+  .open-menu {
+    position: relative;
+    right: 10px;
+    width: 7%;
+  }
 
-    .major-links {
-        border-bottom: 1px solid white;
-        padding: 1em;
-    }
+  a.header-links {
+    color: rgb(211, 5, 5);
+    text-decoration: none;
+    font-family: "Clash Display", sans-serif;
+  }
 
-    a.anchor-links {
-        text-decoration: none;
+  .logins {
+    color: rgb(255, 0, 0);
+    border: 1px red solid;
+    background-color: black;
+    position: relative;
+    text-align: center;
+    top: 1em;
+    padding: 5px;
+    font-family: "Clash Display", sans-serif;
+  }
 
-        color: white;
-        font-family: 'Chillax', sans-serif;
-    }
+  .logo-name {
+    font-size: 16px;
+  }
 
+  .major-link-login {
+    text-align: center;
+  }
 
-    a.logins {
-        text-decoration: none;
-    }
+  .fa-google-play {
+    color: white;
+    font-size: 16px;
+  }
 
-    .anchor-links:hover {
-        border-bottom: 2px solid red;
-    }
+  /* for main bodies movies container*/
 
+  .content-container {
+    width: 100%;
+    overflow: hidden;
+  }
 
-    a.anchor-links:active {
-        border-bottom: 2px solid red;
-    }
+  .image {
+    display: inline-block;
+    /* Ensure the container wraps around the image */
+    overflow: hidden;
+    /* Hide overflow to contain the shadow effect */
+  }
 
-    /* styling for search container*/
-    .search-container {
+  .img-bg {
+    width: 100%;
+    height: auto;
+    background-size: cover; /* Ensure the background image covers the entire div */
+    background-attachment: fixed;
+    position: relative;
+    top: 80px;
+  }
+  .content-area {
+    width: 100%;
+    display: grid;
+    position: relative;
+  }
 
-        padding: 1em;
-    }
+  .all-content {
+    position: relative;
+    top: -9em;
+  }
 
-    .fa-magnifying-glass {
-        color: white;
-        position: relative;
-        font-size: 20px;
-        left: 3em;
+  .mid-name {
+    color: white;
+    text-align: center;
+    font-family: "Clash Display", sans-serif;
+    font-size: 1.8em;
 
-    }
+    position: relative;
+    top: 0.9em;
+  }
 
-    .search-bar {
-        outline: none;
-        width: 80%;
-        padding: 5px 0px 5px 40px;
-        border: 1px solid rgb(181, 1, 1);
-        position: absolute;
-        left: 10px;
-        top: 4em;
-        background-color: rgb(255, 255, 255);
-        border-radius: 10px;
-        color: rgb(0, 0, 0);
-        font-size: 20px;
-        font-family: 'Chillax', sans-serif;
-        display: none;
+  .img-content {
+    width: 155px;
+    position: relative;
+    top: 1em;
+    right: -2em;
+    border-radius: 10px;
+    border: 2px red solid;
+  }
 
+  .descript-content {
+    color: white;
+    padding: 2em;
+  }
 
-    }
+  .descript {
+    font-family: "Clash Display", sans-serif;
+    font-size: 13px;
+  }
 
+  .watch-links {
+    font-family: "Clash Display", sans-serif;
+    font-size: 15px;
+    border: none;
+    top: -22em;
+    left: 38em;
+    text-align: center;
+    padding: 2em;
+  }
 
-    /* STYLING FOR NAVIGATION FOR MOBILE AND TABLET LAYOUT*/
+  .btn-area {
+    background-color: red;
+    margin-right: 0.9em;
+    padding: 10px 10px 10px 10px;
+    border-radius: 5px;
+  }
+  .btn-area-link {
+    background-color: rgb(81, 80, 80);
+    margin-right: 0.9em;
+    padding: 0.3em;
+  }
+  .btn-area:hover {
+    opacity: 0.7;
+  }
 
+  .btn-link {
+    text-decoration: none;
+    color: white;
+    font-family: "Chillax", sans-serif;
+  }
 
-    .mobile-nav {
-        background-color: rgb(0, 0, 0);
-        position: fixed;
-        padding: 1em;
-        right: 1000px;
-        /* to remove it is 500px to add it is -30px */
-        top: 0;
-        width: 100vw;
-        z-index: 1;
-        height: 40vh;
-        transition: all ease 1s;
-    }
+  .group-access {
+    font-family: "Clash Display", sans-serif;
+    font-size: 15px;
+  }
 
+  .flex-link {
+    display: flex;
+    flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+    gap: 0.9em; /* Add space between flex items */
+    text-align: center; /* Center-align the content inside flex items */
+    padding: 16px; /* Add padding around the flex container */
+    width: auto; /* Let the width of the flex container adjust automatically */
+    font-size: 10px;
+  }
 
-    .close-menu {
-        position: absolute;
-        top: 20px;
-        right: 40px;
-        width: 6%;
-    }
+  .group-access a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    border: 1px solid red;
+    border-radius: 6px;
+    padding: 5px 10px 5px 10px;
+  }
 
-    .open-menu {
+  .dura {
+    color: white;
+    font-size: 13px;
+    padding: 5px;
+  }
 
-        position: relative;
-        right: 10px;
-        width: 7%;
-    }
+  span {
+    color: white;
+    font-size: 17px;
+    text-align: center;
+  }
 
-    a.header-links {
-        color: rgb(211, 5, 5);
-        text-decoration: none;
-        font-family: 'Clash Display', sans-serif;
+  /* this styling is for tv series*/
 
-    }
+  .season-area {
+    position: relative;
+    top: -5em;
+    background-color: rgb(0, 0, 0);
+    padding: 2em;
+    height: auto;
+    font-family: "Clash Display", sans-serif;
+    font-size: 13px;
+  }
 
-    .logins {
-        color: rgb(255, 0, 0);
-        border: 1px red solid;
-        background-color: black;
-        position: relative;
-        text-align: center;
-        top: 1em;
-        padding: 5px;
-        font-family: 'Clash Display', sans-serif;
-    }
+  .epi-links {
+    font-size: 13px;
 
+    text-decoration: none;
+    font-family: "Clash Display", sans-serif;
+  }
+  .episode-container span {
+    color: rgb(252, 0, 0);
+  }
 
-    .logo-name {
-        font-size: 16px;
-    }
+  .episode-container {
+    background-color: rgba(128, 128, 128, 0.441);
+    transition: transform 0.3s ease;
+    border-radius: 10px;
 
-    .major-link-login {
-        text-align: center;
-    }
+    margin: 0.3em;
+    padding: 2em;
+  }
+  .episode-container:hover {
+    transform: translate(6px, 4px);
 
-    .fa-google-play {
-        color: white;
-        font-size: 16px;
-    }
-
-
-    /* for main bodies movies container*/
-
-    .content-container {
-        background-color: rgba(0, 0, 0, 0.818);
-    }
-
-
-    .image {
-        display: inline-block;
-        /* Ensure the container wraps around the image */
-        overflow: hidden;
-        /* Hide overflow to contain the shadow effect */
-
-    }
-
+    background-color: rgba(255, 0, 0, 0.471);
+    color: white;
+  }
+  .all-seasons {
+    position: relative;
+    color: white;
+    background-color: black;
+    right: 0.6em;
+    font-size: 15px;
+    padding-left: 0.8em;
+    padding-right: 10em;
+    padding-bottom: 0.9em;
+    padding-top: 0.9em;
+    border-radius: 6px;
+    border: 2px red solid;
+    font-weight: 700;
+    margin-bottom: 0.9em;
+    font-family: "Clash Display", sans-serif;
+  }
 }

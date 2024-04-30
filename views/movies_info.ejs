@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chillflix</title>
-  <script defer src="index.js"></script>
-  <link rel="stylesheet" href="stylesheet/movies_info.css" />
+  <script defer src="/js_files/index.js"></script>
+  <link rel="stylesheet" href="/stylesheet/movies_info.css" />
   <link
     href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
     rel="stylesheet" />
@@ -35,19 +35,19 @@
 
       <ul class="all-links">
         <li class="major-links">
-          <a class="anchor-links" href="home">HOME</a>
+          <a class="anchor-links" href="/home">HOME</a>
         </li>
         <li class="major-links">
-          <a class="anchor-links" href="movies">MOVIES</a>
+          <a class="anchor-links" href="/movies">MOVIES</a>
         </li>
         <li class="major-links">
-          <a class="anchor-links" href="tvseries">TV SERIES</a>
+          <a class="anchor-links" href="/tvseries">TV SERIES</a>
         </li>
         <li class="major-links">
-          <a class="anchor-links" href="topimdb">TOP IMDB</a>
+          <a class="anchor-links" href="/topimdb">TOP IMDB</a>
         </li>
         <li class="major-link-login">
-          <a class="logins" href="login">Logout</a>
+          <a class="logins" href="/login">Logout</a>
         </li>
         <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
 
@@ -62,12 +62,14 @@
 
 
 
-
+<% if (movie) { %>
   <main class="content-area">
+    <img class="img-bg" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="Backdrop Image">
+
     <div class="all-content">
       <div class="image-area">
-        <% if (movies) { %>
-          <img class="img-content" src="https://image.tmdb.org/t/p/original/<%= movies.poster_path %>" alt="Backdrop Image">
+  
+          <img class="img-content" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="Backdrop Image">
         <% } else { %>
           <!-- Fallback image or message if no movie or backdrop path is available -->
           <img src="/images_files/mobile-web.jpg" alt="mobile" class="img-con2">
@@ -75,9 +77,9 @@
       </div>
     
             <div class=" movie-overview">
-              <% if (movies) { %>
+              <% if (movie) { %>
         <h2 class="mid-name">
-          <%= movies.title %>
+          <%= movie.title %>
         </h2>
 
         <% } else { %>
@@ -87,14 +89,14 @@
   
       </div>
   
-    </div>
+    
   
   
   
     <div class="descript">
-      <% if (movies) { %>
+      <% if (movie) { %>
         <p class="descript-content">
-          <%= movies.overview %>
+          <%= movie.overview %>
         </p>
       <% } else { %>
         <!-- Fallback message if no movie is available -->
@@ -103,18 +105,18 @@
     </div>
   
     <div class="watch-area">
-     <div class="watch-">
-      <button class="btn-area">HD</button>
-  
-    
-      <button class="btn-area">
-      
-        <a class="btn-link" href="/">Watch</a>
-      </button>
-    </div>
-  
-  
-    </div>
+      <div class="watch-links">
+       <span class="btn-area-link">HD</span>
+   
+     
+       <span class="btn-area">
+       
+         <a class="btn-link" href="/">Watch</a>
+       </span>
+     </div>
+   
+   
+     </div>
   
   
     <div class="group-access">
@@ -122,14 +124,21 @@
       <div class="flex-link">
   
   
-        <span>
-          Genres:
-        </span>
-        <a href="/">Action</a>
-        <a href="/">Adventure</a>
-        <a href="/">comedy</a>
-        <a href="/">thriller</a>
-        <a href="/">Fantasy</a>
+        <span>Genres:</span>
+        <% if (movieGenres && movieGenres.length > 0) { %>
+          <% const maxGenres = 4; %>
+          <% for (let i = 0; i < Math.min(movieGenres.length, maxGenres); i++) { %>
+            <a href="#" data-genre-id="<%= movieGenres[i].id %>"><%= movieGenres[i].name %></a>
+          <% } %>
+
+          <% if (movieGenres.length > maxGenres) { %>
+            <!-- If there are more than 4 genres, display a "More" link or message -->
+            <a href="#">More...</a>
+        <% } %>
+    <% } else { %>
+        <p>No genres available</p>
+    <% } %>
+        
       </div>
   
   
@@ -139,9 +148,10 @@
         <span>
           Casts:
         </span>
-         <p class="dura">
-          Jon Meggison, Kent Loomer, Nathan Hamer, Melody Mitchell, Douglas Zwick</p>
-  
+        <p class="dura">
+          <% movieCast.forEach(member => { %>
+              <%= member.name %>, 
+          <% }); %></p>
       </div>
   
   
@@ -152,7 +162,7 @@
         <span>
           Duration:
         </span>
-         <p class="dura">120 min</p>
+        <p class="dura"><%= duration %> min</p>
   
       </div>
   
@@ -164,7 +174,9 @@
         <span>
           Country:
         </span>
-         <p class="dura">United state of american</p>
+        <% countries.forEach(country => { %>
+          <p class="dura"><%= country.name %></p>
+      <% }); %>
   
       </div>
   
@@ -177,7 +189,9 @@
         <span>
           Language:
         </span>
-         <p class="dura">English</p>
+        <% languages.forEach(language => { %>
+          <p class="dura"><%= language.name %></p>
+      <% }); %>
   
       </div>
   
@@ -188,6 +202,11 @@
   
   
     </div>
+
+  </div>
+
+
+
   
   
   
@@ -203,6 +222,23 @@
 
 
 
+  
+
+
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const movieId = window.location.hash.substring(1); // Get movie ID from URL parameter
+    if (movieId) {
+        const movieElement = document.getElementById(movieId);
+        if (movieElement) {
+            movieElement.scrollIntoView({ behavior: 'smooth' }); // Scroll to movie section
+        }
+    }
+});
+
+</script>
 
 
 

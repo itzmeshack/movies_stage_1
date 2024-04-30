@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chillflix</title>
-  <script defer src="index.js"></script>
+  <script defer src="/js_files/index.js"></script>
   <script defer src="api.js" type="module"></script>
   <script defer type="module" src="render.js"></script>
-  <link rel="stylesheet" href="stylesheet/home.css" />
+  <link rel="stylesheet" href="/stylesheet/home.css" />
   <link
     href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
     rel="stylesheet" />
@@ -46,19 +46,19 @@
 
         <ul class="all-links">
           <li class="major-links">
-            <a class="anchor-links" href="home">HOME</a>
+            <a class="anchor-links" href="/home">HOME</a>
           </li>
           <li class="major-links">
-            <a class="anchor-links" href="movies">MOVIES</a>
+            <a class="anchor-links" href="/movies">MOVIES</a>
           </li>
           <li class="major-links">
-            <a class="anchor-links" href="tvseries">TV SERIES</a>
+            <a class="anchor-links" href="/tvseries">TV SERIES</a>
           </li>
           <li class="major-links">
-            <a class="anchor-links" href="topimdb">TOP IMDB</a>
+            <a class="anchor-links" href="/topimdb">TOP IMDB</a>
           </li>
           <li class="major-link-login">
-            <a class="logins" href="login">Logout</a>
+            <a class="logins" href="/login">Logout</a>
           </li>
         </ul>
         <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
@@ -129,7 +129,7 @@
             <div class="watch">
               <i class="fa-solid fa-play"></i>
               <!-- Link to watch movie -->
-              <p><a class="watch-link" href="/watch">Watch Now</a></p>
+              <p><a class="watch-link" href="/movie/<%= movies.id %>">Watch Now</a></p>
             </div>
           </div>
           <% } else { %>
@@ -151,7 +151,7 @@
         <% if (trendingMovies && trendingMovies.length> 0) { %>
           <% trendingMovies.forEach(movie=> { %>
             <div class="treading-control2">
-              <a href="/watch" class="film-mark">
+              <a href="/movie/<%= movie.id %>" class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="#" />
               </a>
             </div>
@@ -275,7 +275,7 @@
         <% if (trendingMovies && trendingMovies.length> 0) { %>
           <% trendingMovies.forEach(movie=> { %>
             <div class="treading-control2">
-              <a href="/moviesinfo" class="film-mark">
+              <a href="/movie/<%= movie.id %>" class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
               </a>
             </div>
@@ -315,7 +315,7 @@
         <%if(latestMovies && latestMovies.length> 0) { %>
           <% latestMovies.forEach(movie=> { %>
             <div class="treading-control2">
-              <a href="moviesinfo" class="film-mark">
+              <a href="/movie/<%= movie.id %>" class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="#" />
 
               </a>
@@ -357,7 +357,7 @@
         <%if(latestMovies && latestMovies.length> 0) { %>
           <% latestMovies.forEach(movie=> { %>
             <div class="treading-control2">
-              <a href="moviesinfo" class="film-mark">
+              <a href="/movie/<%= movie.id %>"class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
 
               </a>
@@ -487,7 +487,7 @@
           <% randomMovie.forEach(movie=> { %>
 
             <div class="treading-control2">
-              <a href="moviesinfo" class="film-mark">
+              <a  href="/movie/<%= movie.id %>" class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>"
                   alt="<%= movie.title %>" />
 
@@ -533,7 +533,7 @@
           <% randomMovie.forEach(movie=> { %>
 
             <div class="treading-control2">
-              <a href="moviesinfo" class="film-mark">
+              <a href="/movie/<%= movie.id %>"class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>"
                   alt="<%= movie.title %>" />
 
@@ -699,7 +699,7 @@
         <%if(tvseriesMovies && tvseriesMovies.length> 0) { %>
           <% tvseriesMovies.forEach(movie=> { %>
             <div class="treading-control2">
-              <a href="moviesinfo" class="film-mark">
+              <a  href="/tv/<%= movie.id %>" class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="#" />
 
               </a>
@@ -741,7 +741,7 @@
         <%if(tvseriesMovies && tvseriesMovies.length> 0) { %>
           <% tvseriesMovies.forEach(movie=> { %>
             <div class="treading-control2">
-              <a href="moviesinfo" class="film-mark">
+              <a href="/tv/<%= movie.id %>" class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
 
               </a>
@@ -777,7 +777,7 @@
         <%if(horrorMovies && horrorMovies.length> 0) { %>
           <% horrorMovies.forEach(movie=> { %>
             <div class="treading-control2">
-              <a href="moviesinfo" class="film-mark">
+              <a  href="/movie/<%= movie.id %>" class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="#" />
 
               </a>
@@ -818,7 +818,7 @@
         <%if(horrorMovies && horrorMovies.length> 0) { %>
           <% horrorMovies.forEach(movie=> { %>
             <div class="treading-control2">
-              <a href="moviesinfo" class="film-mark">
+              <a  href="/movie/<%= movie.id %>" class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
 
               </a>
@@ -850,7 +850,7 @@
         <%if(ratedMovies && ratedMovies.length> 0) { %>
           <% ratedMovies.forEach(movie=> { %>
             <div class="treading-control2">
-              <a href="moviesinfo" class="film-mark">
+              <a  href="/movie/<%= movie.id %>" class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="#" />
 
               </a>
@@ -892,7 +892,7 @@
         <%if(ratedMovies && ratedMovies.length> 0) { %>
           <% ratedMovies.forEach(movie=> { %>
             <div class="treading-control2">
-              <a href="moviesinfo" class="film-mark">
+              <a  href="/movie/<%= movie.id %>" class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
 
               </a>
@@ -925,7 +925,7 @@
         <%if(animeMovies && animeMovies.length> 0) { %>
           <% animeMovies.forEach(movie=> { %>
             <div class="treading-control2">
-              <a href="moviesinfo" class="film-mark">
+              <a  href="/tv/<%= movie.id %>" class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="#" />
 
               </a>
@@ -970,7 +970,7 @@
         <%if(animeMovies && animeMovies.length> 0) { %>
           <% animeMovies.forEach(movie=> { %>
             <div class="treading-control2">
-              <a href="moviesinfo" class="film-mark">
+              <a  href="/tv/<%= movie.id %>" class="film-mark">
                 <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path%> " alt="<%= movie.title %>"/>
 
               </a>
