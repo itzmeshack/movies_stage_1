@@ -408,4 +408,100 @@ function moveSlide(direction) {
 */
 
 
+/*async function searchMoviesAndTVShows() {
+  const searchQuery = document.getElementById("search-incoming").value;
+  const Base_URL = "https://api.themoviedb.org/3";
+  const API_KEY = "46affb6ad79782ea4c251824edd9edb6"; //try to hide the api key on .env file
 
+  const searchUrl = `${Base_URL}/search/multi?api_key=${API_KEY}&language=en-US&query=${searchQuery}`;
+
+  try {
+    const response = await fetch(searchUrl);
+    const data = await response.json()
+
+    if(data.results && data.results.length > 0){
+      const firstResult = data.results[0];
+      const mediaType = firstResult.media_type;
+      const id = firstResult.id;
+
+
+
+    
+
+    if(mediaType=='movie'){
+      window.location.href = `/movie/${id}`; 
+    }
+    else if (mediaType == 'tv'){
+      window.location.href = `/tv/${id}`; 
+
+    }else{
+      console.log('Search result type not supported');
+    }
+
+  }else{
+    console.log('no search results found ')
+  }
+
+
+  } catch (error) {
+    console.error('Error occurred while searching:', error);
+  }
+}
+
+*/
+
+
+
+
+
+
+const searchInput = document.querySelector('#search-incoming');
+const searchSuggestions = document.getElementById('search-suggestions');
+
+searchInput.addEventListener('input', async () => {
+    const query = searchInput.value.trim();
+
+    if (query === '') {
+        searchSuggestions.innerHTML = ''; // Clear search suggestions if input is empty
+        return;
+    }
+
+    try {
+        const Base_URL = "https://api.themoviedb.org/3";
+        const API_KEY = "46affb6ad79782ea4c251824edd9edb6";
+  
+        const searchUrl = `${Base_URL}/search/multi?api_key=${API_KEY}&language=en-US&query=${query}`;
+        const response = await fetch(searchUrl);
+        const searchData = await response.json();
+
+        // Display search suggestions in the search suggestions container
+        searchSuggestions.innerHTML = '';
+
+        if (searchData && searchData.results && searchData.results.length > 0) {
+            searchData.results.forEach(item => {
+
+
+
+                const suggestion = document.createElement('div');
+
+
+                const backdropImg = document.createElement('img');
+            backdropImg.src = 'https://image.tmdb.org/t/p/original/' + item.backdrop_path;
+            backdropImg.alt = item.title || item.name; // Set alt text to title or name
+            suggestion.appendChild(backdropImg);
+ 
+                const link = document.createElement('a');
+                link.textContent = item.title || item.name; // Assuming search results have 'title' or 'name' property
+                link.href = item.media_type === 'movie' ? `/movie/${item.id}` : `/tv/${item.id}`; // Link to specific movie or TV show
+                link.classList.add('search-suggestion');
+                suggestion.appendChild(link);
+                searchSuggestions.appendChild(suggestion);
+                searchSuggestions.style.display = 'block'; 
+            });
+        } else {
+            searchSuggestions.innerHTML = '<p>No search suggestions found.</p>';
+        }
+    } catch (error) {
+        console.error('Error fetching search suggestions:', error);
+    }
+});

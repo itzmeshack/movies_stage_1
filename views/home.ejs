@@ -19,7 +19,7 @@
 </head>
 
 <body>
-
+ 
   <header class="header-container">
     <nav class="navbar-container">
       <h1 class="logo-name">
@@ -27,6 +27,8 @@
         <i class="fa-brands fa-google-play"></i>
       </h1>
       <div class="search-container">
+        <form  action="/search" method="GET" >
+          
 
         <span onclick="searchbar()">
           <i id="mycolor" class="fa-solid fa-magnifying-glass"> </i>
@@ -34,9 +36,20 @@
 
 
 
-        <input class="search-bar" type="text" name="login-details" id="search-incoming"
-          placeholder="search for movies & tv shows" />
+        <input class="search-bar" type="text" name="query" id="search-incoming"
+          placeholder="search for movies & tv shows" autocomplete="off" />
+          
+        </form>
+
+        
+
+    
       </div>
+
+   
+
+
+  
 
 
 
@@ -69,11 +82,20 @@
       <img id="open" onclick="openmenu()" class="open-menu" src="/images_files/white-open.png" alt="">
 
     </nav>
+  
 
   </header>
+  <div  class="new" id="search-suggestions">
+  <div class="new-image"></div>
+
+  </div>
+
+
 
 
   <div class="content-container">
+
+
 
 
 
@@ -90,7 +112,9 @@
 
 
 
+
     </div>
+
 
 
     <div class="mobile-image">

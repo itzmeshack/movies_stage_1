@@ -101,6 +101,8 @@
     font-size: 30px;
   }
   .img-bg {
+    position: relative;
+    top: 4em;
     width: 100%;
   }
   .content-area {

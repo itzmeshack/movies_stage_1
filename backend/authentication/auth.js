@@ -358,6 +358,28 @@ app.get("/tv/:tvId", async (req, res) => {
   });
 });
 
+
+app.get("/search", async (req, res) => {
+
+ 
+
+    const searchQuery = req.query.query; // Assuming the search query is passed as a query parameter named 'query'
+        
+    const Base_URL = "https://api.themoviedb.org/3";
+    const API_KEY = "46affb6ad79782ea4c251824edd9edb6";
+
+    const searchUrl = `${Base_URL}/search/multi?api_key=${API_KEY}&language=en-US&query=${searchQuery}`;
+    
+    const response = await fetch(searchUrl);
+    const searchData = await response.json();
+      
+
+
+        res.render('search.ejs', { searchResults: searchData.results});
+
+
+})
+
 /*
     const contentBaseUrl = `${Base_URL}/`; // Base URL for all content types
     
@@ -433,7 +455,7 @@ app.post(
 function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
-  }
+  } 
   res.redirect("/login");
 }
 

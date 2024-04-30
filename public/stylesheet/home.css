@@ -26,6 +26,69 @@ will take place here for index files
           color: white;*/
 
   }
+  
+
+  #search-suggestions {
+    display: none;
+    position: relative;
+    color: white;
+    top: 5em;
+    border-radius: 1rem;
+    overflow-y: auto;
+    padding: 10px 20px 0px 20px;
+    background-color: #333;
+    width: 100vw;
+    position: fixed;
+    top: 5em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+  
+
+
+ 
+   
+ 
+    
+  }
+
+
+  /* Style for the images within search suggestions */
+
+  .new img{
+    width: 20%;
+  
+    
+  }
+.new .new-image {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 5.5vw;
+  gap: .4em;
+
+
+
+
+}
+
+
+
+
+  .new a{
+    color: white;
+
+    text-decoration: none;
+  }
+
+  .search-suggestion a {
+    display: block; /* Make the links block-level elements to occupy the full width of the container */
+    /* Add padding to the top and bottom of each link */
+    text-decoration: none; /* Remove default underline */
+    color: #333; /* Set text color */
+    transition: background-color 0.3s; /* Add transition effect for hover state */
+}
 
 
   header.header-container {

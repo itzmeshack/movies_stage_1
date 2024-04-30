@@ -27,10 +27,19 @@
         <i class="fa-brands fa-google-play"></i>
       </h1>
       <div class="search-container">
-        <span onclick="searchbar()">
-          <i id="mycolor" class="fa-solid fa-magnifying-glass"> </i>
-        </span>
-        <input class="search-bar" type="text" name="login-details" id="search-incoming" placeholder="search for movies & tv shows" />
+        <form  action="/search" method="GET" >
+          
+
+          <span onclick="searchbar()">
+            <i id="mycolor" class="fa-solid fa-magnifying-glass"> </i>
+          </span>
+  
+  
+  
+          <input class="search-bar" type="text" name="query" id="search-incoming"
+            placeholder="search for movies & tv shows" />
+            
+          </form>
       </div>
 
       <div onclick="closemenu()" id="sidemenu" class="mobile-nav">
