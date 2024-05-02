@@ -134,6 +134,8 @@
   .descript-content {
     color: white;
     padding: 2em;
+    position: relative;
+    top: 1.6em;
   }
 
   .descript {
@@ -264,6 +266,20 @@
     margin-bottom: 0.9em;
     font-family: "Clash Display", sans-serif;
   }
+
+
+
+  .areas{
+    position: relative;
+    top: 2em;
+  }
+
+  .movie-overview{
+    position: relative;
+    top: 2em;
+  }
+
+  
 }
 
 @media (max-width: 1020px) and (max-width: 1024px) {
@@ -568,12 +584,12 @@
     margin: 0.3em;
     padding: 2em;
   }
-  .episode-container:hover {
-    transform: translate(6px, 4px);
+  /*.episode-container:hover {
+    transform: translate(6px, 4px); didn't like how its appears on the mobile screen.
 
     background-color: rgba(255, 0, 0, 0.471);
     color: white;
-  }
+  }*/
   .all-seasons {
     position: relative;
     color: white;

@@ -24,7 +24,7 @@ initializePassport(
   (id) => user.find((user) => user.id === id)
 );
 
-const port = 3000;
+const port = 5000;
 
 const user = [];
 
@@ -176,7 +176,7 @@ app.get("/home", async (req, res) => {
     if (data.results.length > 0) {
       //const movies = data.results[12];
 
-      movies = data.results[5]; //this is where a particular movie is placed on tmdb database you can change the number to see a particular movie trends
+      movies = data.results[13]; //this is where a particular movie is placed on tmdb database you can change the number to see a particular movie trends
       // const image = `https://image.tmdb.org/t/p/original${movies.backdrop_path}`
       //collecting year from auth.js
       const releaseYear = data.results[1].release_date.split("-");
