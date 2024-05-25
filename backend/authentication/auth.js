@@ -176,7 +176,7 @@ app.get("/home", async (req, res) => {
     if (data.results.length > 0) {
       //const movies = data.results[12];
 
-      movies = data.results[13]; //this is where a particular movie is placed on tmdb database you can change the number to see a particular movie trends
+      movies = data.results[0]; //this is where a particular movie is placed on tmdb database you can change the number to see a particular movie trends
       // const image = `https://image.tmdb.org/t/p/original${movies.backdrop_path}`
       //collecting year from auth.js
       const releaseYear = data.results[1].release_date.split("-");
@@ -412,8 +412,26 @@ app.get("/register", checkNotAuthenticated, (req, res) => {
   res.render("register.ejs");
 });
 
-app.get("/movies", (req, res) => {
-  res.render("movies.ejs");
+app.get("/movies", async (req, res) => {
+  try {
+    const response = await fetch(urlActionMovies);
+    const actionData = await response.json();
+
+    const allMovies = actionData.results;
+
+    // Shuffle all movies
+    const shuffleMovies = allMovies.sort(() => 0.5 - Math.random());
+
+    // Select only the first movie from the shuffled array
+    const randomMovie = shuffleMovies[0];
+
+    res.render("movies.ejs", {
+      randomMovie
+    });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
 app.get("/topimdb", (req, res) => {

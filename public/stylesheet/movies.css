@@ -787,17 +787,23 @@
     /* styling for treding*/
 
 
-    .scroll-img {
-        width: 50%;
+    .scroll-img2{
+        width: 286px;
+        height: 170px;
+        border-radius: 2px;
+    
+      }
 
-
-    }
-
-    .scroll-img:hover {
-
-        filter: brightness(70%);
-    }
-
+      .scroll-img2:hover {
+        transform: scale(1.3, 1.3);
+        transition: all ease .7s;
+        cursor: pointer;
+        filter: brightness(30%);
+    
+    
+      
+    
+      }
 
 
     .treading-container {

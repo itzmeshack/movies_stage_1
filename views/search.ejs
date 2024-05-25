@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   
-<head>
+
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chillflix</title>
@@ -10,115 +11,141 @@
     <script defer src="api.js" type="module"></script>
     <script defer type="module" src="render.js"></script>
     <link rel="stylesheet" href="/stylesheet/search.css" />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
-      rel="stylesheet" />
+    <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap" rel="stylesheet" />
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 </head>
+
 <body>
 
-    <header class="header-container">
-        <nav class="navbar-container">
-          <h1 class="logo-name">
-            <a class="header-links" href="/">CHILLFLIX</a>
-            <i class="fa-brands fa-google-play"></i>
-          </h1>
-          <div class="search-container">
-            <form  action="/search" method="GET" >
+  <header class="header-container">
+    <nav class="navbar-container">
+      <h1 class="logo-name">
+        <a class="header-links" href="/">CHILLFLIX</a>
+        <i class="fa-brands fa-google-play"></i>
+      </h1>
+      <div class="search-container">
+        <form  action="/search" method="GET" >
           
-
-                <span onclick="searchbar()">
-                  <i id="mycolor" class="fa-solid fa-magnifying-glass"> </i>
-                </span>
-        
-        
-        
-                <input class="search-bar" type="text" name="query" id="search-incoming"
-                  placeholder="search for movies & tv shows" />
-                  
-                </form>
-          </div>
-    
-          <div id="searchResults"></div>
-    
-    
-    
-          <div onclick="closemenu()" id="sidemenu" class="mobile-nav">
-    
-    
-    
-            <ul class="all-links">
-              <li class="major-links">
-                <a class="anchor-links" href="/home">HOME</a>
-              </li>
-              <li class="major-links">
-                <a class="anchor-links" href="/movies">MOVIES</a>
-              </li>
-              <li class="major-links">
-                <a class="anchor-links" href="/tvseries">TV SERIES</a>
-              </li>
-              <li class="major-links">
-                <a class="anchor-links" href="/topimdb">TOP IMDB</a>
-              </li>
-              <li class="major-link-login">
-                <a class="logins" href="/login">Logout</a>
-              </li>
-            </ul>
-            <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
-    
-          </div>
-    
-    
-          <img id="open" onclick="openmenu()" class="open-menu" src="/images_files/white-open.png" alt="">
-    
-        </nav>
-    
-      </header>
-
-
-<div class="search-content">
-
-
-
-      <h1 class="search-info">Search Results</h1>
-    
-      <% if (searchResults && searchResults.length > 0) { %>
-          <div class="movies-content">
-              <% searchResults.forEach(result => { %>
-                  <div class="movies-poster">
-                    <% if (result.media_type === 'movie') { %>
-                        <a href="/movie/<%= result.id %>">
-                            <img class="bg-image" src="https://image.tmdb.org/t/p/original/<%= result.poster_path %>" alt="Poster not available">
-                     
-                        </a>
-                    
-                          
-                      <% } else if (result.media_type === 'tv') { %>
-
-                        <a href="/tv/<%= result.id %>">
-                     
-                        <img class="bg-image" src="https://image.tmdb.org/t/p/original/<%= result.poster_path %>" alt="Poster not available">
-
-                    </a>
-                      <% } %>
-                      </div>
-              <% }); %>
-                    </div>
-
-                </div>  
-               
-      <% } else { %>
-          <p  class="search-info">No search results found please try correct words.</p>
-      <% } %>
- 
-    
   
-       
-     
+  
+      <div class="mobile-search">
+        <span class="my-magnify" onclick="searchbar()">
+          <i id="mycolor" class="fa-solid fa-magnifying-glass">
+            
+        
+          </i>
+  
+          
+         
+        </span>
+  
+      </div>
+      
+  
+  
+  
+        <span class="my-magnify-desktop" >
+          <i id="mycolor" class="fa-solid fa-magnifying-glass">
+            
+        
+          </i>
+  
+          
+         
+        </span>
+        
+  
+  
+  
+        <input class="search-bar" type="text" name="query" id="search-incoming"
+          placeholder="search for movies & tv shows" autocomplete="off" />
+          
+          
+        </form>
+  
+        
+  
     
+      </div>
+
+      <div id="searchResults"></div>
+
+
+
+      <div onclick="closemenu()" id="sidemenu" class="mobile-nav">
+
+
+
+        <ul class="all-links">
+          <li class="major-links">
+            <a class="anchor-links" href="/home">HOME</a>
+          </li>
+          <li class="major-links">
+            <a class="anchor-links" href="/movies">MOVIES</a>
+          </li>
+          <li class="major-links">
+            <a class="anchor-links" href="/tvseries">TV SERIES</a>
+          </li>
+          <li class="major-links">
+            <a class="anchor-links" href="/topimdb">TOP IMDB</a>
+          </li>
+          <li class="major-link-login">
+            <a class="logins" href="/login">Logout</a>
+          </li>
+        </ul>
+        <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
+
+      </div>
+
+
+      <img id="open" onclick="openmenu()" class="open-menu" src="/images_files/white-open.png" alt="">
+
+    </nav>
+
+  </header>
+
+
+  <div class="search-content">
+
+
+
+    <h1 class="search-info">Search Results</h1>
+
+    <% if (searchResults && searchResults.length > 0) { %>
+    <div class="movies-content">
+      <% searchResults.forEach(result => { %>
+      <div class="movies-poster">
+        <% if (result.media_type === 'movie') { %>
+        <a href="/movie/<%= result.id %>">
+          <img class="bg-image" src="https://image.tmdb.org/t/p/original/<%= result.poster_path %>" alt="Poster not available">
+
+        </a>
+
+
+        <% } else if (result.media_type === 'tv') { %>
+
+        <a href="/tv/<%= result.id %>">
+
+          <img class="bg-image" src="https://image.tmdb.org/t/p/original/<%= result.poster_path %>" alt="Poster not available">
+
+        </a>
+        <% } %>
+      </div>
+      <% }); %>
+    </div>
+
+  </div>
+
+  <% } else { %>
+  <p class="search-info">No search results found please try correct words.</p>
+  <% } %>
+
+
+
+
+
 </body>
+
 </html>

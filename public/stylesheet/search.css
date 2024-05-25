@@ -3,13 +3,16 @@
   margin: 0;
 }
 
-*,
-::after,
-::before {
-  box-sizing: border-box;
-}
+
 
 @media (min-width: 1024px) {
+
+  *,
+  ::after,
+  ::before {
+    box-sizing: border-box;
+  }
+
   body {
     background-color: rgb(0, 0, 0);
   }
@@ -86,6 +89,9 @@
     font-size: 20px;
     font-family: "Chillax", sans-serif;
   }
+  .my-magnify{
+    display: none;
+  }
 
   a.header-links {
     color: rgb(211, 5, 5);
@@ -121,19 +127,222 @@
     
 
 
-  
 
   .movies-content {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     row-gap: 5.5vw;
-    gap: .4em;
+    gap: .5em;
+    padding: .8em;
+ 
+  }
+
+
+
+  .movies-poster:hover{
+
+    transition: all .2s ease-in;
+    filter: brightness(50%);
+    
   }
 
   .bg-image {
     text-align: center;
     width: 100%;
+ 
+    overflow: hidden;
+   
+  }
+ 
+}
+
+
+@media (max-width: 1020px) and (max-width: 1024px) {
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    background-color: black;
+
+    /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
+              color: white;*/
+  }
+
+  header.header-container {
+    background-color: black;
+    border-bottom: 1px solid red;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  nav.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7em;
+  }
+
+  ul.all-links {
+    list-style: none;
+  }
+
+  .major-links {
+    border-bottom: 1px solid white;
+    padding: 1em;
+  }
+
+  a.anchor-links {
+    text-decoration: none;
+
+    color: white;
+    font-family: "Chillax", sans-serif;
+  }
+
+  a.logins {
+    text-decoration: none;
+  }
+
+  .anchor-links:hover {
+    border-bottom: 2px solid red;
+  }
+
+  a.anchor-links:active {
+    border-bottom: 2px solid red;
+  }
+
+  /* styling for search container*/
+  .search-container {
+    padding: 1em;
+  }
+
+  .fa-magnifying-glass {
+    color: white;
+    position: relative;
+    font-size: 20px;
+    left: 3em;
+  }
+
+  .search-bar {
+    outline: none;
+    width: 80%;
+    padding: 5px 0px 5px 40px;
+    border: 1px solid rgb(181, 1, 1);
+    position: absolute;
+    left: 10px;
+    top: 4em;
+    background-color: rgb(255, 255, 255);
     border-radius: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: "Chillax", sans-serif;
+    display: none;
+  }
+
+  .my-magnify-desktop{
+    display: none;
+  }
+
+  /* STYLING FOR NAVIGATION FOR MOBILE AND TABLET LAYOUT*/
+
+  .mobile-nav {
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    padding: 1em;
+    right: 1000px;
+    /* to remove it is 500px to add it is -30px */
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+    height: 40vh;
+    transition: all ease 1s;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    width: 6%;
+  }
+
+  .open-menu {
+    position: relative;
+    right: 10px;
+    width: 7%;
+  }
+
+  a.header-links {
+    color: rgb(211, 5, 5);
+    text-decoration: none;
+    font-family: "Clash Display", sans-serif;
+  }
+
+  .logins {
+    color: rgb(255, 0, 0);
+    border: 1px red solid;
+    background-color: black;
+    position: relative;
+    text-align: center;
+    top: 1em;
+    padding: 5px;
+    font-family: "Clash Display", sans-serif;
+  }
+
+  .logo-name {
+    font-size: 16px;
+  }
+
+  .major-link-login {
+    text-align: center;
+  }
+
+  .fa-google-play {
+    color: white;
+    font-size: 16px;
+  }
+
+  .movies-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 5.5vw;
+    gap: .4em;
+  }
+
+  
+
+  .bg-image {
+    text-align: center;
+    width: 100%;
+    border-radius: 5px;
     overflow: hidden;
   }
+
+  .search-info {
+    color: white;
+    padding: 0px 0px 10px 0px;
+    font-family: "Clash Display", sans-serif;
+    font-size: 22px;
+  }
+
+  .search-content {
+    position: relative;
+    top: 6em;
+    padding: 0px 10px;
+}
+
+  
+
+  
+
+  
+
+  
+
+
+
+
 }

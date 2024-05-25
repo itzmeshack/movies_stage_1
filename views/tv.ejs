@@ -30,16 +30,45 @@
         <form  action="/search" method="GET" >
           
 
-          <span onclick="searchbar()">
-            <i id="mycolor" class="fa-solid fa-magnifying-glass"> </i>
-          </span>
-  
-  
-  
-          <input class="search-bar" type="text" name="query" id="search-incoming"
-            placeholder="search for movies & tv shows" />
+
+      <div class="mobile-search">
+        <span class="my-magnify" onclick="searchbar()">
+          <i id="mycolor" class="fa-solid fa-magnifying-glass">
             
-          </form>
+        
+          </i>
+
+          
+         
+        </span>
+
+      </div>
+      
+
+
+
+        <span class="my-magnify-desktop" >
+          <i id="mycolor" class="fa-solid fa-magnifying-glass">
+            
+        
+          </i>
+
+          
+         
+        </span>
+        
+
+
+
+        <input class="search-bar" type="text" name="query" id="search-incoming"
+          placeholder="search for movies & tv shows" autocomplete="off" />
+          
+          
+        </form>
+
+        
+
+    
       </div>
 
       <div onclick="closemenu()" id="sidemenu" class="mobile-nav">

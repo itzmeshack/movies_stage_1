@@ -25,18 +25,47 @@
     </h1>
     <div class="search-container">
       <form  action="/search" method="GET" >
+        
+
+
+    <div class="mobile-search">
+      <span class="my-magnify" onclick="searchbar()">
+        <i id="mycolor" class="fa-solid fa-magnifying-glass">
           
+      
+        </i>
 
-        <span onclick="searchbar()">
-          <i id="mycolor" class="fa-solid fa-magnifying-glass"> </i>
-        </span>
+        
+       
+      </span>
+
+    </div>
+    
 
 
 
-        <input class="search-bar" type="text" name="query" id="search-incoming"
-          placeholder="search for movies & tv shows" />
+      <span class="my-magnify-desktop" >
+        <i id="mycolor" class="fa-solid fa-magnifying-glass">
           
-        </form>
+      
+        </i>
+
+        
+       
+      </span>
+      
+
+
+
+      <input class="search-bar" type="text" name="query" id="search-incoming"
+        placeholder="search for movies & tv shows" autocomplete="off" />
+        
+        
+      </form>
+
+      
+
+  
     </div>
 
     <div onclick="closemenu()" id="sidemenu" class="mobile-nav">
@@ -83,6 +112,8 @@
           <img src="/images_files/mobile-web.jpg" alt="mobile" class="img-con2">
         <% } %>
       </div>
+
+      <div class="areas">
     
             <div class=" movie-overview">
               <% if (movie) { %>
@@ -210,6 +241,8 @@
   
   
     </div>
+
+  </div>
 
   </div>
 

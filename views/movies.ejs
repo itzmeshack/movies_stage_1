@@ -4,8 +4,9 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Chillflix</title>
-        <script defer src="index.js"></script>
-        <link rel="stylesheet" href="stylesheet/movies.css" />
+        <script defer src="/js_files/index.js"></script>
+  
+        <link rel="stylesheet" href="/stylesheet/movies.css" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
           rel="stylesheet"
@@ -75,10 +76,21 @@
         </nav>
       </header>
     
+      <div class="content-container">
 
 
       <div class="image">
-        <img class="img-con" src="https://images7.alphacoders.com/114/1140475.jpg" alt="video" />
+        <% if (randomMovie) { %>
+            <div class="treading-control2">
+              <a href="/movie/<%= randomMovie.id %>" class="film-mark">
+                <img class="img-con" src="https://image.tmdb.org/t/p/original/<%= randomMovie.backdrop_path %>"
+                  alt="<%= randomMovie.title %>" />
+              </a>
+            </div>
+          <% } else { %>
+            <p>No random action movie available</p>
+          <% } %>
+          
         </div>
     <main class="video-container">
      
@@ -113,7 +125,6 @@
 
 
 
-    <div class="content-container">
  
 
 
@@ -129,51 +140,51 @@
              
              
           <img
-              class="scroll-img"
+              class="scroll-img2"
               src="https://i.ytimg.com/vi/ZGnlxsaoLm8/maxresdefault.jpg"
               alt="#"
           />
           <img
-              class="scroll-img"
+              class="scroll-img2"
               src="https://i.ytimg.com/vi/daLCTszq_Ds/maxresdefault.jpg"
               alt="#"
           />
           <img
-              class="scroll-img"
+              class="scroll-img2"
               src="https://itsmoreofacomment.com/wp-content/uploads/2021/09/Dune-Movie-Official-Poster-banner-feature.jpg"
               alt="#"
           />
           <img
-              class="scroll-img"
+              class="scroll-img2"
               src="https://news.newonnetflix.info/wp-content/uploads/2024/02/damsel-wide.jpeg"
               alt="#"
           />
           <img
-              class="scroll-img"
+              class="scroll-img2"
               src="https://images7.alphacoders.com/114/1140475.jpg"
               alt="#"
           />
           <img
-              class="scroll-img"
+              class="scroll-img2"
               src="https://images.alphacoders.com/115/1150493.jpg"
               alt="#"
           />
           <img
-              class="scroll-img"
+              class="scroll-img2"
               src="https://www.koimoi.com/wp-content/new-galleries/2021/03/godzilla-vs-kong-is-releasing-at-indian-box-office-with-very-less-awareness-001.jpg"
               alt="#"
           />
           <img
-              class="scroll-img"
+              class="scroll-img2"
               src="https://i0.wp.com/www.bigglasgowcomicpage.com/wp-content/uploads/2022/01/the-flash-movie-logo.jpg?fit=1000%2C500&ssl=1"
               alt="#"
           />
           <img
-              class="scroll-img"
+              class="scroll-img2"
               src="https://imageio.forbes.com/blogs-images/scottmendelson/files/2017/05/wdwmn_online_master_deflection_4000x2490_master-rev-1-1200x675.jpg?format=jpg&height=900&width=1600&fit=bounds"
               alt="#"
           />
-          <img class="scroll-img" src="/images_files/mandamweb2.jpeg" alt="#" />
+          <img class="scroll-img2" src="/images_files/mandamweb2.jpeg" alt="#" />
            
         
          
@@ -182,7 +193,7 @@
       <div class="button">
 
     
-        <button id="scroll-btn2" onclick="treadingmoveLeft()" class=" pre"> ❮ </button>
+        <button id="scroll-btn2" onclick="treadingmoveLeft()"  class=" pre"> ❮ </button>
           
         
         <button id="scroll-btn2"   onclick="treadingmoveRight()" class="next "> ❯ </buttonn>

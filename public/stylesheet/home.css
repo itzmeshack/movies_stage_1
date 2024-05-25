@@ -54,7 +54,7 @@ will take place here for index files
   /* Style for the images within search suggestions */
 
   .new img{
-    width: 30%;
+    width: 20%;
   
     
   }
@@ -63,19 +63,9 @@ will take place here for index files
 
 
 
-  .new a{
-    color: white;
+ 
 
-    text-decoration: none;
-  }
 
-  .search-suggestion a {
-    display: block; /* Make the links block-level elements to occupy the full width of the container */
-    /* Add padding to the top and bottom of each link */
-    text-decoration: none; /* Remove default underline */
-    color: #333; /* Set text color */
-    transition: background-color 0.3s; /* Add transition effect for hover state */
-}
 
 
   header.header-container {
@@ -152,9 +142,12 @@ will take place here for index files
 
 
   /* styling for search container*/
-  .search-container {
+  .search-container{
+   padding: 1em;
+    
 
-    padding: 1em;
+    
+
   }
 
   .fa-magnifying-glass {
@@ -162,8 +155,10 @@ will take place here for index files
     position: relative;
     left: 2em;
 
+
   }
 
+ 
   .search-bar {
     outline: none;
     width: 30vw;
@@ -177,6 +172,10 @@ will take place here for index files
     font-family: 'Chillax', sans-serif;
 
 
+  }
+
+  .my-magnify{
+    display: none;
   }
 
   a.header-links {
@@ -360,6 +359,9 @@ will take place here for index files
     transform: scale(1.3, 1.3);
     transition: all ease .7s;
     cursor: pointer;
+    filter: brightness(30%);
+
+
   
 
   }
@@ -610,6 +612,39 @@ will take place here for index files
   }
 
 
+  #search-suggestions {
+    display: none;
+    color: white;
+    overflow-y: auto;
+    padding: 10px 20px 0px 20px;
+    background-color: #333;
+    position: fixed;
+    top: 4.5em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+  
+
+
+ 
+   
+ 
+    
+  }
+
+
+  /* Style for the images within search suggestions */
+
+  .new img{
+    width: 150px;
+
+  
+    
+  }
+
+
   header.header-container {
 
     background-color: black;
@@ -632,7 +667,7 @@ will take place here for index files
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: .7em;
+    padding: 20px
   }
 
   ul.all-links {
@@ -675,27 +710,38 @@ will take place here for index files
 
   .fa-magnifying-glass {
     color: white;
-    position: relative;
-    font-size: 20px;
-    left: 3em;
+    position: absolute;
+    top: 30px;
+    right: 4.2rem;
+    z-index: 1;
+    font-size: 1rem;
 
   }
 
   .search-bar {
+
+
+
     outline: none;
-    width: 80%;
-    padding: 5px 0px 5px 40px;
+    width: 70%;
+    padding: 5px 0px 5px 10px;
     border: 1px solid rgb(181, 1, 1);
     position: absolute;
     left: 10px;
-    top: 4em;
+    top: 1em;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     color: rgb(0, 0, 0);
     font-size: 20px;
     font-family: 'Chillax', sans-serif;
     display: none;
+    z-index: 1;
+   
 
+  }
+
+  .my-magnify-desktop{
+    display: none;
 
   }
 
@@ -721,14 +767,14 @@ will take place here for index files
     position: absolute;
     top: 20px;
     right: 40px;
-    width: 6%;
+    width: 5%;
   }
 
   .open-menu {
-
+    
     position: relative;
-    right: 10px;
-    width: 7%;
+   
+     width: 4.5%;
   }
 
   a.header-links {

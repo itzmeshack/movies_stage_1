@@ -81,6 +81,10 @@
     font-family: "Chillax", sans-serif;
   }
 
+  .my-magnify{
+    display: none;
+  }
+
   a.header-links {
     color: rgb(211, 5, 5);
     text-decoration: none;
@@ -117,7 +121,7 @@
     font-size: 1.8em;
     position: relative;
     top: -12em;
-    left: 5%;
+    left: 13em;
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
@@ -277,9 +281,11 @@
   .movie-overview{
     position: relative;
     top: 2em;
-  }
+    width: 50vw;
 
   
+}
+
 }
 
 @media (max-width: 1020px) and (max-width: 1024px) {
@@ -364,6 +370,10 @@
     color: rgb(0, 0, 0);
     font-size: 20px;
     font-family: "Chillax", sans-serif;
+    display: none;
+  }
+
+  .my-magnify-desktop{
     display: none;
   }
 

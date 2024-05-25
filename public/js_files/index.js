@@ -4,16 +4,23 @@ let allmenu = document.getElementById("sidemenu");
 
 function openmenu() {
   allmenu.style.right = "-30px";
+  let coolor = document.querySelector("#mycolor");
+  coolor.style.display = 'none';
+  
 }
 
 function closemenu() {
   allmenu.style.right = "1000px";
+  let coolor = document.querySelector("#mycolor");
+  coolor.style.display = 'block';
+
 }
 
 function searchbar() {
   let searching = document.getElementById("search-incoming");
   let coolor = document.querySelector("#mycolor");
   let display = searching.style.display;
+ 
 
   if (display == "none") {
     searching.style.display = "block";
@@ -23,6 +30,8 @@ function searchbar() {
     coolor.style.color = "white";
   }
 }
+
+
 
 /** This function is for the slider */
 
@@ -462,6 +471,17 @@ searchInput.addEventListener('input', async () => {
     const query = searchInput.value.trim();
 
 
+    function toggleSearchBar() {
+      let searching = document.querySelector("#search-incoming");
+      let display = searching.style.display;
+
+      if (display == "none") {
+          searching.style.display = "block";
+      } else {
+          searching.style.display = "none";
+      }
+  }
+
     function hideSearchSuggestions() {
       searchSuggestions.style.display = 'none';
   }
@@ -469,6 +489,7 @@ searchInput.addEventListener('input', async () => {
   // Function to show the search suggestions div
   function showSearchSuggestions() {
       searchSuggestions.style.display = 'block';
+     
   }
   
   // Add event listener to the document to detect clicks outside the search suggestions div
@@ -486,6 +507,7 @@ searchInput.addEventListener('input', async () => {
 
     try {
       showSearchSuggestions();
+
         const Base_URL = "https://api.themoviedb.org/3";
         const API_KEY = "46affb6ad79782ea4c251824edd9edb6";
   
