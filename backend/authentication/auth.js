@@ -67,19 +67,45 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-//universal url for main movies
 
+//Please be careful when touching this links bellow  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//universal url for main movies in home link
 const API_KEY = "46affb6ad79782ea4c251824edd9edb6"; //try to hide the api key on .env file
 const Base_URL = "https://api.themoviedb.org/3";
 const url = `${Base_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`; //url for main movie
 const urlTrending_movies = `${Base_URL}/trending/movie/week?api_key=${API_KEY}&language=en-US`; //url for trending movies
 const urlLatestMovies = `${Base_URL}/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`; //url for latest movies
-const urlActionMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&with_genres=28`; // url for action movies
+const urlActionMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&with_genres=28`; // url for action movies this for the home link.
 const urlTvseries = `${Base_URL}/trending/tv/week?api_key=${API_KEY}&language=en-US&page=1`; // url for tv series
 const urlHorrorMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&with_genres=27`;
 const urlRatedMovies = `${Base_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`;
 //const urlBestAnime = `${Base_URL}/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=vote_average.desc&with_genres=16`;
 const urlBestAnime = `${Base_URL}/discover/tv?api_key=${API_KEY}&with_genres=16`;
+
+
+
+
+
+
+
+
+
 
 let movies = [];
 
@@ -412,21 +438,75 @@ app.get("/register", checkNotAuthenticated, (req, res) => {
   res.render("register.ejs");
 });
 
+
+
+//for movies link
+const urlActionMovies2 = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=28`// this for the movies link 
+const urlSciFiMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=878`;
+const urlRomanticMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=10749`;
+const urlDramaMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=18`;
+const urlAwardWinningMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_keywords=Oscar`;
+//const urlAwardWinningMovies = `${Base_URL}/list/{list_id}?api_key=${API_KEY}&language=en-US`; // replace with the list_id 
+const urlComedyMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=35`;
+const urlAdventureMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=12`;
+const urlThrillerMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=53`;
+
 app.get("/movies", async (req, res) => {
   try {
-    const response = await fetch(urlActionMovies);
+    const response = await fetch(urlActionMovies2);
     const actionData = await response.json();
 
     const allMovies = actionData.results;
 
     // Shuffle all movies
-    const shuffleMovies = allMovies.sort(() => 0.5 - Math.random());
+    const shuffleMovies = allMovies.sort(() => 0.5- Math.random());
 
     // Select only the first movie from the shuffled array
     const randomMovie = shuffleMovies[0];
 
+    const [
+      AwardWining, 
+      ScifiMovies,
+      RomanticMovies,
+      DramaMovies, 
+      ComedyMovies,
+      AdventureMovies,
+      ThrillerMovies
+    ] = await  Promise.all([
+      fetch(urlAwardWinningMovies),
+      fetch(urlSciFiMovies),
+      fetch(urlRomanticMovies),
+      fetch(urlDramaMovies),
+      fetch(urlComedyMovies),
+      fetch(urlAdventureMovies),
+      fetch(urlThrillerMovies)
+    ])
+
+
+    const [
+      AwardResponse,
+      ScifiResponse,
+      RomanticResponse,
+      DramaResponse, 
+      ComedyResponse,
+      AdventureResponse,
+      ThrillerResponse
+
+    ] = await Promise.all([
+      AwardWining.json(),
+      ScifiMovies.json(),
+      RomanticMovies.json(),
+      DramaMovies.json(),
+      ComedyMovies.json(),
+      AdventureMovies.json(),
+      ThrillerMovies.json()
+
+    ])
+
     res.render("movies.ejs", {
-      randomMovie
+      randomMovie, 
+      AwardResponse
+
     });
   } catch (error) {
     console.error("Error fetching data:", error);

@@ -31,16 +31,48 @@
             <i class="fa-brands fa-google-play"></i>
           </h1>
           <div class="search-container">
-            <span  onclick="searchbar()" >
-                <i id="mycolor" class="fa-solid fa-magnifying-glass"> </i>
+            <form  action="/search" method="GET" >
+              
+    
+    
+          <div class="mobile-search">
+            <span class="my-magnify" onclick="searchbar()">
+              <i id="mycolor" class="fa-solid fa-magnifying-glass">
+                
+            
+              </i>
+    
+              
+             
             </span>
-            <input
-              class="search-bar"
-              type="text"
-              name="login-details"
-              id="search-incoming"
-              placeholder="search for movies & tv shows"
-            />
+    
+          </div>
+          
+    
+    
+    
+            <span class="my-magnify-desktop" >
+              <i id="mycolor" class="fa-solid fa-magnifying-glass">
+                
+            
+              </i>
+    
+              
+             
+            </span>
+            
+    
+    
+    
+            <input class="search-bar" type="text" name="query" id="search-incoming"
+              placeholder="search for movies & tv shows" autocomplete="off" />
+              
+              
+            </form>
+    
+            
+    
+        
           </div>
 
           <div   onclick="closemenu()" id="sidemenu" class="mobile-nav">
@@ -75,6 +107,16 @@
         
         </nav>
       </header>
+      <div class="new-image">
+
+
+        <div  class="new" id="search-suggestions">
+          <div class="cos">
+            
+          </div>
+        </div>
+      
+      </div>
     
       <div class="content-container">
 
@@ -94,26 +136,31 @@
         </div>
     <main class="video-container">
      
-
+       
         <div class="letter-container">
+
+            <% if (randomMovie) { %>
         <div class="back-hd">
             <p class="letter">HD</p>
             <p class="letter">MOVIE</p>
-            <p class="letter">2020</p>
+            <p class="letter"> <%=randomMovie.release_date.slice(0,4)%></p>
         </div>
 
         <div class="descript">
-            <h1 class="head-name">Justice League</h1>
+            <h1 class="head-name"><%= randomMovie.title %></h1>
             <p class="des-con">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat
-             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, ducimus delectus minus qui recusandae veritatis vel adipisci autem quod quae! Ea, aut. Dolorem numquam quibusdam illum laboriosam et asperiores esse.
+                <%= randomMovie.overview %> 
             </p>
 
             <div class="watch">
             <i class="fa-solid fa-play"></i>
-            <p><a class="watch-link" href="/">Watch Now</a></p>
-            </div>
+            <p><a class="watch-link" href="/movie/<%= randomMovie.id %>">Watch Now</a></p>
         </div>
+        </div>
+
+        <% } else { %>
+            <p>No random action movie available</p>
+          <% } %>
         </div>
     </main>
 

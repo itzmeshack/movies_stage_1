@@ -7,6 +7,40 @@
 @media (min-width: 1024px) {
 
 
+
+
+  #search-suggestions {
+    display: none;
+    color: white;
+    overflow-y: auto;
+    padding: 10px 20px 0px 20px;
+    background-color: #333;
+    position: fixed;
+    top: 4.5em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+  
+
+
+ 
+   
+ 
+    
+  }
+
+
+  /* Style for the images within search suggestions */
+
+  .new img{
+    width: 20%;
+  
+    
+  }
+
+
     body {
 
         background-color: black
@@ -68,18 +102,8 @@
         border-bottom: 2px solid red;
     }
 
-    /* styling for search container*/
-    .search-container {
-
-        padding: 1em;
-    }
-
-    .fa-magnifying-glass {
-        color: white;
-        position: relative;
-        left: 2em;
-
-    }
+    
+    
 
 
 
@@ -93,21 +117,43 @@
         display: none;
     }
 
-
-    .search-bar {
-        outline: none;
-        width: 30vw;
-        padding: 5px 0px 5px 40px;
-        border: 1px solid rgb(181, 1, 1);
-        background-color: rgba(122, 122, 122, 0.457);
-        border-radius: 10px;
-        color: white;
-        font-size: 20px;
-        font-family: 'Chillax', sans-serif;
-
-
-
-    }
+ /* styling for search container*/
+ .search-container{
+    padding: 1em;
+     
+ 
+     
+ 
+   }
+ 
+   .fa-magnifying-glass {
+     color: white;
+     position: relative;
+     left: 2em;
+ 
+ 
+   }
+ 
+  
+   .search-bar {
+     outline: none;
+     width: 30vw;
+     padding: 5px 0px 5px 40px;
+     border: 1px solid rgb(181, 1, 1);
+ 
+     background-color: rgba(122, 122, 122, 0.457);
+     border-radius: 10px;
+     color: white;
+     font-size: 20px;
+     font-family: 'Chillax', sans-serif;
+ 
+ 
+   }
+ 
+   .my-magnify{
+     display: none;
+   }
+ 
 
     a.header-links {
         color: rgb(211, 5, 5);
