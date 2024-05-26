@@ -441,16 +441,19 @@ app.get("/register", checkNotAuthenticated, (req, res) => {
 
 
 //for movies link
-const urlActionMovies2 = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=28`// this for the movies link 
-const urlSciFiMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=878`;
+const urlActionMovies2 = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=28,878,53&primary_release_date.gte=2015-01-01&primary_release_date.lte=2023-12-31`;//this for the main action movies
+const urlSciFiMovies =  `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=878&primary_release_date.gte=2015-01-01&primary_release_date.lte=2022-12-31`;
+;
 const urlRomanticMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=10749`;
-const urlDramaMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=18`;
-const urlAwardWinningMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_keywords=Oscar`;
-//const urlAwardWinningMovies = `${Base_URL}/list/{list_id}?api_key=${API_KEY}&language=en-US`; // replace with the list_id 
-const urlComedyMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=35`;
-const urlAdventureMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=12`;
-const urlThrillerMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=53`;
-
+const urlDramaMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=18&primary_release_date.gte=2018-01-01&primary_release_date.lte=2020-12-31`;
+;
+const urlAwardWinningMovies = `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=28,12,878,14`;
+const urlComedyMovies =  `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=35&primary_release_date.gte=2015-01-01&primary_release_date.lte=2022-12-31`;
+;
+const urlAdventureMovies =  `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=12&primary_release_date.gte=2019-01-01&primary_release_date.lte=2019-12-31`;
+;;
+const urlThrillerMovies =  `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=53&primary_release_date.gte=2015-01-01&primary_release_date.lte=2019-12-31`;
+;
 app.get("/movies", async (req, res) => {
   try {
     const response = await fetch(urlActionMovies2);
@@ -505,7 +508,13 @@ app.get("/movies", async (req, res) => {
 
     res.render("movies.ejs", {
       randomMovie, 
-      AwardResponse
+      awardmovies: AwardResponse.results,
+      scifimovies: ScifiResponse.results,
+      romanticmovies: RomanticResponse.results,
+      dramamovies: DramaResponse.results,
+      comedymovies: ComedyResponse.results,
+      adventuremovies: AdventureResponse.results,
+      thrillermovies: ThrillerResponse.results
 
     });
   } catch (error) {

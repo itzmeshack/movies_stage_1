@@ -414,14 +414,14 @@ will take place here for index files
   width: 100%;
   }
 
-
+/*
 
   .treads{
     display: flex;
     gap: .3em;
     scroll-behavior: smooth;
     transition: transform 1s ease;
-  }
+  */
 
   .treading-control-2{
     display: flex;

@@ -1,1062 +1,1009 @@
+/*
+All styling for desktop, mobiles, 
+and tabket.
+will take place here for index files 
+
+*/
+
+
+
 * {
-    padding: 0;
     margin: 0;
-}
-
-
-@media (min-width: 1024px) {
-
-
-
-
-  #search-suggestions {
-    display: none;
-    color: white;
-    overflow-y: auto;
-    padding: 10px 20px 0px 20px;
-    background-color: #333;
-    position: fixed;
-    top: 4.5em;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-
-  
-
-
- 
-   
- 
-    
+    padding: 0;
   }
-
-
-  /* Style for the images within search suggestions */
-
-  .new img{
-    width: 20%;
   
-    
-  }
-
-
+  /* For Desktop layout */
+  @media (min-width: 1024px) {
+  
     body {
-
-        background-color: black
-            /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
-        color: white;*/
-
-    }
-
-
-    header.header-container {
-
-        background-color: black;
-        border-bottom: 1px solid red;
-        background-color: black;
-        position: fixed;
-        left: 0;
-        right: 0;
-        z-index: 1;
-
-
-
-
-
-
-
-    }
-
-    nav.navbar-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 5px 0px 5px;
-    }
-
-    ul.all-links {
-        display: flex;
-        gap: 1.5em;
-        justify-content: center;
-        list-style: none;
-
-    }
-
-    .anchor-links {
-        text-decoration: none;
-        color: white;
-        font-family: 'Chillax', sans-serif;
-    }
-
-    a.logins {
-        text-decoration: none;
-    }
-
-    .anchor-links:hover {
-        border-bottom: 2px solid red;
-    }
-
-
-    a.anchor-links:active {
-        border-bottom: 2px solid red;
-    }
-
-    
-    
-
-
-
-    .close-menu {
-        display: none;
-
-
-    }
-
-    .open-menu {
-        display: none;
-    }
-
- /* styling for search container*/
- .search-container{
-    padding: 1em;
-     
- 
-     
- 
-   }
- 
-   .fa-magnifying-glass {
-     color: white;
-     position: relative;
-     left: 2em;
- 
- 
-   }
- 
   
-   .search-bar {
-     outline: none;
-     width: 30vw;
-     padding: 5px 0px 5px 40px;
-     border: 1px solid rgb(181, 1, 1);
- 
-     background-color: rgba(122, 122, 122, 0.457);
-     border-radius: 10px;
-     color: white;
-     font-size: 20px;
-     font-family: 'Chillax', sans-serif;
- 
- 
-   }
- 
-   .my-magnify{
-     display: none;
-   }
- 
-
-    a.header-links {
-        color: rgb(211, 5, 5);
-        text-decoration: none;
-        font-family: 'Clash Display', sans-serif;
-
+  
+      background-color: rgb(0, 0, 0);
+  
+  
+  
+      /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
+            color: white;*/
+  
     }
-
-    .logins {
-        color: rgb(255, 0, 0);
-        border: 1px red solid;
-        background-color: black;
-        border-radius: 20px;
-        padding: 1em;
-        font-family: 'Clash Display', sans-serif;
-    }
-
-    .fa-google-play {
-        color: white;
-        font-size: 30px;
-    }
-
-
-
-
-
-    /* for main bodies movies container*/
-
-    .content-container {
-        background-color: rgba(0, 0, 0, 0.818);
-    }
-
-
-    .image {
-        /* Hide overflow to contain the shadow effect */
-        background-size: contain;
-    }
-
-
-
-    .img-con {
-        width: 100vw;
-        position: relative;
-        top: 4em;
-        /* Make the image a block element */
-        max-width: 100%;
-        /* Ensure the image fits within the container */
-        filter: brightness(80%);
-        /* Apply grayscale to the image */
-        /* Add a vignette shadow effect */
-        box-shadow: inset 0 0 200px 50px rgba(0, 0, 0, 0.5);
-    }
-
-    .video-container {
-        position: relative;
-
-    }
-
-    .letter-container {
-        position: absolute;
-        top: -30em;
-        left: 0;
-        padding: 1.5em;
-        outline: none;
-
-
-
-
-    }
-
-
-    .back-hd {
-        display: flex;
-        gap: 2em;
-
-
-
-
-    }
-
-
+    
+  
+    #search-suggestions {
+      display: none;
+      color: white;
+      overflow-y: auto;
+      padding: 10px 20px 0px 20px;
+      background-color: #333;
+      position: fixed;
+      top: 4.5em;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+  
+    
+  
+  
    
-
-    .letter {
-        background-color: rgb(234, 0, 0);
-        color: white;
-        padding: .6em;
-        border-radius: 5px;
-        font-family: 'Clash Display', sans-serif;
-
+     
+   
+      
     }
-
-
-    .descript {
-
-
-        font-family: 'Chillax', sans-serif;
-        font-weight: bold;
-        color: rgb(255, 255, 255);
-        width: 60%;
-        height: auto;
-    }
-
-    .des-con {
-        font-size: 1em;
-    }
-
-
-
-    .watch {
-        display: flex;
-        align-items: center;
-        gap: .6em;
-        margin-top: 2em;
-        padding: 20px 0px 20px 10px;
-        background-color: rgb(255, 255, 255);
-        width: 10vw;
-        font-family: 'Chillax', sans-serif;
-
-
-    }
-
-    .watch:hover {
-        opacity: .8;
-        cursor: pointer;
-    }
-
-    .watch-link {
-        text-decoration: none;
-        color: rgb(0, 0, 0);
-        font-size: 17px;
-    }
-
-
-    .fa-play {
-        color: black;
-        font-size: 25px;
-    }
-
-
-
-
-
-
-
-
-
-
-    .scroll-img {
-        width: 20%;
-
-    }
-
-    .scroll-img:hover {
-        transform: translateY(16px);
-        transition: all ease-out .4s;
-        background-color: red;
-        opacity: .7;
-        cursor: pointer;
-    }
-
-
-
-    .treading-container {
-        color: white;
-    top: -6em;
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-
-
-
-
-    }
-
-    .treading-control {
-        display: flex;
-        gap: .3em;
-        scroll-behavior: smooth;
-        transition: transform 1s ease;
-
-
-    }
-
-    .treading-control-2{
-        display: flex;
-        gap: .3em;
-        scroll-behavior: smooth;
-        transition: transform 1s ease;
-      }
-    
-      .treading-control-3{
-        display: flex;
-        gap: .3em;
-        scroll-behavior: smooth;
-        transition: transform 1s ease;
-    
-      }
-    
-      .treading-control-4{
-        display: flex;
-        gap: .3em;
-        scroll-behavior: smooth;
-        transition: transform 1s ease;
-      }
-
-
-
-      .treading-control-5{
-        display: flex;
-        gap: .3em;
-        scroll-behavior: smooth;
-        transition: transform 1s ease;
-      }
-    
-      .treading-control-6{
-        display: flex;
-        gap: .3em;
-        scroll-behavior: smooth;
-        transition: transform 1s ease;
-      }
-    
-    
-      .treading-control-7{
-        display: flex;
-        gap: .3em;
-        scroll-behavior: smooth;
-        transition: transform 1s ease;
-      }
-
-
-
-    .treading-control::-webkit-scrollbar {
-        display: none;
-    }
-
-
-    .trend-head {
-        font-family: 'Clash Display', sans-serif;
-        padding: 20px 10px 20px 10px;
-        font-size: 20px;
-    }
-
-
-
-
-    /* footer section */
-    .footer-continer {
-
-        color: white;
-
-        padding: 3em;
-        font-size: 16px;
-        font-family: 'Chillax', sans-serif;
-        display: flex;
-
-        left: 0;
-        right: 0;
-        top: 37em;
-
-
-    }
-
-    .footer-about-us {
-        width: 50vw;
-    }
-
-    .about {
-        padding: 10px 0px 10px 0px;
-    }
-
-    .footer-links {
-        display: grid;
-        grid-template-columns: repeat(4, 2fr);
-        gap: 1em;
-        padding: 0px 0px 0px 60px;
-
-    }
-
-    .cat-links {
-        text-decoration: none;
-        color: rgb(238, 2, 2);
-        position: relative;
-        top: 2em;
-        font-size: 15px;
-
-    }
-
-
-    /* for preview buttons*/
-
-
-    .treading-container button {
-        position: relative;
-        top: -3em;
-        font-size: 2em;
-        padding: 10px 50px 10px 50px;
-        outline: none;
-        border: none;
-
-
-
-
-
-
-    }
-
-    .button {
-        display: flex;
-        justify-content: space-between;
-    }
-
-
-
-    .pre {
-
-        background-color: black;
-        color: rgb(255, 0, 0);
-        opacity: .7;
-
-
-
-
-    }
-
-
-
-    .next {
-
-        background-color: black;
-        color: rgb(255, 0, 0);
-        opacity: .6;
-
-
-    }
-
-    .pre:hover {
-        opacity: 9;
-        cursor: pointer;
-
-
-    }
-
-
-    .next:hover {
-        opacity: 9;
-        cursor: pointer;
-    }
-
-
-
-
-
-
-
-
-
-
-
-}
-
-
-
-
-
-@media (max-width: 1020px) and (max-width: 1024px) {
-    * {
-        padding: 0;
-        margin: 0;
-    }
-
-
-
-    body {
-
-
-        background-color: black;
-
-
-
-        /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
-              color: white;*/
-
-    }
-
-
-    header.header-container {
-
-        background-color: black;
-        border-bottom: 1px solid red;
-        position: fixed;
-        left: 0;
-        right: 0;
-        z-index: 1;
-
-
-
-
-
-
-
-
-    }
-
-    nav.navbar-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: .7em;
-    }
-
-    ul.all-links {
-
-        list-style: none;
-
-    }
-
-    .major-links {
-        border-bottom: 1px solid white;
-        padding: 1em;
-    }
-
-    a.anchor-links {
-        text-decoration: none;
-
-        color: white;
-        font-family: 'Chillax', sans-serif;
-    }
-
-
-    a.logins {
-        text-decoration: none;
-    }
-
-    .anchor-links:hover {
-        border-bottom: 2px solid red;
-    }
-
-
-    a.anchor-links:active {
-        border-bottom: 2px solid red;
-    }
-
-    /* styling for search container*/
-    .search-container {
-
-        padding: 1em;
-    }
-
-    .fa-magnifying-glass {
-        color: white;
-        position: relative;
-        font-size: 20px;
-        left: 3em;
-
-    }
-
-    .search-bar {
-        outline: none;
-        width: 80%;
-        padding: 5px 0px 5px 40px;
-        border: 1px solid rgb(181, 1, 1);
-        position: absolute;
-        left: 10px;
-        top: 4em;
-        background-color: rgb(255, 255, 255);
-        border-radius: 10px;
-        color: rgb(0, 0, 0);
-        font-size: 20px;
-        font-family: 'Chillax', sans-serif;
-        display: none;
-
-
-    }
-
-
-    /* STYLING FOR NAVIGATION FOR MOBILE AND TABLET LAYOUT*/
-
-
-    .mobile-nav {
-        background-color: rgb(0, 0, 0);
-        position: fixed;
-        padding: 1em;
-        right: 1000px;
-        /* to remove it is 500px to add it is -30px */
-        top: 0;
-        width: 100vw;
-        z-index: 1;
-        height: 40vh;
-        transition: all ease 1s;
-    }
-
-
-    .close-menu {
-        position: absolute;
-        top: 20px;
-        right: 40px;
-        width: 6%;
-    }
-
-    .open-menu {
-
-        position: relative;
-        right: 10px;
-        width: 7%;
-    }
-
-    a.header-links {
-        color: rgb(211, 5, 5);
-        text-decoration: none;
-        font-family: 'Clash Display', sans-serif;
-
-    }
-
-    .logins {
-        color: rgb(255, 0, 0);
-        border: 1px red solid;
-        background-color: black;
-        position: relative;
-        text-align: center;
-        top: 1em;
-        padding: 5px;
-        font-family: 'Clash Display', sans-serif;
-    }
-
-
-    .logo-name {
-        font-size: 16px;
-    }
-
-    .major-link-login {
-        text-align: center;
-    }
-
-    .fa-google-play {
-        color: white;
-        font-size: 16px;
-    }
-
-
-    /* for main bodies movies container*/
-
-    .content-container {
-        background-color: rgba(0, 0, 0, 0.818);
-    }
-
-
-    .image {
-        display: inline-block;
-        /* Ensure the container wraps around the image */
-        overflow: hidden;
-        /* Hide overflow to contain the shadow effect */
-
-    }
-
-
-
-    .img-con {
-
-        position: relative;
-        width: 100vw;
-        top: 4em;
-        /* Ensure the image fits within the container */
-        filter: brightness(80%);
-        /* Apply grayscale to the image */
-        /* Add a vignette shadow effect */
-        box-shadow: inset 0 0 200px 50px rgba(0, 0, 0, 0.5);
-
-
-
-    }
-
-    .video-container {
-        position: relative;
-
-
-    }
-
-    .letter-container {
-        position: relative;
-        top: -9em;
-        left: 0;
-        padding: .8em;
-        outline: none;
-
-
-
-
-
-    }
-
-
-    .back-hd {
-        display: flex;
-        gap: 2em;
-        font-size: 12px;
-        position: relative;
-        top: 1.9em;
-
-
-
-
-    }
-
-
-    .head-name {
-        padding: 20px 0px 20px 0px;
-        font-size: 2em;
-    }
-
-    .letter {
-        background-color: rgb(234, 0, 0);
-        color: white;
-        padding: .6em;
-        border-radius: 5px;
-        font-family: 'Clash Display', sans-serif;
-
-    }
-
-
-    .descript {
-
-
-        font-family: 'Chillax', sans-serif;
-        font-weight: bold;
-        color: rgb(255, 255, 255);
-
-
-
-
-    }
-
-    .des-con {
-        font-size: 10px;
-        width: 80vw;
-        display: none;
-
-    }
-
-
-
-    .watch {
-        display: flex;
-        align-items: center;
-        gap: .6em;
-        margin-top: 2em;
-        padding: 10px 0px 10px 10px;
-        background-color: rgb(255, 255, 255);
-        width: 40vw;
-        position: relative;
-        top: -3em;
-        font-size: 10px;
-
-        font-family: 'Chillax', sans-serif;
-
-
-    }
-
-    .watch:hover {
-        opacity: .8;
-        cursor: pointer;
-    }
-
-    .watch-link {
-        text-decoration: none;
-        color: rgb(0, 0, 0);
-        font-size: 17px;
-    }
-
-
-    .fa-play {
-        color: black;
-        font-size: 25px;
-    }
-
-
-    /* styling for treding*/
-
-
-    .scroll-img2{
-        width: 286px;
-        height: 170px;
-        border-radius: 2px;
-    
-      }
-
-      .scroll-img2:hover {
-        transform: scale(1.3, 1.3);
-        transition: all ease .7s;
-        cursor: pointer;
-        filter: brightness(30%);
-    
+  
+  
+    /* Style for the images within search suggestions */
+  
+    .new img{
+      width: 20%;
     
       
+    }
+  
+  
+  
+  
+  
+   
+  
+  
+  
+  
+    header.header-container {
+  
+      background-color: black;
+      border-bottom: 1px solid red;
+      background-color: black;
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: 1;
+  
+  
+  
+  
+  
+  
+  
+    }
+  
+    nav.navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 5px 0px 5px;
+    }
+  
+    ul.all-links {
+      display: flex;
+      gap: 1.5em;
+      justify-content: center;
+      list-style: none;
+  
+    }
+  
+    a.anchor-links {
+      text-decoration: none;
+      color: white;
+      font-family: 'Chillax', sans-serif;
+    }
+  
+    a.logins {
+      text-decoration: none;
+    }
+  
+    .anchor-links:hover {
+      border-bottom: 2px solid red;
+    }
+  
+  
+    a.anchor-links:active {
+      border-bottom: 2px solid red;
+  
+  
+  
+  
+    }
+  
+    /* styling for navigation*/
+  
+    .close-menu {
+      display: none;
+  
+  
+    }
+  
+    .open-menu {
+      display: none;
+    }
+  
+  
+  
+  
+  
+  
+    /* styling for search container*/
+    .search-container{
+     padding: 1em;
+      
+  
+      
+  
+    }
+  
+    .fa-magnifying-glass {
+      color: white;
+      position: relative;
+      left: 2em;
+  
+  
+    }
+  
+   
+    .search-bar {
+      outline: none;
+      width: 30vw;
+      padding: 5px 0px 5px 40px;
+      border: 1px solid rgb(181, 1, 1);
+  
+      background-color: rgba(122, 122, 122, 0.457);
+      border-radius: 10px;
+      color: white;
+      font-size: 20px;
+      font-family: 'Chillax', sans-serif;
+  
+  
+    }
+  
+    .my-magnify{
+      display: none;
+    }
+  
+    a.header-links {
+      color: rgb(211, 5, 5);
+      text-decoration: none;
+      font-family: 'Clash Display', sans-serif;
+  
+    }
+  
+    .logins {
+      color: rgb(255, 0, 0);
+      border: 1px red solid;
+      background-color: black;
+      border-radius: 20px;
+      padding: 1em;
+      font-family: 'Clash Display', sans-serif;
+    }
+  
+    .fa-google-play {
+      color: white;
+      font-size: 30px;
+    }
+  
+  
+    /* for main bodies movies container*/
+  
+    .content-container {
+      background-color: black;
+    }
+  
+  
+    .image {
+      display: inline-block;
+      /* Ensure the container wraps around the image */
+      overflow: hidden;
+      /* Hide overflow to contain the shadow effect */
+    }
+  
+  
+  
+    .img-con {
     
-      }
-
-
+    width: 100vw;
+      position: relative;
+      top: 4em;
+      filter: brightness(89%);
+  
+      /* Ensure the image fits within the container */
+    
+      /* Apply grayscale to the image */
+      /* Add a vignette shadow effect */
+      box-shadow: inset 0 0 200px 50px rgba(0, 0, 0, 0.5);
+    }
+  
+  
+    .img-con2{
+      display: none;
+    }
+  
+    .video-container {
+      position: relative;
+  
+    }
+  
+    .letter-container {
+      position: absolute;
+      top: -33em;
+      left: 0;
+      padding: 1.5em;
+      outline: none;
+  
+  
+  
+  
+    }
+  
+  
+    .back-hd {
+      display: flex;
+      gap: 2em;
+  
+  
+  
+  
+    }
+  
+  
+   
+  
+    .letter {
+      background-color: rgb(234, 0, 0);
+      color: white;
+      padding: .6em;
+      border-radius: 5px;
+      font-family: 'Clash Display', sans-serif;
+  
+    }
+  
+  
+    .descript {
+  
+  
+      font-family: 'Chillax', sans-serif;
+      font-weight: bold;
+      color: rgb(255, 255, 255);
+      width: 60%;
+      height: auto;
+    }
+  
+    .des-con {
+      font-size: 1em;
+    }
+  
+  
+  
+    .watch {
+      display: flex;
+      align-items: center;
+      gap: .6em;
+      margin-top: 2em;
+      padding: 20px 0px 20px 10px;
+      background-color: rgb(255, 255, 255);
+      width: 10vw;
+      font-family: 'Chillax', sans-serif;
+  
+  
+    }
+  
+    .watch:hover {
+      opacity: .8;
+      cursor: pointer;
+    }
+  
+    .watch-link {
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      font-size: 17px;
+    }
+  
+    .rating{
+      
+      background-color: rgba(127, 4, 4, 0.598);
+      border-radius: 2px;
+      width: 11%;
+      position: relative;
+      left: 80.9em;
+      padding: .7em;
+      right: 0;
+      top: 0;
+      bottom: 0;
+  
+    }
+    .rated{
+    color: white;
+   
+  
+    }
+    
+  
+    .fa-play {
+      color: black;
+      font-size: 25px;
+    }
+  
+  
+    /* styling for treding*/
+  
+  
+  
+  
+    .scroll-img2{
+      width: 286px;
+      height: 170px;
+      border-radius: 2px;
+  
+    }
+  
+   
+  
+    .scroll-img2:hover {
+      transform: scale(1.3, 1.3);
+      transition: all ease .7s;
+      cursor: pointer;
+      filter: brightness(30%);
+  
+  
+    
+  
+    }
+    
+  
+  
+  
     .treading-container {
-        color: white;
-        padding: .5em;
-        position: relative;
-        top: -12em;
-
-
-
-
-
+      color: white;
+      top: -6em;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+  
+  
+  
+  
     }
+    .mobiletreading-container{
+     display: none;
+    }
+  
+   
+  
+  
+   
+    
+  
+  
+    
+  
+  
+    
+    /* targeting each treading control for image scroll*/
+  
     .treading-control {
-        display: flex;
-        overflow: auto;
-        gap: .3em;
+     display: flex;
+      gap: .3em;
+      scroll-behavior: smooth;
+      transition: transform 1s ease;
+  
     
-    
-    
-    
-      }
-      .treading-control-2{
-        display: flex;
-        gap: .3em;
-        overflow: auto;
-      }
-    
-      .treading-control-3{
-        display: flex;
-        gap: .3em;
-       
-        overflow: auto;
-    
-      }
-    
-      .treading-control-4{
-        display: flex;
-        gap: .3em;
-       
-        overflow: auto;
-      }
-    
-    
-      .treading-control-5{
-        display: flex;
-        gap: .3em;
-        
-        overflow: auto;
-      }
-    
-      .treading-control-6{
-        display: flex;
-        gap: .3em;
-       
-        overflow: auto;
-      }
-      .treading-control-7{
-        display: flex;
-        gap: .3em;
-    
-        overflow: auto;
-      }
-    
-    
-    
-      .treading-control::-webkit-scrollbar {
-        display: none;
-      }
-      .treading-control-2::-webkit-scrollbar {
-        display: none;
-      }
-      .treading-control-3::-webkit-scrollbar {
-        display: none;
-      }
-      .treading-control-4::-webkit-scrollbar {
-        display: none;
-      }
-      .treading-control-5::-webkit-scrollbar {
-        display: none;
-      }
-      .treading-control-6::-webkit-scrollbar {
-        display: none;
-      }
-      .treading-control-7::-webkit-scrollbar {
-        display: none;
-      }
-
-
-    .trend-head {
-        font-family: 'Clash Display', sans-serif;
-        padding: 20px 0px 20px 0px;
-        font-size: 20px;
+     
+  
+  
+  
     }
-
-
-
-
+  
+    .treading-control2{
+    width: 100%;
+    }
+  
+  /*
+  
+    .treads{
+      display: flex;
+      gap: .3em;
+      scroll-behavior: smooth;
+      transition: transform 1s ease;
+    */
+  
+    .treading-control-2{
+      display: flex;
+      gap: .3em;
+      scroll-behavior: smooth;
+      transition: transform 1s ease;
+    }
+  
+    .treading-control-3{
+      display: flex;
+      gap: .3em;
+      scroll-behavior: smooth;
+      transition: transform 1s ease;
+  
+    }
+  
+    .treading-control-4{
+      display: flex;
+      gap: .3em;
+      scroll-behavior: smooth;
+      transition: transform 1s ease;
+    }
+  
+  
+    .treading-control-5{
+      display: flex;
+      gap: .3em;
+      scroll-behavior: smooth;
+      transition: transform 1s ease;
+    }
+  
+    .treading-control-6{
+      display: flex;
+      gap: .3em;
+      scroll-behavior: smooth;
+      transition: transform 1s ease;
+    }
+  
+  
+    .treading-control-7{
+      display: flex;
+      gap: .3em;
+      scroll-behavior: smooth;
+      transition: transform 1s ease;
+    }
+  
+  
+    .treading-control::-webkit-scrollbar {
+      display: none;
+    }
+  
+  
+    .trend-head {
+      font-family: 'Clash Display', sans-serif;
+      padding: 20px 10px 20px 10px;
+      /*font-size: 20px;*/
+    }
+  
+  
+  
+  
     /* footer section */
     .footer-continer {
-
-        color: white;
-
-        position: relative;
-
-        font-family: 'Chillax', sans-serif;
-        top: -10em;
-        left: 0;
-        right: 0;
-
-
-
+  
+      color: white;
+  
+      padding: 3em;
+      font-size: 16px;
+      font-family: 'Chillax', sans-serif;
+      display: flex;
+      left: 0;
+      right: 0;
+      top: 37em;
+  
+  
     }
-
+  
+    .footer-about-us {
+      width: 50vw;
+    }
+  
     .about {
-        padding: 1em;
-        font-size: 13px;
+      padding: 10px 0px 10px 0px;
     }
-
-
+  
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(4, 2fr);
+      gap: 1em;
+      padding: 0px 0px 0px 60px;
+  
+    }
+  
     .cat-links {
-        text-decoration: none;
-        color: rgb(238, 2, 2);
-        position: relative;
-        top: -.2em;
-        padding: 1em;
-        font-size: 13px;
-
+      text-decoration: none;
+      color: rgb(238, 2, 2);
+      position: relative;
+      top: 2em;
+      font-size: 15px;
+  
     }
-
-    .link-sec {
-        color: white;
-        padding: 1em;
-        font-size: 13px;
-        font-family: 'Chillax', sans-serif;
-
-
-    }
-
-    .section-talk {
-        padding: 1em;
-        font-size: 13px;
-    }
-
-
+  
+  
     /* for preview buttons*/
-
-
+  
+  
     .treading-container button {
-        position: relative;
-        top: -3em;
-        font-size: 2em;
-        padding: 10px 50px 10px 50px;
-        outline: none;
-        border: none;
-        display: none;
-
-
-
-
-
-
+      position: relative;
+      top: -3em;
+      font-size: 2em;
+      padding: 10px 50px 10px 50px;
+      outline: none;
+      border: none;
+  
+  
+  
+  
+  
+  
     }
-
+  
     .button {
-        display: flex;
-        justify-content: space-between;
+      display: flex;
+      justify-content: space-between;
     }
-
-
-
+  
+  
+  
     .pre {
-
-        background-color: black;
-        color: rgb(255, 0, 0);
-        opacity: .7;
-
-
-
-
+  
+      background-color: black;
+      color: rgb(255, 0, 0);
+      opacity: .7;
+  
+  
+  
+  
     }
-
-
-
+  
+  
+  
     .next {
-
-        background-color: black;
-        color: rgb(255, 0, 0);
-        opacity: .6;
-
-
+  
+      background-color: black;
+      color: rgb(255, 0, 0);
+      opacity: .6;
+  
+  
     }
-
+  
     .pre:hover {
-        opacity: 9;
-        cursor: pointer;
-
-
+      opacity: 9;
+      cursor: pointer;
+  
+  
     }
-
-
+  
+  
     .next:hover {
-        opacity: 9;
-        cursor: pointer;
-
-
-
+      opacity: 9;
+      cursor: pointer;
     }
+  
+  
+  }
 
+
+
+
+
+/**for mobile section*/
+@media (max-width: 1020px) and (max-width: 1024px) {
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    background-color: black;
+
+    /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
+              color: white;*/
+  }
+
+  header.header-container {
+    background-color: black;
+    border-bottom: 1px solid red;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  nav.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7em;
+  }
+
+  ul.all-links {
+    list-style: none;
+  }
+
+  .major-links {
+    border-bottom: 1px solid white;
+    padding: 1em;
+  }
+
+  a.anchor-links {
+    text-decoration: none;
+
+    color: white;
+    font-family: "Chillax", sans-serif;
+  }
+
+  a.logins {
+    text-decoration: none;
+  }
+
+  .anchor-links:hover {
+    border-bottom: 2px solid red;
+  }
+
+  a.anchor-links:active {
+    border-bottom: 2px solid red;
+  }
+
+  /* styling for search container*/
+  .search-container {
+    padding: 1em;
+  }
+
+  .fa-magnifying-glass {
+    color: white;
+    position: relative;
+    font-size: 20px;
+    left: 3em;
+  }
+
+  .search-bar {
+    outline: none;
+    width: 80%;
+    padding: 5px 0px 5px 40px;
+    border: 1px solid rgb(181, 1, 1);
+    position: absolute;
+    left: 10px;
+    top: 4em;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: "Chillax", sans-serif;
+    display: none;
+  }
+
+  /* STYLING FOR NAVIGATION FOR MOBILE AND TABLET LAYOUT*/
+
+  .mobile-nav {
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    padding: 1em;
+    right: 1000px;
+    /* to remove it is 500px to add it is -30px */
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+    height: 40vh;
+    transition: all ease 1s;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    width: 6%;
+  }
+
+  .open-menu {
+    position: relative;
+    right: 10px;
+    width: 7%;
+  }
+
+  a.header-links {
+    color: rgb(211, 5, 5);
+    text-decoration: none;
+    font-family: "Clash Display", sans-serif;
+  }
+
+  .logins {
+    color: rgb(255, 0, 0);
+    border: 1px red solid;
+    background-color: black;
+    position: relative;
+    text-align: center;
+    top: 1em;
+    padding: 5px;
+    font-family: "Clash Display", sans-serif;
+  }
+
+  .logo-name {
+    font-size: 16px;
+  }
+
+  .major-link-login {
+    text-align: center;
+  }
+
+  .fa-google-play {
+    color: white;
+    font-size: 16px;
+  }
+
+  /* for main bodies movies container*/
+
+  .content-container {
+    background-color: rgba(0, 0, 0, 0.818);
+  }
+
+  .image {
+    display: inline-block;
+    /* Ensure the container wraps around the image */
+    overflow: hidden;
+    /* Hide overflow to contain the shadow effect */
+  }
+
+  .img-con {
+    position: relative;
+    width: 100vw;
+    top: 4em;
+    /* Ensure the image fits within the container */
+    filter: brightness(80%);
+    /* Apply grayscale to the image */
+    /* Add a vignette shadow effect */
+    box-shadow: inset 0 0 200px 50px rgba(0, 0, 0, 0.5);
+  }
+
+  .video-container {
+    position: relative;
+  }
+
+  .letter-container {
+    position: relative;
+    top: -9em;
+    left: 0;
+    padding: 0.8em;
+    outline: none;
+  }
+
+  .back-hd {
+    display: flex;
+    gap: 2em;
+    font-size: 12px;
+    position: relative;
+    top: 1.9em;
+  }
+
+  .head-name {
+    padding: 20px 0px 20px 0px;
+    font-size: 2em;
+  }
+
+  .letter {
+    background-color: rgb(234, 0, 0);
+    color: white;
+    padding: 0.6em;
+    border-radius: 5px;
+    font-family: "Clash Display", sans-serif;
+  }
+
+  .descript {
+    font-family: "Chillax", sans-serif;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+  }
+
+  .des-con {
+    font-size: 10px;
+    width: 80vw;
+    display: none;
+  }
+
+  .watch {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    margin-top: 2em;
+    padding: 10px 0px 10px 10px;
+    background-color: rgb(255, 255, 255);
+    width: 40vw;
+    position: relative;
+    top: -3em;
+    font-size: 10px;
+
+    font-family: "Chillax", sans-serif;
+  }
+
+  .watch:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  .watch-link {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+  }
+
+  .fa-play {
+    color: black;
+    font-size: 25px;
+  }
+
+  /* styling for treding*/
+
+  .scroll-img2 {
+    width: 286px;
+    height: 170px;
+    border-radius: 2px;
+  }
+
+  .scroll-img2:hover {
+    transform: scale(1.3, 1.3);
+    transition: all ease 0.7s;
+    cursor: pointer;
+    filter: brightness(30%);
+  }
+
+  .treading-container {
+    color: white;
+    padding: 0.5em;
+    position: relative;
+    top: -12em;
+  }
+  .treading-control {
+    display: flex;
+    overflow: auto;
+    gap: 0.3em;
+  }
+  .treading-control-2 {
+    display: flex;
+    gap: 0.3em;
+    overflow: auto;
+  }
+
+  .treading-control-3 {
+    display: flex;
+    gap: 0.3em;
+
+    overflow: auto;
+  }
+
+  .treading-control-4 {
+    display: flex;
+    gap: 0.3em;
+
+    overflow: auto;
+  }
+
+  .treading-control-5 {
+    display: flex;
+    gap: 0.3em;
+
+    overflow: auto;
+  }
+
+  .treading-control-6 {
+    display: flex;
+    gap: 0.3em;
+
+    overflow: auto;
+  }
+  .treading-control-7 {
+    display: flex;
+    gap: 0.3em;
+
+    overflow: auto;
+  }
+
+  .treading-control::-webkit-scrollbar {
+    display: none;
+  }
+  .treading-control-2::-webkit-scrollbar {
+    display: none;
+  }
+  .treading-control-3::-webkit-scrollbar {
+    display: none;
+  }
+  .treading-control-4::-webkit-scrollbar {
+    display: none;
+  }
+  .treading-control-5::-webkit-scrollbar {
+    display: none;
+  }
+  .treading-control-6::-webkit-scrollbar {
+    display: none;
+  }
+  .treading-control-7::-webkit-scrollbar {
+    display: none;
+  }
+
+  .trend-head {
+    font-family: "Clash Display", sans-serif;
+    padding: 20px 0px 20px 0px;
+    font-size: 20px;
+  }
+
+  /* footer section */
+  .footer-continer {
+    color: white;
+
+    position: relative;
+
+    font-family: "Chillax", sans-serif;
+    top: -10em;
+    left: 0;
+    right: 0;
+  }
+
+  .about {
+    padding: 1em;
+    font-size: 13px;
+  }
+
+  .cat-links {
+    text-decoration: none;
+    color: rgb(238, 2, 2);
+    position: relative;
+    top: -0.2em;
+    padding: 1em;
+    font-size: 13px;
+  }
+
+  .link-sec {
+    color: white;
+    padding: 1em;
+    font-size: 13px;
+    font-family: "Chillax", sans-serif;
+  }
+
+  .section-talk {
+    padding: 1em;
+    font-size: 13px;
+  }
+
+  /* for preview buttons*/
+
+  .treading-container button {
+    position: relative;
+    top: -3em;
+    font-size: 2em;
+    padding: 10px 50px 10px 50px;
+    outline: none;
+    border: none;
+    display: none;
+  }
+
+  .button {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .pre {
+    background-color: black;
+    color: rgb(255, 0, 0);
+    opacity: 0.7;
+  }
+
+  .next {
+    background-color: black;
+    color: rgb(255, 0, 0);
+    opacity: 0.6;
+  }
+
+  .pre:hover {
+    opacity: 9;
+    cursor: pointer;
+  }
+
+  .next:hover {
+    opacity: 9;
+    cursor: pointer;
+  }
 }

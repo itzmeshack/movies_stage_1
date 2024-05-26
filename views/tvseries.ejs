@@ -1,203 +1,997 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chillflix</title>
-    <script defer src="index.js"></script>
-    <link rel="stylesheet" href="stylesheet/tvseries.css" />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=clash-display@500&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <header class="header-container">
-      <nav class="navbar-container">
-        <h1 class="logo-name">
-          <a class="header-links" href="/">CHILLFLIX</a>
-          <i class="fa-brands fa-google-play"></i>
-        </h1>
-        <div class="search-container">
-          <span  onclick="searchbar()" >
-            <i id="mycolor" class="fa-solid fa-magnifying-glass"> </i>
-        </span>
-          <input
-            class="search-bar"
-            type="text"
-            name="login-details"
-            id="search-incoming"
-            placeholder="search for movies & tv shows"
-          />
-        </div>
 
-        <div onclick="closemenu()" id="sidemenu" class="mobile-nav">
-          <ul class="all-links">
-            <li class="major-links">
-              <a class="anchor-links" href="home">HOME</a>
-            </li>
-            <li class="major-links">
-              <a class="anchor-links" href="movies">MOVIES</a>
-            </li>
-            <li class="major-links">
-              <a class="anchor-links" href="tvseries"
-                >TV SERIES</a
-              >
-            </li>
-            <li class="major-links">
-              <a class="anchor-links" href="topimdb"
-                >TOP IMDB</a
-              >
-            </li>
-            <li class="major-link-login">
-              <a class="logins" href="login">Logout</a>
-            </li>
-          </ul>
-          <img
-            onclick="closemenu()"
-            class="close-menu"
-            src="/images_files/white-close.png"
-            alt="close-menu-list"
-          />
-        </div>
-        <img
-          onclick="openmenu()"
-          class="open-menu"
-          src="/images_files/white-open.png"
-          alt=""
-        />
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chillflix</title>
+  <script defer src="/js_files/movies.js"></script>
+  <script defer src="api.js" type="module"></script>
+  <script defer type="module" src="render.js"></script>
+  <link rel="stylesheet" href="/stylesheet/tvseries.css" />
+  <link
+    href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
+    rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+ 
+  <header class="header-container">
+    <nav class="navbar-container">
+      <h1 class="logo-name">
+        <a class="header-links" href="/">CHILLFLIX</a>
+        <i class="fa-brands fa-google-play"></i>
+      </h1>
+      <div class="search-container">
+        <form  action="/search" method="GET" >
+          
+
+
+      <div class="mobile-search">
+        <span class="my-magnify" onclick="searchbar()">
+          <i id="mycolor" class="fa-solid fa-magnifying-glass">
+            
+        
+          </i>
+
+          
+         
+        </span>
+
+      </div>
+      
+
+
+
+        <span class="my-magnify-desktop" >
+          <i id="mycolor" class="fa-solid fa-magnifying-glass">
+            
+        
+          </i>
+
+          
+         
+        </span>
+        
+
+
+
+        <input class="search-bar" type="text" name="query" id="search-incoming"
+          placeholder="search for movies & tv shows" autocomplete="off" />
+          
+          
+        </form>
+
+        
+
+    
+      </div>
+
+   
+
+
+  
+
+
+
+      <div onclick="closemenu()" id="sidemenu" class="mobile-nav">
+
+
+
+        <ul class="all-links">
+          <li class="major-links">
+            <a class="anchor-links" href="/home">HOME</a>
+          </li>
+          <li class="major-links">
+            <a class="anchor-links" href="/movies">MOVIES</a>
+          </li>
+          <li class="major-links">
+            <a class="anchor-links" href="/tvseries">TV SERIES</a>
+          </li>
+          <li class="major-links">
+            <a class="anchor-links" href="/topimdb">TOP IMDB</a>
+          </li>
+          <li class="major-link-login">
+            <a class="logins" href="/login">Logout</a>
+          </li>
+        </ul>
+        <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
+
+      </div>
+
+
+      <img id="open" onclick="openmenu()" class="open-menu" src="/images_files/white-open.png" alt="">
+
+    </nav>
+  
+
+  </header>
+  <div class="new-image">
+
+
+  <div  class="new" id="search-suggestions">
+    <div class="cos">
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+  <div class="content-container">
+
+
+
+
+
 
     <div class="image">
-      <img
-        class="img-con"
-        src="https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQdv1lEzeyZpRLkj-9nfOfWBV9usWosFGLqD4lgDFGJ_8bjCrf9CGSKPbnSJzxtDcuKwRbb6c7SdPY5h2iKxd_mxlino2ZEcB0cYONPrfElPslsv2EENf7Rgi5Ypbe2Zl4zgv6LoVE_8pcbTkbelvRNs2.jpg?r=39f"
-        alt="video"
-      />
+      <% if (randomMovie) { %>
+        <div class="treading-control2">
+          <a href="/movie/<%= randomMovie.id %>" class="film-mark">
+            <img class="img-con" src="https://image.tmdb.org/t/p/original/<%= randomMovie.backdrop_path %>"
+              alt="<%= randomMovie.title %>" />
+          </a>
+        </div>
+        <% } else { %>
+          <p>No random action movie available</p>
+          <% } %>
+
+    </div>
+
+
+
+    <div class="mobile-image">
+      
+
     </div>
     <main class="video-container">
+
+
       <div class="letter-container">
-        <div class="back-hd">
-          <p class="letter">HD</p>
-          <p class="letter">Tv seies</p>
-          <p class="letter">2024</p>
-        </div>
 
-        <div class="descript">
-          <h1 class="head-name">The Gentleman</h1>
-          <p class="des-con">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Dignissimos, ducimus delectus minus qui recusandae veritatis vel
-            adipisci autem quod quae! Ea, aut. Dolorem numquam quibusdam illum
-            laboriosam et asperiores esse.
-          </p>
-
-          <div class="watch">
-            <i class="fa-solid fa-play"></i>
-            <p><a class="watch-link" href="/">Watch Now</a></p>
+        <% if (randomMovie) { %>
+          <div class="back-hd">
+            <p class="letter">HD</p>
+            <p class="letter">MOVIE</p>
+            <p class="letter">
+              <%=randomMovie.release_date.slice(0,4)%>
+            </p>
           </div>
-        </div>
+
+          <div class="descript">
+            <h1 class="head-name">
+              <%= randomMovie.title %>
+            </h1>
+            <p class="des-con">
+              <%= randomMovie.overview %>
+            </p>
+
+            <div class="watch">
+              <i class="fa-solid fa-play"></i>
+              <p><a class="watch-link" href="/movie/<%= randomMovie.id %>">Watch Now</a></p>
+            </div>
+          </div>
+
+          <% } else { %>
+            <p>No random action movie available</p>
+            <% } %>
       </div>
     </main>
 
-    <div class="poster-tv">
-      <h1 class="trend-head">Tv series</h1>
-      <div class="img-poster">
-        <img
-          class="scroll-img"
-          src="https://i.ytimg.com/vi/ZGnlxsaoLm8/maxresdefault.jpg"
-          alt="#"
-        />
-        <img
-          class="scroll-img"
-          src="https://i.ytimg.com/vi/daLCTszq_Ds/maxresdefault.jpg"
-          alt="#"
-        />
-        <img
-          class="scroll-img"
-          src="https://itsmoreofacomment.com/wp-content/uploads/2021/09/Dune-Movie-Official-Poster-banner-feature.jpg"
-          alt="#"
-        />
-        <img
-          class="scroll-img"
-          src="https://news.newonnetflix.info/wp-content/uploads/2024/02/damsel-wide.jpeg"
-          alt="#"
-        />
-        <img
-          class="scroll-img"
-          src="https://images7.alphacoders.com/114/1140475.jpg"
-          alt="#"
-        />
-        <img
-          class="scroll-img"
-          src="https://images.alphacoders.com/115/1150493.jpg"
-          alt="#"
-        />
-        <img
-          class="scroll-img"
-          src="https://www.koimoi.com/wp-content/new-galleries/2021/03/godzilla-vs-kong-is-releasing-at-indian-box-office-with-very-less-awareness-001.jpg"
-          alt="#"
-        />
-        <img
-          class="scroll-img"
-          src="https://i0.wp.com/www.bigglasgowcomicpage.com/wp-content/uploads/2022/01/the-flash-movie-logo.jpg?fit=1000%2C500&ssl=1"
-          alt="#"
-        />
-        <img
-          class="scroll-img"
-          src="https://imageio.forbes.com/blogs-images/scottmendelson/files/2017/05/wdwmn_online_master_deflection_4000x2490_master-rev-1-1200x675.jpg?format=jpg&height=900&width=1600&fit=bounds"
-          alt="#"
-        />
-        <img class="scroll-img" src="/images_files/mandamweb2.jpeg" alt="#" />
-        <img
-          class="scroll-img"
-          src="https://dnm.nflximg.net/api/v6/BvVbc2Wxr2w6QuoANoSpJKEIWjQ/AAAAQdv1lEzeyZpRLkj-9nfOfWBV9usWosFGLqD4lgDFGJ_8bjCrf9CGSKPbnSJzxtDcuKwRbb6c7SdPY5h2iKxd_mxlino2ZEcB0cYONPrfElPslsv2EENf7Rgi5Ypbe2Zl4zgv6LoVE_8pcbTkbelvRNs2.jpg?r=39f"
-          alt="#"
-        />
-        <img
-          class="scroll-img"
-          src="https://i0.wp.com/www.bigglasgowcomicpage.com/wp-content/uploads/2022/01/the-flash-movie-logo.jpg?fit=1000%2C500&ssl=1"
-          alt="#"
-        />
+
+    <div class="treading-container">
+
+
+
+      <h1 class="trend-head">Scifi</h1>
+
+
+
+      <div class="treading-control">
+        <%if(scifimovies && scifimovies.length> 0) { %>
+          <% scifimovies.forEach(movie=> { %>
+            <div class="treading-control2">
+              <a  href="/movie/<%= movie.id %>" class="film-mark">
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+
+              </a>
+
+            </div>
+
+
+            <% }); %>
+              <%}else{%>
+                <p>no movies available</p>
+
+                <%}%>
+        
       </div>
 
-      <div class="btn-container-one">
-        <ul class="un-btnlist-container">
-          <span class="pre-span"> < </span>
-          <li class="list-btn"><a class="anchor-list-btn" href="/">1</a></li>
-          <li class="list-btn"><a class="anchor-list-btn" href="/">2</a></li>
-          <li class="list-btn"><a class="anchor-list-btn" href="/">3</a></li>
-          <li class="list-btn"><a class="anchor-list-btn" href="/">4</a></li>
-        </ul>
+
+
+
+
+      <!--
+
+
+      <div class="treading-control">
+
+        <//% if (trendingMovies && trendingMovies.length > 0) { %>
+            <//% trendingMovies.forEach(movie => { %>
+
+        <div class="treading-control2">
+          <a href="moviesinfo" class="film-mark">
+            <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/ alt="#" />
+          </a>
+
+        </div>
+      
+
+
+        <div class="treading-control2">
+          <a href="moviesinfo" class="film-mark">
+
+            <img class="scroll-img2" src="https://i.ytimg.com/vi/daLCTszq_Ds/maxresdefault.jpg" alt="#" />
+
+          </a>
+
+        </div>
+
+
+
+
+
+        <div class="treading-control2">
+          <img class="scroll-img2" src="https://itsmoreofacomment.com/wp-content/uploads/2021/09/Dune-Movie-Official-Poster-banner-feature.jpg" alt="#" />
+
+        </div>
+        <div class="treading-control2">
+          <img class="scroll-img2" src="https://news.newonnetflix.info/wp-content/uploads/2024/02/damsel-wide.jpeg" alt="#" />
+        </div>
+
+        <div class="treading-controle2">
+          <img class="scroll-img2" src="https://images7.alphacoders.com/114/1140475.jpg" alt="#" />
+        </div>
+
+        <div class="treading-control2">
+          <img class="scroll-img2" src="https://news.newonnetflix.info/wp-content/uploads/2024/02/damsel-wide.jpeg" alt="#" />
+        </div>
+
+        <div class="treading-control2">
+          <img class="scroll-img2" src="https://news.newonnetflix.info/wp-content/uploads/2024/02/damsel-wide.jpeg" alt="#" />
+        </div>
+
+        <div class="treading-control2">
+          <img class="scroll-img2" src="https://news.newonnetflix.info/wp-content/uploads/2024/02/damsel-wide.jpeg" alt="#" />
+        </div>
+
+        <div class="treading-control2">
+          <img class="scroll-img2" src="https://news.newonnetflix.info/wp-content/uploads/2024/02/damsel-wide.jpeg" alt="#" />
+        </div>
+
+        <div class="treading-control2">
+          <img class="scroll-img2" src="https://news.newonnetflix.info/wp-content/uploads/2024/02/damsel-wide.jpeg" alt="#" />
+        </div>
+
+
+
+
+    <//% }); %>
+        <//% } else { %>
+            <p>No trending movies available</p>
+        <//%// } %>
+
+
+      </div>
+
+      -->
+
+
+
+
+      <div class="button">
+
+
+        <button id="scroll-btn2" onclick="treadingmoveLeft()" class=" pre"> ❮ </button>
+
+
+
+        <button id="scroll-btn2" onclick="treadingmoveRight()" class="next "> ❯ </buttonn>
+
+
+      </div>
+
+
+
+
+    </div>
+
+
+    <!--for mobile movies trending movies views -->
+
+    <div class="mobiletreading-container">
+
+
+
+      <h1 class="trend-head">Treading now</h1>
+
+
+
+      <div class="treading-control">
+       
+      </div>
+
+
+
+      <!--div class="button">
+
+
+        <button id="scroll-btn2" onclick="treadingmoveLeft()" class=" pre"> ❮ </button>
+
+
+
+        <button id="scroll-btn2" onclick="treadingmoveRight()" class="next "> ❯ </buttonn>
+
+
+      </div-->
+
+
+
+
+    </div>
+
+
+
+
+
+    <div class="treading-container">
+      <h1 class="trend-head">Romantic</h1>
+      <div class="treading-control-2">
+        <%if(romanticmovies && romanticmovies.length> 0) { %>
+          <% romanticmovies.forEach(movie=> { %>
+            <div class="treading-control2">
+              <a  href="/movie/<%= movie.id %>" class="film-mark">
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+
+              </a>
+
+            </div>
+
+
+            <% }); %>
+              <%}else{%>
+                <p>no movies available</p>
+
+                <%}%>
+
+        
+      </div>
+
+
+
+      <div class="button">
+
+
+        <button id="scroll-btn2" onclick="realeasemoveLeft()" class=" pre"> ❮ </button>
+
+
+
+        <button id="scroll-btn2" onclick="realeasemoveRight()" class="next "> ❯ </buttonn>
+
+
+      </div>
+
+
+    </div>
+
+
+
+
+    <div class="mobiletreading-container">
+      <h1 class="trend-head">New Release</h1>
+      <div class="treading-control-2">
+
+        
+      </div>
+
+
+
+
+      <!--div class="button">
+
+
+    <button id="scroll-btn2" onclick="realeasemoveLeft()" class=" pre"> ❮ </button>
+
+
+
+    <button id="scroll-btn2" onclick="realeasemoveRight()" class="next "> ❯ </buttonn>
+
+
+  </div-->
+
+
+    </div>
+
+
+
+    <!----
+      
+
+        <div class="treading-control2">
+          <a href="moviesinfo" class="film-mark">
+            <img class="scroll-img2" src="https://i.ytimg.com/vi/daLCTszq_Ds/maxresdefault.jpg" alt="#" />
+
+          </a>
+        </div>
+
+
+        <div class="treading-control2">
+          <a href="moviesinfo" class="film-mark">
+            <img class="scroll-img2" src="https://itsmoreofacomment.com/wp-content/uploads/2021/09/Dune-Movie-Official-Poster-banner-feature.jpg" alt="#" />
+          </a>
+        </div>
+
+
+        <div class="treading-control2">
+          <a href="moviesinfo" class="film-mark">
+            <img class="scroll-img2" src="https://news.newonnetflix.info/wp-content/uploads/2024/02/damsel-wide.jpeg" alt="#" />
+          </a>
+        </div>
+
+        <div class="treading-control2">
+          <a href="moviesinfo" class="film-mark">
+            <img class="scroll-img2" src="https://images7.alphacoders.com/114/1140475.jpg" alt="#" />
+          </a>
+        </div>
+
+
+
+
+        <div class="treading-control2">
+          <a href="moviesinfo" class="film-mark">
+            <img class="scroll-img2" src="https://images.alphacoders.com/115/1150493.jpg" alt="#" />
+          </a>
+        </div>
+
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+            <img class="scroll-img2" src="https://www.koimoi.com/wp-content/new-galleries/2021/03/godzilla-vs-kong-is-releasing-at-indian-box-office-with-very-less-awareness-001.jpg" alt="#" />
+          </a>
+
+        </div>
+
+
+
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+
+            <img class="scroll-img2" src="https://i0.wp.com/www.bigglasgowcomicpage.com/wp-content/uploads/2022/01/the-flash-movie-logo.jpg?fit=1000%2C500&ssl=1" alt="#" />
+          </a>
+
+        </div>
+
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+
+            <img class="scroll-img2" src="https://imageio.forbes.com/blogs-images/scottmendelson/files/2017/05/wdwmn_online_master_deflection_4000x2490_master-rev-1-1200x675.jpg?format=jpg&height=900&width=1600&fit=bounds" alt="#" />
+          </a>
+
+        </div>
+
+
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+            <img class="scroll-img2" src="/images_files/mandamweb2.jpeg" alt="#" />
+          </a>
+
+        </div>
+
+  -->
+
+
+
+
+
+
+    <div class="treading-container">
+      <h1 class="trend-head">Drama</h1>
+      <div class="treading-control-3">
+        <%if(dramamovies && dramamovies.length> 0) { %>
+          <% dramamovies.forEach(movie=> { %>
+            <div class="treading-control2">
+              <a  href="/movie/<%= movie.id %>" class="film-mark">
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+
+              </a>
+
+            </div>
+
+
+            <% }); %>
+              <%}else{%>
+                <p>no movies available</p>
+
+                <%}%>
+
+       
+
+      </div>
+
+
+          <div class="button">
+
+
+            <button id="scroll-btn2" onclick="actionmoveLeft()" class=" pre"> ❮ </button>
+
+
+
+            <button id="scroll-btn2" onclick="actionmoveRight()" class="next "> ❯ </buttonn>
+
+
+          </div>
+
+
+  
+    </div>
+
+
+
+
+
+    <div class="mobiletreading-container">
+      <h1 class="trend-head">Action</h1>
+      <div class="treading-control-3">
+
+      
+
+
+
+
+          <!--div class="button">
+
+
+        <button id="scroll-btn2" onclick="actionmoveLeft()" class=" pre"> ❮ </button>
+
+
+
+        <button id="scroll-btn2" onclick="actionmoveRight()" class="next "> ❯ </buttonn>
+
+
+      </div-->
+
+
+    </div>
+    </div>
+
+    <!--
+
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+            <img class="scroll-img2" src="https://itsmoreofacomment.com/wp-content/uploads/2021/09/Dune-Movie-Official-Poster-banner-feature.jpg" alt="#" />
+          </a>
+
+        </div>
+
+
+
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+            <img class="scroll-img2" src="https://i.ytimg.com/vi/daLCTszq_Ds/maxresdefault.jpg" alt="#" />
+          </a>
+
+        </div>
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+            <img class="scroll-img2" src="https://i.ytimg.com/vi/ZGnlxsaoLm8/maxresdefault.jpg" alt="#" />
+          </a>
+
+        </div>
+
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+            <img class="scroll-img2" src="https://news.newonnetflix.info/wp-content/uploads/2024/02/damsel-wide.jpeg" alt="#" />
+          </a>
+
+        </div>
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+            <img class="scroll-img2" src="https://images7.alphacoders.com/114/1140475.jpg" alt="#" />
+          </a>
+
+        </div>
+
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+
+            <img class="scroll-img2" src="https://images.alphacoders.com/115/1150493.jpg" alt="#" />
+          </a>
+
+        </div>
+
+
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+
+            <img class="scroll-img2" src="https://www.koimoi.com/wp-content/new-galleries/2021/03/godzilla-vs-kong-is-releasing-at-indian-box-office-with-very-less-awareness-001.jpg" alt="#" />
+          </a>
+
+        </div>
+
+
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+
+            <img class="scroll-img2" src="https://i0.wp.com/www.bigglasgowcomicpage.com/wp-content/uploads/2022/01/the-flash-movie-logo.jpg?fit=1000%2C500&ssl=1" alt="#" />
+          </a>
+
+        </div>
+
+
+
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+
+            <img class="scroll-img2" src="https://imageio.forbes.com/blogs-images/scottmendelson/files/2017/05/wdwmn_online_master_deflection_4000x2490_master-rev-1-1200x675.jpg?format=jpg&height=900&width=1600&fit=bounds" alt="#" />
+          </a>
+
+        </div>
+
+
+
+        <div class="treading-control2">
+
+          <a href="moviesinfo" class="film-mark">
+
+
+            <img class="scroll-img2" src="/images_files/mandamweb2.jpeg" alt="#" />
+          </a>
+
+        </div>
+        -->
+
+
+
+
+
+    <!--div class="button">
+
+
+        <button id="scroll-btn2" onclick="actionmoveLeft()" class=" pre"> ❮ </button>
+
+
+
+        <button id="scroll-btn2" onclick="actionmoveRight()" class="next "> ❯ </buttonn>
+
+
+      </div>
+
+
+
+    </div-->
+
+
+    <div class="treading-container">
+      <h1 class="trend-head">Comedy</h1>
+      <div class="treading-control-4">
+        <%if(comedymovies && comedymovies.length> 0) { %>
+          <% comedymovies.forEach(movie=> { %>
+            <div class="treading-control2">
+              <a  href="/movie/<%= movie.id %>" class="film-mark">
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+
+              </a>
+
+            </div>
+
+
+            <% }); %>
+              <%}else{%>
+                <p>no movies available</p>
+
+                <%}%>
+
+      </div>
+
+
+
+      <div class="button">
+
+
+
+        <button id="scroll-btn2" onclick="moviesmoveLeft()" class=" pre"> ❮ </button>
+
+
+
+        <button id="scroll-btn2" onclick="moviesmoveRight()" class="next "> ❯ </buttonn>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="mobiletreading-container">
+      <h1 class="trend-head">Tv series</h1>
+      <div class="treading-control-4">
+
+        
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="treading-container">
+      <h1 class="trend-head">Adventures & Fantasy</h1>
+      <div class="treading-control-5">
+        <%if(adventuremovies && adventuremovies.length> 0) { %>
+          <% adventuremovies.forEach(movie=> { %>
+            <div class="treading-control2">
+              <a  href="/movie/<%= movie.id %>" class="film-mark">
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+
+              </a>
+
+            </div>
+
+
+            <% }); %>
+              <%}else{%>
+                <p>no movies available</p>
+
+                <%}%>
+
+        
+      </div>
+
+
+
+      <div class="button">
+
+
+
+
+        <button id="scroll-btn2" onclick="latestmoveLeft()" class=" pre"> ❮ </button>
+
+
+
+        <button id="scroll-btn2" onclick="latestmoveRight()" class="next "> ❯ </buttonn>
+
+
       </div>
     </div>
+
+
+
+    <div class="mobiletreading-container">
+      <h1 class="trend-head">Adventures & Fantasy</h1>
+      <div class="treading-control-5">
+        
+
+      </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <div class="treading-container">
+      <h1 class="trend-head">Thriller</h1>
+      <div class="treading-control-6">
+
+        <%if(thrillermovies && thrillermovies.length> 0) { %>
+          <% thrillermovies.forEach(movie=> { %>
+            <div class="treading-control2">
+              <a  href="/movie/<%= movie.id %>" class="film-mark">
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+
+              </a>
+
+            </div>
+
+
+            <% }); %>
+              <%}else{%>
+                <p>no movies available</p>
+
+                <%}%>
+        
+
+      </div>
+
+
+
+      <div class="button">
+
+
+
+
+
+        <button id="scroll-btn2" onclick="showmoveLeft()" class=" pre"> ❮ </button>
+
+
+
+        <button id="scroll-btn2" onclick="showmoveRight()" class="next "> ❯ </buttonn>
+
+      </div>
+    </div>
+
+
+
+
+    <div class="mobiletreading-container">
+      <h1 class="trend-head">Rated Movies</h1>
+      <div class="treading-control-6">
+
+        
+      </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <div class="treading-container">
+      <h1 class="trend-head">Blockbuster</h1>
+      <div class="treading-control-7">
+
+        <%if(awardmovies && awardmovies.length> 0) { %>
+          <% awardmovies.forEach(movie=> { %>
+            <div class="treading-control2">
+              <a  href="/movie/<%= movie.id %>" class="film-mark">
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+
+              </a>
+
+            </div>
+
+
+            <% }); %>
+              <%}else{%>
+                <p>no movies available</p>
+
+                <%}%>
+
+      </div>
+
+
+
+      <div class="button">
+
+
+
+
+
+
+        <button id="scroll-btn2" onclick="animemoveLeft()" class=" pre"> ❮ </button>
+
+
+
+        <button id="scroll-btn2" onclick="animemoveRight()" class="next "> ❯ </buttonn>
+
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="mobiletreading-container">
+      <h1 class="trend-head">Anime</h1>
+      <div class="treading-control-7">
+
+      </div>
+
+
+
+      <div class="button">
+
+
+
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <footer class="footer-continer">
       <div class="footer-about-us">
         <h4 class="about">About us</h4>
         <p class="section-talk">
-          Chillflix is free tv shows streaming website with zero ads, it allows
-          you watch tv shows online, watch tv shows online free in high quality
-          for free. You can also download full tv shows and watch it later if
-          you want. This site does not store any files on our server, we only
-          linked to the media which is hosted on 3rd party services.
+          Chillflix is free tv shows streaming website with zero ads, it allows you watch tv shows online,
+          watch
+          tv shows online free in high quality for free. You can also download full tv shows and watch it
+          later if
+          you want.
+          This site does not store any files on our server, we only linked to the media which is hosted on 3rd
+          party services.
         </p>
       </div>
 
       <div class="footer-links">
-        <h4 class="link-sec">Links</h4>
+        <h4 class="link-sec"> Links</h4>
         <a href="/" class="cat-links">Movies</a>
         <a href="/" class="cat-links">Tv series</a>
         <a href="/" class="cat-links">Top IMDb</a>
@@ -207,7 +1001,14 @@
         <a href="/" class="cat-links">Horror</a>
         <a href="/" class="cat-links">Mystry</a>
         <a href="/" class="cat-links">Fantasy</a>
+
       </div>
     </footer>
-  </body>
+
+    </div>
+
+
+
+</body>
+
 </html>
