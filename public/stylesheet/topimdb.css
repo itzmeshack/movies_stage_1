@@ -74,9 +74,19 @@
   }
 
 
-    a.anchor-links:active{
-    border-bottom: 2px solid red;
-    }
+  .anchor-links-sport {
+    text-decoration: none;
+    color: yellow;
+    border: 1px solid yellow;
+    padding: 5px 5px 5px 5px ;
+    font-family: 'Chillax', sans-serif;
+  }
+  
+  
+  .anchor-links-sport:hover{
+    transition: all .3s ease-in;
+    background-color: rgba(255, 255, 0, 0.292);
+  }
     /* styling for search container*/
         .search-container{
             
@@ -109,6 +119,22 @@
         text-decoration: none;
         font-family: 'Clash Display', sans-serif;
     
+    }
+
+
+
+    .anchor-links-sport {
+      text-decoration: none;
+      color: yellow;
+      border: 1px solid yellow;
+      padding: 5px 5px 5px 5px ;
+      font-family: 'Chillax', sans-serif;
+    }
+    
+    
+    .anchor-links-sport:hover{
+      transition: all .3s ease-in;
+      background-color: rgba(255, 255, 0, 0.292);
     }
     .logins{
     color: rgb(255, 0, 0);

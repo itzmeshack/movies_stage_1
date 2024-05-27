@@ -523,13 +523,111 @@ app.get("/movies", async (req, res) => {
   }
 });
 
+
+const urlActionTVShows = `${Base_URL}/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=10759&first_air_date.gte=2015-01-01&first_air_date.lte=2023-12-31`;
+const urlActionAdventureTVShows = `${Base_URL}/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=10759&first_air_date.gte=2015-01-01&first_air_date.lte=2023-12-31`;
+const urlMysteryTVShows = `${Base_URL}/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=9648&first_air_date.gte=2015-01-01&first_air_date.lte=2023-12-31`;
+const urlSciFiHorrorTVShows = `${Base_URL}/trending/tv/day?api_key=${API_KEY}&language=en-US&page=1`;
+const urlKDramaTVShows = `${Base_URL}/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=18&first_air_date.gte=2015-01-01&first_air_date.lte=2023-12-31`;
+const urlAfricaTVShows = `${Base_URL}/search/tv?api_key=${API_KEY}&query=Africa`;
+const urlDarkDramaTVShows = `${Base_URL}/search/tv?api_key=${API_KEY}&query=Dark`;
+const urlKidsTVShows = `${Base_URL}/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=10762&first_air_date.gte=2015-01-01&first_air_date.lte=2023-12-31`;
+
+
+
+
+app.get("/tvseries", async (req, res) => {
+
+try{
+
+const ActionTvshows = await fetch(urlActionTVShows);
+const ActiontvData = await ActionTvshows.json();
+
+const allActiondtvData = ActiontvData.results;
+
+const shuffle_actionTv = allActiondtvData.sort(()=> 0.5 - Math.random());
+const randomActionTv = shuffle_actionTv[0];
+
+  const [
+   
+    Adventuretvshows,
+    Mysterytvshows,
+    Scifitvshows,
+    Kdramatvshows,
+    Africantvshows,
+    Darktvshows,
+    Kidtvshows
+  ]= await Promise.all([
+     fetch(urlActionAdventureTVShows),
+     fetch(urlMysteryTVShows),
+     fetch(urlSciFiHorrorTVShows),
+     fetch(urlKDramaTVShows),
+     fetch(urlAfricaTVShows),
+     fetch(urlDarkDramaTVShows),
+     fetch(urlKidsTVShows)
+
+  ])
+
+
+  const [
+    AdventureTvResponse,
+    MyTvResponse,
+    ScifiTvResponse,
+    KTvResponse,
+    AfricanTvResponse,
+    DarkTvRsponse,
+    KidTvResponse
+  ] = await Promise.all([
+    Adventuretvshows.json(),
+    Mysterytvshows.json(),
+    Scifitvshows.json(),
+    Kdramatvshows.json(),
+    Africantvshows.json(),
+    Darktvshows.json(),
+    Kidtvshows.json()
+
+
+
+
+  ]
+  
+
+)
+ 
+res.render("tvseries.ejs",{
+  randomActionTv,
+  adventuretv : AdventureTvResponse.results,
+  mysterytv: MyTvResponse.results,
+  scifitv: ScifiTvResponse.results,
+  kdramatv: KTvResponse.results, 
+  africantv: AfricanTvResponse.results,
+  darktv: DarkTvRsponse.results,
+  kidstv: KidTvResponse.results
+
+
+}
+
+
+
+
+);
+
+
+}catch(error){
+  console.error("Error fetching data:", error);
+  res.status(500).send("Internal Server Error");
+}
+
+
+
+ 
+});
+
+
 app.get("/topimdb", (req, res) => {
   res.render("topimdb.ejs");
 });
 
-app.get("/tvseries", (req, res) => {
-  res.render("tvseries.ejs");
-});
 
 //post
 

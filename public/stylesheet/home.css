@@ -101,11 +101,7 @@ will take place here for index files
 
   }
 
-  a.anchor-links {
-    text-decoration: none;
-    color: white;
-    font-family: 'Chillax', sans-serif;
-  }
+ 
 
   a.logins {
     text-decoration: none;
@@ -116,13 +112,35 @@ will take place here for index files
   }
 
 
-  a.anchor-links:active {
-    border-bottom: 2px solid red;
+ .anchor-links {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-family: 'Chillax', sans-serif;
+}
+/* for sport design*/
+.anchor-links-sport {
+  text-decoration: none;
+  color: yellow;
+  border: 1px solid yellow;
+  padding: 5px 5px 5px 5px ;
+  font-family: 'Chillax', sans-serif;
+}
 
 
+.anchor-links-sport:hover{
+  transition: all .3s ease-in;
+  background-color: rgba(255, 255, 0, 0.292);
+}
+.anchor-links.active::after {
+  content: '';
+  display: block;
+  border: 1px solid red;
+ 
+ 
+ 
+}
 
 
-  }
 
   /* styling for navigation*/
 
