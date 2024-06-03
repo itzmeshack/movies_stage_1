@@ -8,7 +8,11 @@
   <script defer src="/js_files/index.js"></script>
   <script defer src="api.js" type="module"></script>
   <script defer type="module" src="render.js"></script>
-  <link rel="stylesheet" href="/stylesheet/tvseries.css" />
+  <link rel="stylesheet" href="/stylesheet/home.css" />
+  <link rel="icon" type="image/png" href="/images_files/file-2.ico">
+
+  
+
   <link
     href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
     rel="stylesheet" />
@@ -83,6 +87,8 @@
 
 
         <ul class="all-links">
+          <li><a href="#"><img class="user-image-mobile" src="/images_files/spider.jpeg" alt=""></a></li>
+
           <li class="major-links">
             <a class="anchor-links" href="/home">HOME</a>
           </li>
@@ -95,9 +101,21 @@
           <li class="major-links">
             <a class="anchor-links-sport" href="/topimdb">Sport +</a>
           </li>
-          <li class="major-link-login">
-            <a class="logins" href="/login">Logout</a>
-          </li>
+
+
+        
+          <div class="user-mobile-content">
+            <ul class="user-mobile-con">
+  
+          
+            <li  class="user-list" ><a class="user-fav" href="#"><span><i class="fa-regular fa-star"></i></span> Favourite</a></li>
+            <li  class="user-list-log"><a class="user-log" href="/login">Logout</a></li>
+          </ul>
+          </div>
+  
+    <span  class="fav" onclick="favmenuside()">
+      <i class="fa-solid fa-bars-staggered"></i>
+    </span>
         </ul>
         <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
 
@@ -138,6 +156,14 @@
             <img class="img-con" src="https://image.tmdb.org/t/p/original/<%= randomActionTv.backdrop_path %>"
               alt="<%= randomActionTv.title %>" />
           </a>
+
+          <div class="user-container" >
+            <ul class="user-fast-info" id="usercontent">
+              <li><a href="#"><img class="user-image" src="/images_files/spider.jpeg" alt=""></a></li>
+              <li><a href="#">Favourite</a></li>
+              <li><a href="/login">Logout</a></li>
+            </ul>
+          </div>
         </div>
         <% } else { %>
           <p>No random action movie available</p>
@@ -148,6 +174,12 @@
 
 
     <div class="mobile-image">
+      <% if (randomActionTv) { %>
+        <img class="img-con2" src="https://image.tmdb.org/t/p/original/<%= randomActionTv.poster_path %>" alt="Backdrop Image">
+        <% } else { %>
+          <!-- Fallback image or message if no movie or backdrop path is available -->
+          <img src="/images_files/mobile-web.jpg" alt="mobile" class="img-con2">
+          <% } %>
       
 
     </div>
@@ -199,7 +231,7 @@
           <%  adventuretv .forEach(movie=> { %>
             <div class="treading-control2">
               <a  href="/tv/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path%> " alt="<%= movie.title %>"/>
 
               </a>
 
@@ -320,12 +352,25 @@
 
 
 
-      <h1 class="trend-head">Treading now</h1>
+      <h1 class="trend-head"> Action & Adventures series</h1>
 
 
 
       <div class="treading-control">
+        <div class="treading-control">
+          <% if (adventuretv && adventuretv.length> 0) { %>
+            <% adventuretv.forEach(movie=> { %>
+              <div class="treading-control2">
+                <a href="/tv/<%= movie.id %>" class="film-mark">
+                  <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
+                </a>
+              </div>
+              <% }); %>
+                <% } else { %>
+                  <p>No trending movies available</p>
+                  <% } %>
        
+      </div>
       </div>
 
 
@@ -358,7 +403,7 @@
           <%  mysterytv.forEach(movie=> { %>
             <div class="treading-control2">
               <a  href="/tv/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path%> " alt="<%= movie.title %>"/>
 
               </a>
 
@@ -395,8 +440,19 @@
 
 
     <div class="mobiletreading-container">
-      <h1 class="trend-head">Scifi & Horrors Series</h1>
+      <h1 class="trend-head">Mystery series </h1>
       <div class="treading-control-2">
+        <% if (mysterytv && mysterytv.length> 0) { %>
+          <% mysterytv.forEach(movie=> { %>
+            <div class="treading-control2">
+              <a href="/tv/<%= movie.id %>" class="film-mark">
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
+              </a>
+            </div>
+            <% }); %>
+              <% } else { %>
+                <p>No trending movies available</p>
+                <% } %>
 
         
       </div>
@@ -515,7 +571,7 @@
           <%  scifitv.forEach(movie=> { %>
             <div class="treading-control2">
               <a  href="/tv/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path%> " alt="<%= movie.title %>"/>
 
               </a>
 
@@ -554,9 +610,19 @@
 
 
     <div class="mobiletreading-container">
-      <h1 class="trend-head">Action</h1>
+      <h1 class="trend-head">Scifi & Horror series</h1>
       <div class="treading-control-3">
-
+        <% if (scifitv && scifitv.length> 0) { %>
+          <% scifitv.forEach(movie=> { %>
+            <div class="treading-control2">
+              <a href="/tv/<%= movie.id %>" class="film-mark">
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
+              </a>
+            </div>
+            <% }); %>
+              <% } else { %>
+                <p>No trending movies available</p>
+                <% } %>
       
 
 
@@ -710,7 +776,7 @@
           <%  kdramatv.forEach(movie=> { %>
             <div class="treading-control2">
               <a  href="/tv/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path%> " alt="<%= movie.title %>"/>
 
               </a>
 
@@ -746,8 +812,19 @@
 
 
     <div class="mobiletreading-container">
-      <h1 class="trend-head">Tv series</h1>
+      <h1 class="trend-head">K-drama series</h1>
       <div class="treading-control-4">
+        <% if (kdramatv && kdramatv.length> 0) { %>
+          <% kdramatv.forEach(movie=> { %>
+            <div class="treading-control2">
+              <a href="/tv/<%= movie.id %>" class="film-mark">
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
+              </a>
+            </div>
+            <% }); %>
+              <% } else { %>
+                <p>No trending movies available</p>
+                <% } %>
 
         
       </div>
@@ -773,7 +850,7 @@
           <% africantv.forEach(movie=> { %>
             <div class="treading-control2">
               <a  href="/tv/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path%> " alt="<%= movie.title %>"/>
 
               </a>
 
@@ -809,8 +886,19 @@
 
 
     <div class="mobiletreading-container">
-      <h1 class="trend-head">Adventures & Fantasy</h1>
+      <h1 class="trend-head">African series</h1>
       <div class="treading-control-5">
+        <% if (africantv && africantv.length> 0) { %>
+          <% africantv.forEach(movie=> { %>
+            <div class="treading-control2">
+              <a href="/tv/<%= movie.id %>" class="film-mark">
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
+              </a>
+            </div>
+            <% }); %>
+              <% } else { %>
+                <p>No trending movies available</p>
+                <% } %>
         
 
       </div>
@@ -833,7 +921,7 @@
           <% darktv.forEach(movie=> { %>
             <div class="treading-control2">
               <a  href="/tv/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path%> " alt="<%= movie.title %>"/>
 
               </a>
 
@@ -870,8 +958,19 @@
 
 
     <div class="mobiletreading-container">
-      <h1 class="trend-head">Ra</h1>
+      <h1 class="trend-head">Dark series</h1>
       <div class="treading-control-6">
+        <% if (darktv && darktv.length> 0) { %>
+          <% darktv.forEach(movie=> { %>
+            <div class="treading-control2">
+              <a href="/tv/<%= movie.id %>" class="film-mark">
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
+              </a>
+            </div>
+            <% }); %>
+              <% } else { %>
+                <p>No trending movies available</p>
+                <% } %>
 
         
       </div>
@@ -895,7 +994,7 @@
           <% kidstv.forEach(movie=> { %>
             <div class="treading-control2">
               <a  href="/tv/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path%> " alt="<%= movie.title %>"/>
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path%> " alt="<%= movie.title %>"/>
 
               </a>
 
@@ -934,8 +1033,19 @@
 
 
     <div class="mobiletreading-container">
-      <h1 class="trend-head">Anime</h1>
+      <h1 class="trend-head">Kid series</h1>
       <div class="treading-control-7">
+        <% if (kidstv && kidstv.length> 0) { %>
+          <% kidstv.forEach(movie=> { %>
+            <div class="treading-control2">
+              <a href="/tv/<%= movie.id %>" class="film-mark">
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
+              </a>
+            </div>
+            <% }); %>
+              <% } else { %>
+                <p>No trending movies available</p>
+                <% } %>
 
       </div>
 

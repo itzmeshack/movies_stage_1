@@ -104,58 +104,43 @@ const urlBestAnime = `${Base_URL}/discover/tv?api_key=${API_KEY}&with_genres=16`
 
 
 
+app.get('/watch/movie/:movieId', async (req, res) => {
+  try {
+    const movieId = req.params.movieId;
+    const movieUrl = `${Base_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
 
+    const response = await fetch(movieUrl);
+    const movieData = await response.json();
+
+    res.render('watch-movies.ejs', { movie: movieData });
+  } catch (error) {
+    console.error('Error fetching movie data:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+app.get('/watch/tv/:tvId', async (req, res) => {
+  try {
+    const tvId = req.params.tvId;
+    const tvUrl = `${Base_URL}/tv/${tvId}?api_key=${API_KEY}&language=en-US`;
+
+    const response = await fetch(tvUrl);
+    const tvData = await response.json();
+
+    res.render('watch-tv.ejs', {tvshow: tvData})
+  } catch (error) {
+    console.error('Error fetching movie data:', error);
+    res.status(500).send('Internal Server Error');
+  }
+ 
+})
 
 
 let movies = [];
 
 app.get("/home", async (req, res) => {
   try {
-    //main moveis response
-    /*const response = await  fetch(url);
-        const data = await response.json();
-         
-        //trending movies response
-        const trendingResponse = await fetch(urlTrending_movies);
-        const trendingData = await trendingResponse.json();
-
-        //latest movies response
-        const latestResponse = await fetch(urlLatestMovies);
-        const latestData = await latestResponse.json();
-
-       
-
-       
-
-
-        //tv series response 
-
-        const tvResponse = await fetch(urlTvseries);
-        const tvData = await tvResponse.json();
-
-        // horror movies response 
-
-        const horrorResponse = await fetch(urlHorrorMovies);
-        const horrorData = await horrorResponse.json();
-
-
-        //rated movies 
-
-        const ratedResponse = await fetch(urlRatedMovies);
-        const ratedData = await ratedResponse.json();
-
-
-        //anime movies & tv shows 
-
-        const animeResponse = await fetch(urlBestAnime);
-        const animeData = await animeResponse.json();
-
-        */
-
-    // action movies response
-    //const actionResponse = await fetch(urlActionMovies);
-    //const actionData = await actionResponse.json();
-
     const [
       response,
       trendingResponse,
@@ -199,24 +184,44 @@ app.get("/home", async (req, res) => {
     const shuffledMovies = actionData.results.sort(() => 0.5 - Math.random());
     const randomMovie = shuffledMovies.slice(0, 19);
 
-    if (data.results.length > 0) {
-      //const movies = data.results[12];
+    // Function to determine movie quality
+    const determineQuality = (movie) => {
+      const releaseDate = new Date(movie.release_date);
+      const currentDate = new Date();
+      const diffTime = Math.abs(currentDate - releaseDate);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-      movies = data.results[0]; //this is where a particular movie is placed on tmdb database you can change the number to see a particular movie trends
-      // const image = `https://image.tmdb.org/t/p/original${movies.backdrop_path}`
-      //collecting year from auth.js
+      return diffDays < 30 ? 'Cam' : 'HD';
+    };
+
+    // Apply quality to all movie datasets
+    const applyQuality = (movies) => movies.map(movie => ({
+      ...movie,
+      quality: determineQuality(movie)
+    }));
+
+    const moviesWithQuality = applyQuality(data.results);
+    const trendingMoviesWithQuality = applyQuality(trendingData.results);
+    const latestMoviesWithQuality = applyQuality(latestData.results);
+    const actionMoviesWithQuality = applyQuality(actionData.results);
+    const tvSeriesWithQuality = applyQuality(tvData.results);
+    const horrorMoviesWithQuality = applyQuality(horrorData.results);
+    const ratedMoviesWithQuality = applyQuality(ratedData.results);
+    const animeMoviesWithQuality = applyQuality(animeData.results);
+
+    if (data.results.length > 0) {
+      movies = moviesWithQuality[4];
       const releaseYear = data.results[1].release_date.split("-");
       res.render("home.ejs", {
         releaseYear,
         randomMovie,
         movies,
-        trendingMovies: trendingData.results,
-        latestMovies: latestData.results,
-        //actionMovies: actionData.results,
-        tvseriesMovies: tvData.results,
-        horrorMovies: horrorData.results,
-        ratedMovies: ratedData.results,
-        animeMovies: animeData.results,
+        trendingMovies: trendingMoviesWithQuality,
+        latestMovies: latestMoviesWithQuality,
+        tvseriesMovies: tvSeriesWithQuality,
+        horrorMovies: horrorMoviesWithQuality,
+        ratedMovies: ratedMoviesWithQuality,
+        animeMovies: animeMoviesWithQuality,
       });
     } else {
       res.render("home.ejs", { movies: [] });
@@ -248,59 +253,53 @@ app.get("/movie/:movieId", async (req, res) => {
   const movieId = req.params.movieId;
   const url = `${Base_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
 
-  // const animeurl = `${Base_URL}/tv/${movieId}?api_key=${API_KEY}&language=en-US`;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
 
-  const response = await fetch(url);
-  const data = await response.json();
+    // Function to determine movie quality
+    const determineQuality = (movie) => {
+      const releaseDate = new Date(movie.release_date);
+      const currentDate = new Date();
+      const diffTime = Math.abs(currentDate - releaseDate);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-  //for cast & credits
-  const castUrl = `${Base_URL}/movie/${movieId}/credits?api_key=${API_KEY}`;
-  const castResponse = await fetch(castUrl);
-  const castData = await castResponse.json();
-  const cast = castData.cast;
+      return diffDays < 30 ? 'Cam' : 'HD';
+    };
 
-  // for genres
-  const genresUrl = `${Base_URL}/movie/${movieId}?api_key=${API_KEY}`;
-  const genresResponse = await fetch(genresUrl);
-  const genresData = await genresResponse.json();
- 
+    // Set the quality for the movie
+    data.quality = determineQuality(data);
 
-  // Extract genres from the response
-  const genres = genresData.genres;
+    // Fetching cast & credits
+    const castUrl = `${Base_URL}/movie/${movieId}/credits?api_key=${API_KEY}`;
+    const castResponse = await fetch(castUrl);
+    const castData = await castResponse.json();
+    const cast = castData.cast;
 
+    // Fetching genres
+    const genresUrl = `${Base_URL}/movie/${movieId}?api_key=${API_KEY}`;
+    const genresResponse = await fetch(genresUrl);
+    const genresData = await genresResponse.json();
+    const genres = genresData.genres;
 
-  const duration = data.runtime; // Duration is provided in minutes
+    // Fetching production countries and spoken languages
+    const countries = data.production_countries;
+    const languages = data.spoken_languages;
 
-
-      // Fetching production countries and spoken languages
-      const countries = data.production_countries;
-      const languages = data.spoken_languages;
-
-
-  //const animeResponse = await fetch(animeurl);
-  //const animeData = animeResponse.json()
-
-  //for trending movies
-
-  //const trendingResponse = await fetch(urlTrending_movies);
-  //const trendingData = await trendingResponse.json();
-
-  //const movies = data.results[12];
-  // const image = `https://image.tmdb.org/t/p/original${movies.backdrop_path}`
-  //collecting year from auth.js
-  //const releaseYear = data.results[1].release_date.split('-');
-  res.render("movies_info.ejs", {
-    /*releaseYear*/ movie: data,
-    movieCast: cast,
-    movieGenres: genres,
-    duration: duration,
-    countries: countries,
-    languages: languages
-    //anime: animeData
-
-    /*trendingMovies:trendingData.results*/
-  });
+    res.render("movies_info.ejs", {
+      movie: data,
+      movieCast: cast,
+      movieGenres: genres,
+      duration: data.runtime,
+      countries: countries,
+      languages: languages
+    });
+  } catch (error) {
+    console.error("Error fetching movie details:", error);
+    res.status(500).send("Error fetching movie details");
+  }
 });
+
 
 app.get("/tv/:tvId", async (req, res) => {
   const tvId = req.params.tvId;
@@ -627,6 +626,11 @@ res.render("tvseries.ejs",{
 app.get("/topimdb", (req, res) => {
   res.render("topimdb.ejs");
 });
+
+
+app.get('/profile', (req, res) =>{
+  res.render('profile.ejs')
+})
 
 
 //post

@@ -1,6 +1,24 @@
 
 
 let allmenu = document.getElementById("sidemenu");
+let userinfo = document.getElementById('usercontent');//this is to handle the toggle for the movies and tv bars on desktop
+
+
+
+function favmenuside(){
+  let barcolor = document.querySelector('.fa-bars-staggered');
+ if(userinfo.style.left == '2000px'){
+  
+  userinfo.style.left = '88%';
+  barcolor.style.color = 'red';
+
+
+ }else{
+  userinfo.style.left = '2000px';
+  barcolor.style.color = '';
+
+ }
+}
 
 function openmenu() {
   allmenu.style.right = "-30px";
@@ -388,6 +406,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+//fuction for favourite mark
+
+
+function mark(){
+  let changecolor = document.querySelector('.favourite-mark i');
+  if (changecolor.style.color === 'yellow') {
+    changecolor.style.color = '';
+    alert('removed movie from favourite')
+  } else {
+    changecolor.style.color = 'yellow';
+    alert('added movie to favourite')
+  }
+
+}
 
 
 /*

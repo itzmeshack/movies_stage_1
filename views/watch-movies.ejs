@@ -8,7 +8,9 @@
   <script defer src="/js_files/index.js"></script>
   <script defer src="api.js" type="module"></script>
   <script defer type="module" src="render.js"></script>
-  <link rel="stylesheet" href="/stylesheet/topimdb.css" />
+  <link rel="stylesheet" href="/stylesheet/watch.css" />
+  <link rel="icon" type="image/png" href="/images_files/file-2.ico">
+
   <link
     href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
     rel="stylesheet" />
@@ -110,21 +112,16 @@
   
 
   </header>
-    
-
-
-
-<div class="coming-soon">
-    <h1>Sport + is not available right now, COMING SOON, 
-         for the mean time enjoy our TV shows and Movies, we will be right back. </h1>
-</div>
 
 
 
 
 
-
-
-
-</body>
-</html>
+    <div class="watch-container">
+        <% if (movie) { %>
+          <iframe  src="https://vidsrc.to/embed/movie/<%= movie.id %>" frameborder="0" allowfullscreen ="true"></iframe>
+        <% } else { %>
+          <!-- Fallback message if no movie is available -->
+          <p>ERROR</p>
+        <% } %>
+      </div>

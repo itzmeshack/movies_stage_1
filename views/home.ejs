@@ -9,6 +9,8 @@
   <script defer src="api.js" type="module"></script>
   <script defer type="module" src="render.js"></script>
   <link rel="stylesheet" href="/stylesheet/home.css" />
+  <link rel="icon" type="image/png" href="/images_files/file-2.ico">
+
   <link
     href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
     rel="stylesheet" />
@@ -83,6 +85,9 @@
 
 
         <ul class="all-links">
+          <li><a href="#"><img class="user-image-mobile" src="/images_files/spider.jpeg" alt=""></a></li>
+
+
           <li class="major-links">
             <a class="anchor-links" href="/home">HOME</a>
           </li>
@@ -95,9 +100,17 @@
           <li class="major-links">
             <a class="anchor-links-sport" href="/topimdb">Sport +</a>
           </li>
-          <li class="major-link-login">
-            <a class="logins" href="/login">Logout</a>
-          </li>
+          <div class="user-mobile-content">
+            <ul class="user-mobile-con">
+
+          
+            <li  class="user-list" ><a class="user-fav" href="#"><span><i class="fa-regular fa-star"></i></span> Favourite</a></li>
+            <li  class="user-list-log"><a class="user-log" href="/login">Logout</a></li>
+          </ul>
+          </div>
+          <span class="fav" onclick="favmenuside()">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </span>
         </ul>
         <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
 
@@ -141,6 +154,14 @@
           <img class="img-con" src="/path/to/fallback/image.jpg" alt="Fallback Image">
           <% } %>
 
+          <div class="user-container" >
+            <ul class="user-fast-info" id="usercontent">
+              <li><a href="#"><img class="user-image" src="/images_files/file-2.ico" alt=""></a></li>
+              <li><a href="#">Favourite</a></li>
+              <li><a href="/login">Logout</a></li>
+            </ul>
+          </div>
+
 
 
 
@@ -162,7 +183,7 @@
       <% if (movies) { %>
         <div class="letter-container">
           <div class="back-hd">
-            <p class="letter">HD</p>
+            <p class="letter"><%= movies.quality %></p>
             <p class="letter">MOVIE</p>
             <!--if you want to change the year go to auth.js -->
             <p class="letter">
@@ -207,7 +228,7 @@
           <% trendingMovies.forEach(movie=> { %>
             <div class="treading-control2">
               <a href="/movie/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="#" />
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
               </a>
             </div>
             <% }); %>
@@ -371,7 +392,7 @@
           <% latestMovies.forEach(movie=> { %>
             <div class="treading-control2">
               <a href="/movie/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="#" />
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
 
               </a>
 
@@ -543,7 +564,7 @@
 
             <div class="treading-control2">
               <a  href="/movie/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>"
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%=movie.poster_path %>"
                   alt="<%= movie.title %>" />
 
               </a>
@@ -755,7 +776,7 @@
           <% tvseriesMovies.forEach(movie=> { %>
             <div class="treading-control2">
               <a  href="/tv/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="#" />
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
 
               </a>
 
@@ -833,7 +854,7 @@
           <% horrorMovies.forEach(movie=> { %>
             <div class="treading-control2">
               <a  href="/movie/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="#" />
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
 
               </a>
 
@@ -906,7 +927,7 @@
           <% ratedMovies.forEach(movie=> { %>
             <div class="treading-control2">
               <a  href="/movie/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="#" />
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="#" />
 
               </a>
 
@@ -981,7 +1002,7 @@
           <% animeMovies.forEach(movie=> { %>
             <div class="treading-control2">
               <a  href="/tv/<%= movie.id %>" class="film-mark">
-                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="#" />
+                <img class="scroll-img2" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path%>" alt="#" />
 
               </a>
 

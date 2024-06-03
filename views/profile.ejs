@@ -8,7 +8,9 @@
   <script defer src="/js_files/index.js"></script>
   <script defer src="api.js" type="module"></script>
   <script defer type="module" src="render.js"></script>
-  <link rel="stylesheet" href="/stylesheet/topimdb.css" />
+  <link rel="stylesheet" href="/stylesheet/profile.css" />
+  <link rel="icon" type="image/png" href="/images_files/file-2.ico">
+
   <link
     href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
     rel="stylesheet" />
@@ -83,6 +85,9 @@
 
 
         <ul class="all-links">
+          <li><a href="#"><img class="user-image-mobile" src="/images_files/spider.jpeg" alt=""></a></li>
+
+
           <li class="major-links">
             <a class="anchor-links" href="/home">HOME</a>
           </li>
@@ -95,9 +100,17 @@
           <li class="major-links">
             <a class="anchor-links-sport" href="/topimdb">Sport +</a>
           </li>
-          <li class="major-link-login">
-            <a class="logins" href="/login">Logout</a>
-          </li>
+          <div class="user-mobile-content">
+            <ul class="user-mobile-con">
+
+          
+            <li  class="user-list" ><a class="user-fav" href="#"><span><i class="fa-regular fa-star"></i></span> Favourite</a></li>
+            <li  class="user-list-log"><a class="user-log" href="/login">Logout</a></li>
+          </ul>
+          </div>
+          <span class="fav" onclick="favmenuside()">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </span>
         </ul>
         <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
 
@@ -110,21 +123,15 @@
   
 
   </header>
-    
+<div>
 
 
 
-<div class="coming-soon">
-    <h1>Sport + is not available right now, COMING SOON, 
-         for the mean time enjoy our TV shows and Movies, we will be right back. </h1>
+  <h1>Change Profile Image</h1>
+  <form action="/change-image" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" required>
+    <button type="submit">Upload</button>
+  </form>
+
+
 </div>
-
-
-
-
-
-
-
-
-</body>
-</html>
