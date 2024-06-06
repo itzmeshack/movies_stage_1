@@ -25,7 +25,9 @@
   <header class="header-container">
     <nav class="navbar-container">
       <h1 class="logo-name">
-        <a class="header-links" href="/">CHILLFLIX</a>
+        <form id="chillflixForm" action="/" method="POST" style="display: inline;">
+          <a id="chillflixLink" class="header-links" href="/" onclick="document.getElementById('chillflixForm').submit(); return false;">CHILLFLIX</a>
+        </form>
         <i class="fa-brands fa-google-play"></i>
       </h1>
       <div class="search-container">
@@ -85,7 +87,7 @@
 
 
         <ul class="all-links">
-          <li><a href="#"><img class="user-image-mobile" src="/images_files/spider.jpeg" alt=""></a></li>
+          <li><a href="/profile"><img class="user-image-mobile" src="<%= user.image %>" alt=""></a></li>
 
 
           <li class="major-links">
@@ -156,9 +158,22 @@
 
           <div class="user-container" >
             <ul class="user-fast-info" id="usercontent">
-              <li><a href="#"><img class="user-image" src="/images_files/file-2.ico" alt=""></a></li>
-              <li><a href="#">Favourite</a></li>
-              <li><a href="/login">Logout</a></li>
+              <li><a href="/profile"><img class="user-image" src="<%= user.image %>" alt=""></a></li>
+              <li><a style="color: yellow;" href="#"><span><i  style="padding:0px 5px 0px 5px"; class="fa-regular fa-star"></i></span>Favourite</a></li>
+              <li>
+                <form action="/logout" method="POST" id="logoutForm">
+         
+                  <a style="color: rgb(255, 255, 255);" href="#" id="logoutLink"><span><i style="padding:0px 5px 0px 5px; color: rgb(231, 158, 155);" class="fa-solid fa-arrow-right-from-bracket"></i></span>Logout</a>
+
+                 <!--this helps submit a form when you click on logout -->
+                  <script>
+                    document.getElementById('logoutLink').addEventListener('click', function(event) {
+                        event.preventDefault(); // Prevent the default anchor behavior
+                        document.getElementById('logoutForm').submit(); // Submit the form
+                    });
+                </script>
+              </form>
+              </li>
             </ul>
           </div>
 

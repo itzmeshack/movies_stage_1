@@ -1,24 +1,27 @@
 
 
 let allmenu = document.getElementById("sidemenu");
-let userinfo = document.getElementById('usercontent');//this is to handle the toggle for the movies and tv bars on desktop
 
 
 
-function favmenuside(){
-  let barcolor = document.querySelector('.fa-bars-staggered');
- if(userinfo.style.left == '2000px'){
-  
-  userinfo.style.left = '88%';
-  barcolor.style.color = 'red';
+document.addEventListener('DOMContentLoaded', (event) => {
+  function favmenuside() {
+    let barcolor = document.querySelector('.fa-bars-staggered');
+    let userinfo = document.getElementById('usercontent');//this is to handle the toggle for the movies and tv bars on desktop
 
 
- }else{
-  userinfo.style.left = '2000px';
-  barcolor.style.color = '';
+    if (userinfo.style.left === '2000px' || userinfo.style.left === '') {
+      userinfo.style.left = '88%';
+      barcolor.style.color = 'red';
+    } else {
+      userinfo.style.left = '2000px';
+      barcolor.style.color = '';
+    }
+  }
 
- }
-}
+  // Initialize the click event
+  document.querySelector('.fav').addEventListener('click', favmenuside);
+});
 
 function openmenu() {
   allmenu.style.right = "-30px";
@@ -627,10 +630,66 @@ searchInput.addEventListener('input', async () => {
 
 
 
+/** for file upload */
+document.getElementById('file-input').addEventListener('change', function() {
+  var fileName = this.files[0].name;
+  document.getElementById('file-name').textContent = fileName;
+});
 
 
 
 
+function previewImage(event) {
+  const reader = new FileReader();
+  reader.onload = function() {
+    const output = document.getElementById('imagePreview');
+    output.src = reader.result;
+  }
+  reader.readAsDataURL(event.target.files[0]);
+}
+
+
+function previewImage(event) {
+  const input = event.target;
+  const preview = document.getElementById('image-preview');
+  const file = input.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    preview.src = e.target.result;
+    preview.style.display = 'inline';
+    preview.style.textAlign = 'center';
+    preview.style.width = '100px';
+    preview.style.border = '1px red solid';
+    preview.style.borderRadius = '100px';
+  };
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+}
+
+
+document.getElementById('logoutLink').addEventListener('click', function(event) {
+  event.preventDefault();
+  fetch('/logout', {
+      method: 'DELETE'
+  }).then(response => {
+      if (response.ok) {
+          window.location.href = '/login';
+      } else {
+          alert('Logout failed.');
+      }
+  }).catch(error => {
+      console.error('Error:', error);
+  });
+});
+
+
+document.getElementById("chillflixLink").addEventListener("click", function(event) {
+  event.preventDefault(); // Prevent the default link behavior
+  document.getElementById("chillflixForm").submit(); // Submit the form
+});
 /*
 
 searchInput.addEventListener('input', async () => {

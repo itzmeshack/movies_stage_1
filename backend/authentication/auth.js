@@ -11,6 +11,13 @@ const passport = require("passport");
 const flash = require("express-flash");
 const session = require("express-session");
 const fetch = require("node-fetch");
+const multer = require("multer");
+const helmet = require("helmet");
+
+
+
+
+
 
 const initializePassport = require("./passport-config");
 
@@ -24,9 +31,27 @@ initializePassport(
   (id) => user.find((user) => user.id === id)
 );
 
-const port = 5000;
+const port = 3001;
+
+
 
 const user = [];
+
+
+/** storage of file for uploading user profile */
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/uploads');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
+});
+
+
+/** multer usage  */
+
+const upload = multer({ storage: storage });
 
 app.listen(port, () => {
   console.log("server running successfully");
@@ -104,7 +129,7 @@ const urlBestAnime = `${Base_URL}/discover/tv?api_key=${API_KEY}&with_genres=16`
 
 
 
-app.get('/watch/movie/:movieId', async (req, res) => {
+app.get('/watch/movie/:movieId', checkAuthenticated, async (req, res) => {
   try {
     const movieId = req.params.movieId;
     const movieUrl = `${Base_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
@@ -120,7 +145,7 @@ app.get('/watch/movie/:movieId', async (req, res) => {
 });
 
 
-app.get('/watch/tv/:tvId', async (req, res) => {
+app.get('/watch/tv/:tvId', checkAuthenticated, async (req, res) => {
   try {
     const tvId = req.params.tvId;
     const tvUrl = `${Base_URL}/tv/${tvId}?api_key=${API_KEY}&language=en-US`;
@@ -139,7 +164,7 @@ app.get('/watch/tv/:tvId', async (req, res) => {
 
 let movies = [];
 
-app.get("/home", async (req, res) => {
+app.get("/home", checkAuthenticated, async (req, res) => {
   try {
     const [
       response,
@@ -210,7 +235,7 @@ app.get("/home", async (req, res) => {
     const animeMoviesWithQuality = applyQuality(animeData.results);
 
     if (data.results.length > 0) {
-      movies = moviesWithQuality[4];
+      movies = moviesWithQuality[3];
       const releaseYear = data.results[1].release_date.split("-");
       res.render("home.ejs", {
         releaseYear,
@@ -222,6 +247,7 @@ app.get("/home", async (req, res) => {
         horrorMovies: horrorMoviesWithQuality,
         ratedMovies: ratedMoviesWithQuality,
         animeMovies: animeMoviesWithQuality,
+         user: req.user 
       });
     } else {
       res.render("home.ejs", { movies: [] });
@@ -249,7 +275,7 @@ app.get("/home", async (req, res) => {
 });    
 */
 
-app.get("/movie/:movieId", async (req, res) => {
+app.get("/movie/:movieId", checkAuthenticated, async (req, res) => {
   const movieId = req.params.movieId;
   const url = `${Base_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
 
@@ -301,7 +327,7 @@ app.get("/movie/:movieId", async (req, res) => {
 });
 
 
-app.get("/tv/:tvId", async (req, res) => {
+app.get("/tv/:tvId", checkAuthenticated, async (req, res) => {
   const tvId = req.params.tvId;
   //const url = `${Base_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`
   const tvUrl = `${Base_URL}/tv/${tvId}?api_key=${API_KEY}&language=en-US`;
@@ -384,7 +410,7 @@ app.get("/tv/:tvId", async (req, res) => {
 });
 
 
-app.get("/search", async (req, res) => {
+app.get("/search", checkAuthenticated, async (req, res) => {
 
  
 
@@ -427,9 +453,24 @@ app.get("/search", async (req, res) => {
     });
     */
 
-app.get("/", checkNotAuthenticated, (req, res) => {
+app.get("/",  (req, res) => {
   res.render("index.ejs"); //{//name: req.user.name => this is to get the name of the user if you have one }
 });
+
+
+
+app.post("/",(req, res) => {
+  req.logout(err => {
+    if (err) {
+        console.error("Logout error:", err);
+        res.status(500).send("Error logging out");
+        return;
+    }
+    res.redirect('/'); // Redirect to login page after logout
+});
+});
+
+
 app.get("/login", checkNotAuthenticated, (req, res) => {
   res.render("login.ejs");
 });
@@ -453,7 +494,7 @@ const urlAdventureMovies =  `${Base_URL}/discover/movie?api_key=${API_KEY}&langu
 ;;
 const urlThrillerMovies =  `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=53&primary_release_date.gte=2015-01-01&primary_release_date.lte=2019-12-31`;
 ;
-app.get("/movies", async (req, res) => {
+app.get("/movies", checkAuthenticated, async (req, res) => {
   try {
     const response = await fetch(urlActionMovies2);
     const actionData = await response.json();
@@ -535,7 +576,7 @@ const urlKidsTVShows = `${Base_URL}/discover/tv?api_key=${API_KEY}&language=en-U
 
 
 
-app.get("/tvseries", async (req, res) => {
+app.get("/tvseries", checkAuthenticated, async (req, res) => {
 
 try{
 
@@ -622,33 +663,43 @@ res.render("tvseries.ejs",{
  
 });
 
-
-app.get("/topimdb", (req, res) => {
+/** we are coming bck to this server */
+app.get("/topimdb",  (req, res) => {
   res.render("topimdb.ejs");
 });
 
 
-app.get('/profile', (req, res) =>{
-  res.render('profile.ejs')
+
+
+
+app.get('/change-profile', checkAuthenticated, (req, res) =>{
+  res.render("change-profile.ejs", { user: req.user });
+})
+
+app.get('/profile', checkAuthenticated, (req, res) => {
+  res.render('profile.ejs', { user: req.user });
 })
 
 
 //post
 
-app.post("/register", checkNotAuthenticated, async (req, res) => {
+app.post("/register", checkNotAuthenticated, upload.single('image'), async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 12);
+    const imagePath = req.file ? `/uploads/${req.file.filename}` : '/default.jpg'; // Set a default image if none is uploaded
+
     user.push({
-      id: Date.now().toString,
+      id: Date.now().toString(), // Add the missing parentheses to call the function
       email: req.body.email,
       password: hashedPassword,
+      image: imagePath
     });
-    res.redirect("/login");
-  } catch {
-    res.redirect("/register");
-  }
 
-  console.log(user);
+    res.redirect("/login");
+  } catch (error) {
+    console.error(error); // Log the error for debugging purposes
+
+  }
 });
 
 app.post(
@@ -661,6 +712,31 @@ app.post(
   })
 );
 
+
+app.post('/logout', (req, res) => {
+  req.logout(err => {
+      if (err) {
+          console.error("Logout error:", err);
+          res.status(500).send("Error logging out");
+          return;
+      }
+      res.redirect('/login'); // Redirect to login page after logout
+  });
+});
+
+
+
+app.post('/change-profile', 
+upload.single('image'), checkAuthenticated, (req, res) => {
+  const currentUser = user.find(u => u.id === req.user.id);
+  if (currentUser && req.file) {
+    currentUser.image = `/uploads/${req.file.filename}`;
+    res.redirect("/profile");
+  } else {
+    res.redirect("/change-profile");
+  }
+});
+
 function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
@@ -670,9 +746,9 @@ function checkAuthenticated(req, res, next) {
 
 function checkNotAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
-    res.redirect("/");
+    res.redirect("/home");
   }
-  return next();
+ next();
 }
 
 module.exports = app;

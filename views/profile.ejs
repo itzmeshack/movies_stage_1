@@ -123,15 +123,16 @@
   
 
   </header>
-<div>
+<div class="profile-container">
 
-
-
-  <h1>Change Profile Image</h1>
-  <form action="/change-image" method="POST" enctype="multipart/form-data">
-    <input type="file" name="image" required>
-    <button type="submit">Upload</button>
-  </form>
-
+    <h1 class="echo-header">Profile </h1>
+    <% if (user.image) { %>
+      <img class="ehco-img" src="<%= user.image %>" alt="Profile Image" width="200">
+  <% } else { %>
+      <!-- Replace 'default.jpg' with the path to your default image -->
+      <img class="ehco-img" src="/images_files/file-2.ico" alt="Default Profile Image" width="200">
+  <% } %>
+    <p class="echo-e">Email: <%= user.email %></p>
+    <a class="echo-link" href="/change-profile">Change Profile Image</a>
 
 </div>

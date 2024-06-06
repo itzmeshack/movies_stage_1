@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chillflix</title>
+  <script defer src="/js_files/index.js"></script>
+  <script defer src="api.js" type="module"></script>
+  <script defer type="module" src="render.js"></script>
+  <link rel="stylesheet" href="/stylesheet/home.css" />
+  <link rel="icon" type="image/png" href="/images_files/file-2.ico">
+
+  <link
+    href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
+    rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+ 
+  <header class="header-container">
+    <nav class="navbar-container">
+      <h1 class="logo-name">
+        <form id="chillflixForm" action="/" method="POST" style="display: inline;">
+          <a id="chillflixLink" class="header-links" href="/" onclick="document.getElementById('chillflixForm').submit(); return false;">CHILLFLIX</a>
+        </form>
+        <i class="fa-brands fa-google-play"></i>
+      </h1>
+      <div class="search-container">
+        <form  action="/search" method="GET" >
+          
+
+
+      <div class="mobile-search">
+        <span class="my-magnify" onclick="searchbar()">
+          <i id="mycolor" class="fa-solid fa-magnifying-glass">
+            
+        
+          </i>
+
+          
+         
+        </span>
+
+      </div>
+      
+
+
+
+        <span class="my-magnify-desktop" >
+          <i id="mycolor" class="fa-solid fa-magnifying-glass">
+            
+        
+          </i>
+
+          
+         
+        </span>
+        
+
+
+
+        <input class="search-bar" type="text" name="query" id="search-incoming"
+          placeholder="search for movies & tv shows" autocomplete="off" />
+          
+          
+        </form>
+
+        
+
+    
+      </div>
+
+   
+
+
+  
+
+
+
+      <div onclick="closemenu()" id="sidemenu" class="mobile-nav">
+
+
+
+        <ul class="all-links">
+          <li><a href="/profile"><img class="user-image-mobile" src="<%= user.image %>" alt=""></a></li>
+
+
+          <li class="major-links">
+            <a class="anchor-links" href="/home">HOME</a>
+          </li>
+          <li class="major-links">
+            <a class="anchor-links" href="/movies">MOVIES</a>
+          </li>
+          <li class="major-links">
+            <a class="anchor-links" href="/tvseries">TV SERIES</a>
+          </li>
+          <li class="major-links">
+            <a class="anchor-links-sport" href="/topimdb">Sport +</a>
+          </li>
+          <div class="user-mobile-content">
+            <ul class="user-mobile-con">
+
+          
+            <li  class="user-list" ><a class="user-fav" href="#"><span><i class="fa-regular fa-star"></i></span> Favourite</a></li>
+            <li  class="user-list-log"><a class="user-log" href="/login">Logout</a></li>
+          </ul>
+          </div>
+          <span class="fav" onclick="favmenuside()">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </span>
+        </ul>
+        <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
+
+      </div>
+
+
+      <img id="open" onclick="openmenu()" class="open-menu" src="/images_files/white-open.png" alt="">
+
+    </nav>
+  
+
+  </header>
+  <div class="new-image">
+
+
+  <div  class="new" id="search-suggestions">
+    <div class="cos">
+      
+    </div>
+  </div>
+
+</div>
