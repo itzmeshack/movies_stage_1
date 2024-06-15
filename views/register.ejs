@@ -59,9 +59,12 @@
 
   <div class="register">
 
+
     
     <div class="info-input-container">
-     <form action="/register" method="POST"  enctype="multipart/form-data">
+      <div id="error-message" style="color: red; display: none; font-size: 20px;">Please fill in both email and password fields!</div>
+
+      <form id="registerForm" action="/register" method="POST" enctype="multipart/form-data">
 
 
 
@@ -74,20 +77,58 @@
           <div class="image-containers">
   
         
-          <img id="image-preview"  alt="Image Preview">
+          <img id="image-preview" >
   
   </div>
         
         </div>
+
+
+     
         <div class="email-info">
-            <input type="email" name="email" id="" class="input" placeholder="enter email">
+            <input type="email" name="email" id="email" class="input" placeholder="enter email">
 
         </div>
         <div class="pass-info">
-            <input type="password" name="password" id="" class="input-pass" placeholder="enter password">
+            <input type="password" name="password" id="password" class="input-pass" placeholder="enter password">
 
         </div>
 
+
+
+
+
+
+        <script>
+          document.getElementById('registerForm').addEventListener('submit', function(event) {
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const errorMessage = document.getElementById('error-message');
+    
+            let valid = true;
+    
+            if (!email.value) {
+              email.style.border = '1px solid red';
+              valid = false;
+            } else {
+              email.style.border = '';
+            }
+    
+            if (!password.value) {
+              password.style.border = '1px solid red';
+              valid = false;
+            } else {
+              password.style.border = '';
+            }
+    
+            if (!valid) {
+              event.preventDefault();
+              errorMessage.style.display = 'block';
+            } else {
+              errorMessage.style.display = 'none';
+            }
+          });
+        </script>
         <!--
 
        

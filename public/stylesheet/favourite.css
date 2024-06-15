@@ -1,0 +1,290 @@
+/*
+All styling for desktop, mobiles, 
+and tabket.
+will take place here for index files 
+
+*/
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* For Desktop layout */
+  @media (min-width: 1024px) {
+  
+    body {
+  
+  
+      background-color: rgb(0, 0, 0);
+  
+  
+  
+      /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
+            color: white;*/
+  
+    }
+    
+  
+    #search-suggestions {
+      display: none;
+      color: white;
+      overflow-y: auto;
+      padding: 10px 20px 0px 20px;
+      background-color: #333;
+      position: fixed;
+      top: 4.5em;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+  
+    
+  
+  
+   
+     
+   
+      
+    }
+  
+  
+    /* Style for the images within search suggestions */
+  
+    .new img{
+      width: 20%;
+    
+      
+    }
+  
+  
+  
+  
+  
+   
+  
+  
+  
+  
+    header.header-container {
+  
+      background-color: rgb(0, 0, 0);
+      position: fixed;
+      left: 0;
+      right: 0;
+      z-index: 1;
+  
+  
+  
+  
+  
+  
+  
+    }
+  
+    nav.navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0px 5px 0px 5px;
+    }
+  
+    ul.all-links {
+      display: flex;
+      gap: 1.5em;
+      justify-content: center;
+      list-style: none;
+  
+    }
+  
+   
+  
+    a.logins {
+      text-decoration: none;
+    }
+  
+    .anchor-links:hover {
+      border-bottom: 2px solid red;
+    }
+  
+  
+   .anchor-links {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-family: 'Chillax', sans-serif;
+  }
+  /* for sport design*/
+  .anchor-links-sport {
+    text-decoration: none;
+    color: yellow;
+    border: 1px solid yellow;
+    padding: 5px 5px 5px 5px ;
+    font-family: 'Chillax', sans-serif;
+  }
+  
+  
+  .anchor-links-sport:hover{
+    transition: all .3s ease-in;
+    background-color: rgba(255, 255, 0, 0.292);
+  }
+  .anchor-links.active::after {
+    content: '';
+    display: block;
+    border: 1px solid red;
+   
+   
+   
+  }
+  
+  
+  
+    /* styling for navigation*/
+  
+    .close-menu {
+      display: none;
+  
+  
+    }
+  
+    .open-menu {
+      display: none;
+    }
+    /* styling for new bars*/
+  
+    .fa-bars-staggered{
+      color: white;
+      font-size: 30px;
+      padding: 0px 10px 0px 0px ;
+      cursor: pointer;
+     
+    }
+   
+  /* user info*/
+  .user-container{
+   display: list-item;
+  
+   
+  }
+  
+  .user-fast-info{
+    background-color: rgba(255, 255, 255, 0.329);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 70px;
+    z-index: 2;
+    border-bottom: 1px red solid;
+    border-left: 1px red solid;
+    border-bottom-left-radius: 20px;
+    left: 2000px;
+    transition: all ease 1s;
+    font-family: "Clash Display", sans-serif;
+   
+  
+    
+   
+  }
+  .user-fast-info li{
+  
+    list-style: none;
+    padding: 2em;
+    border-bottom: 1px solid white;
+  }
+  
+  .user-fast-info li:hover{
+    background-color: rgba(255, 0, 0, 0.684);
+    cursor: pointer;
+  }
+  .user-fast-info a{
+    text-decoration: none;
+    color: rgb(10, 10, 10);
+    font-size: 15px;
+  }
+  
+  
+  .user-image{
+    width: 7%;
+    border-radius: 100%;
+  }
+  
+  .user-image-mobile{
+    display: none;
+  }
+  
+  .user-mobile-content{
+  display: none;
+  }
+  
+  .fav{
+    color: yellow;
+  }
+  
+  
+  
+    /* styling for search container*/
+    .search-container{
+     padding: 1em;
+      
+  
+      
+  
+    }
+  
+    .fa-magnifying-glass {
+      color: white;
+      position: relative;
+      left: 2em;
+  
+  
+    }
+  
+   
+    .search-bar {
+      outline: none;
+      width: 30vw;
+      padding: 5px 0px 5px 40px;
+      border: 1px solid rgb(181, 1, 1);
+  
+      background-color: rgba(122, 122, 122, 0.457);
+      border-radius: 10px;
+      color: white;
+      font-size: 20px;
+      font-family: 'Chillax', sans-serif;
+  
+  
+    }
+  
+    .my-magnify{
+      display: none;
+    }
+  
+    a.header-links {
+      color: rgb(211, 5, 5);
+      text-decoration: none;
+      font-family: 'Clash Display', sans-serif;
+  
+    }
+  
+    .logins {
+      color: rgb(255, 0, 0);
+      border: 1px red solid;
+      background-color: black;
+      border-radius: 20px;
+      padding: 1em;
+      font-family: 'Clash Display', sans-serif;
+    }
+  
+    .fa-google-play {
+      color: white;
+      font-size: 30px;
+    }
+
+
+
+    .movie-poster:last-child {
+        border-bottom: none;
+      }
+
+  }  

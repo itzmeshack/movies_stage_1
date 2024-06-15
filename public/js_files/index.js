@@ -412,17 +412,6 @@ document.addEventListener('DOMContentLoaded', () => {
 //fuction for favourite mark
 
 
-function mark(){
-  let changecolor = document.querySelector('.favourite-mark i');
-  if (changecolor.style.color === 'yellow') {
-    changecolor.style.color = '';
-    alert('removed movie from favourite')
-  } else {
-    changecolor.style.color = 'yellow';
-    alert('added movie to favourite')
-  }
-
-}
 
 
 /*

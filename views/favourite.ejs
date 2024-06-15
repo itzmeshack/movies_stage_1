@@ -8,7 +8,7 @@
   <script defer src="/js_files/index.js"></script>
   <script defer src="api.js" type="module"></script>
   <script defer type="module" src="render.js"></script>
-  <link rel="stylesheet" href="/stylesheet/home.css" />
+  <link rel="stylesheet" href="/stylesheet/favourite.css" />
   <link rel="icon" type="image/png" href="/images_files/file-2.ico">
 
   <link
@@ -87,7 +87,7 @@
 
 
         <ul class="all-links">
-          <li><a href="/profile"><img class="user-image-mobile" src="<%= user.image %>" alt=""></a></li>
+          <li><a href="/profile"><img class="user-image-mobile"  alt=""></a></li>
 
 
           <li class="major-links">
@@ -135,3 +135,141 @@
   </div>
 
 </div>
+
+<div class="user-container" >
+    <ul class="user-fast-info" id="usercontent">
+      <li><a href="/profile"><img class="user-image" src="<%= user.image %>" alt=""></a></li>
+      <li><a style="color: yellow;" href="/favourite"><span><i  style="padding:0px 5px 0px 5px"; class="fa-regular fa-star"></i></span>Favourite</a></li>
+      <li>
+        <form action="/logout" method="POST" id="logoutForm">
+ 
+          <a style="color: rgb(255, 255, 255);" href="#" id="logoutLink"><span><i style="padding:0px 5px 0px 5px; color: rgb(231, 158, 155);" class="fa-solid fa-arrow-right-from-bracket"></i></span>Logout</a>
+
+         <!--this helps submit a form when you click on logout -->
+          <script>
+            document.getElementById('logoutLink').addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default anchor behavior
+                document.getElementById('logoutForm').submit(); // Submit the form
+            });
+        </script>
+      </form>
+      </li>
+    </ul>
+  </div>
+
+
+
+
+ 
+
+<div>
+
+
+
+
+  <h2 style="color: white; text-align: center; position: relative; top: 3em;   font-family:'Chillax', sans-serif; font-weight: 100; "> Your Favourite list </h2>
+  <div style="position: relative; top: 4em; ">
+  <ul style="padding: 2em; " class="unorder-movies">
+    <% user.favoriteMovies.forEach(function(movie) { %>
+      <div id="movie-<%= movie.id %>">
+
+   
+      <li  class="movie-poster" style="list-style: none;  padding: 10px 0px 0px 0px; border-bottom:  solid white; ">
+        <a href="/movie/<%= movie.id %>" style="text-decoration: none; color: white;    font-family: Clash Display, sans-serif; font-size: 20px; " >
+
+
+  
+        <img   style="width: 286px; padding: 0px 0px 10px 0px; border-radius: 10px; filter: brightness(100%); transition:  all ease .7s;;" 
+        
+     src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" 
+     alt="<%= movie.title %> poster" 
+     onmouseover="this.style.filter = 'brightness(60%)';" 
+     onmouseout="this.style.filter = 'brightness(100%)'; ">
+
+     <p style="text-align: center; position: relative;top: -18em;"> <%= movie.title %></p>
+    
+
+
+         
+        </a>
+
+        <p style="display: flex; justify-content: end; font-size: 30px; cursor: pointer;  position: relative; top: -12em; text-align: center;  "    ><i class="fa-regular fa-trash-can" style="color: red"   onclick="removeFromFavorites('<%= movie.id %>')"  ></i></p>
+     
+
+
+
+      </li>
+
+    </div>
+
+
+    
+
+
+    <% }); %>
+  </ul>
+
+
+  <script>
+    function removeFromFavorites(movieId) {
+  fetch(`/remove-from-favorites/movie/${movieId}`, {
+      method: 'DELETE'
+  }).then(response => {
+      if (response.ok) {
+          const movieElement = document.getElementById(`movie-${movieId}`);
+          if (movieElement) {
+              movieElement.remove();
+          }
+          const storageKey = 'favorite_' + movieId;
+          localStorage.setItem(storageKey, 'false');
+         
+      } else {
+          console.error('Failed to remove movie from favorites');
+      }
+  }).catch(error => {
+      console.error('Error removing movie from favorites:', error);
+  });
+}
+  </script>
+  
+    <ul style="padding: 2em;" class="unorder-tvshows">
+      <% user.favoriteTvShows.forEach(function(tv) { %>
+        <div id="tv-<%= tv.id %>">
+          <li class="tv-poster" style="list-style: none; padding: 10px 0px 0px 0px; border-bottom: solid white;">
+            <a href="/tv/<%= tv.id %>" style="text-decoration: none; color: white; font-family: Clash Display, sans-serif; font-size: 20px;">
+              <img   style="width: 286px; padding: 0px 0px 10px 0px; border-radius: 10px; filter: brightness(100%); transition:  all ease .7s;;" 
+        
+              src="https://image.tmdb.org/t/p/original/<%= tv.poster_path %>" 
+              alt="<%= tv.title %> poster" 
+              onmouseover="this.style.filter = 'brightness(60%)';" 
+              onmouseout="this.style.filter = 'brightness(100%)'; ">              <p style="text-align: center; position: relative;top: -18em;"><%= tv.name %></p>
+            </a>
+            <p style="display: flex; justify-content: end; font-size: 30px; cursor: pointer; position: relative; top: -12em; text-align: center;"><i class="fa-regular fa-trash-can" style="color: red;" onclick="removeFromFavoritestv('<%= tv.id %>')"></i></p>
+          </li>
+        </div>
+      <% }); %>
+    </ul>
+  </div>
+  <script>
+    function removeFromFavoritestv(tvId) {
+      fetch(`/remove-from-favorites/tv/${tvId}`, {
+        method: 'DELETE'
+  }).then(response => {
+      if (response.ok) {
+          const tvElement = document.getElementById(`tv-${tvId}`);
+          if (tvElement) {
+              tvElement.remove();
+          }
+          const storageKey = 'favorite_' + tvId;
+          localStorage.setItem(storageKey, 'false');
+         
+      } else {
+          console.error('Failed to remove movie from favorites');
+      }
+  }).catch(error => {
+      console.error('Error removing movie from favorites:', error);
+  });
+}
+  </script>
+</body>
+</html>

@@ -124,10 +124,27 @@
   <main class="content-area">
     <img class="img-bg" src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>" alt="Backdrop Image">
     <div class="user-container">
-      <ul class="user-fast-info" id="usercontent">
-        <li><a href="#"><img class="user-image" src="/images_files/spider.jpeg" alt=""></a></li>
-        <li><a href="#">Favourite</a></li>
-        <li><a href="/login">Logout</a></li>
+      <ul class="user-fast-info" id="usercontent" style="height: 100vh;">
+        <li><a href="/profile"><img class="user-image" src="<%= user.image %>" alt=""></a></li>
+        <li><a  style="color: yellow;" href="/favourite"><span><i  style="padding:0px 5px 0px 5px"; class="fa-regular fa-star"></i></span>Favourite</a></li>
+        <li>
+          <form action="/logout" method="POST" id="logoutForm">
+   
+            <a style="color: rgb(255, 255, 255);" href="#" id="logoutLink"><span><i style="padding:0px 5px 0px 5px; color: rgb(231, 158, 155);" class="fa-solid fa-arrow-right-from-bracket"></i></span>Logout</a>
+
+           <!--this helps submit a form when you click on logout -->
+            <script>
+              document.getElementById('logoutLink').addEventListener('click', function(event) {
+                  event.preventDefault(); // Prevent the default anchor behavior
+                  document.getElementById('logoutForm').submit(); // Submit the form
+
+
+
+                  
+              });
+          </script>
+        </form>
+        </li>
       </ul>
     </div>
     <div class="all-content">
@@ -159,8 +176,8 @@
       </div>
 
     
-
-
+<!--notification div when the user click on the add to favourite -->
+      <div id="toast-container" class="toast-container" ></div>
 
     <div class="descript">
       <% if (movie) { %>
@@ -182,9 +199,13 @@
 
           <a class="btn-link" href="/watch/tv/<%= movie.id %>">Watch</a>
         </span>
-        <span class="favourite-mark" onclick="mark()">
+
+        <form id="favform" action="/add-to-favorites/tv/<%= movie.id %>" method="POST">
+
+        <span class="favourite-mark"onclick="toggleFavorite(event)"  data-movie-id="<%= movie.id %>">
           <i  class="fa-regular fa-bookmark"></i>
          </span>
+         </form>
        </div>
       </div>
 
@@ -192,6 +213,66 @@
 
 
     </div>
+
+
+    <script>
+
+
+function showToast(message) {
+    const toastContainer = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.classList.add('toast');
+    toast.innerText = message;
+
+    toastContainer.appendChild(toast);
+
+    // Show the toast
+    setTimeout(() => {
+      toast.classList.add('show');
+    }, 100);
+
+    // Hide the toast after 3 seconds
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => {
+        toastContainer.removeChild(toast);
+      }, 500);
+    }, 3000);
+  }
+
+      function toggleFavorite(event) {
+          event.preventDefault();
+          const icon = event.currentTarget.querySelector('i');
+          const tvId = event.currentTarget.dataset.movieId;
+          const storageKey = 'favorite_' + tvId;
+          const isFavorite = localStorage.getItem(storageKey) === 'true';
+          const url = isFavorite ? `/remove-from-favorites/tv/${tvId}` : `/add-to-favorites/tv/${tvId}`;
+          const method = isFavorite ? 'DELETE' : 'POST';
+          fetch(url, { method: method })
+              .then(response => {
+                if (response.ok) {
+                  localStorage.setItem(storageKey, !isFavorite);
+                  icon.classList.toggle('fa-bookmark', !isFavorite);
+                  icon.classList.toggle('fa-bookmark', isFavorite);
+                  showToast(isFavorite ? 'Removed movie from favorites' : 'Added tv show to favorites');
+                } else {
+                  console.error('Failed to update favorite status');
+                }
+              })
+              .catch(error => console.error('Error updating favorite status:', error));
+          }
+
+          document.addEventListener('DOMContentLoaded', () => {
+            const movieId = document.querySelector('.favourite-mark').dataset.movieId;
+            const storageKey = 'favorite_' + movieId;
+            const isFavorite = localStorage.getItem(storageKey) === 'true';
+            const icon = document.querySelector('.favourite-mark i');
+            if (isFavorite) {
+              icon.classList.add('fa-bookmark');
+              icon.classList.remove('fa-bookmark');
+            }
+          });
+  </script>
 
 
     <div class="group-access">

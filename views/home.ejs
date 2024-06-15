@@ -159,7 +159,11 @@
           <div class="user-container" >
             <ul class="user-fast-info" id="usercontent">
               <li><a href="/profile"><img class="user-image" src="<%= user.image %>" alt=""></a></li>
-              <li><a style="color: yellow;" href="#"><span><i  style="padding:0px 5px 0px 5px"; class="fa-regular fa-star"></i></span>Favourite</a></li>
+
+     
+                <li><a  style="color: yellow;" href="/favourite"><span><i  style="padding:0px 5px 0px 5px"; class="fa-regular fa-star"></i></span>Favourite</a></li>
+
+           
               <li>
                 <form action="/logout" method="POST" id="logoutForm">
          
@@ -170,6 +174,10 @@
                     document.getElementById('logoutLink').addEventListener('click', function(event) {
                         event.preventDefault(); // Prevent the default anchor behavior
                         document.getElementById('logoutForm').submit(); // Submit the form
+
+
+
+                        
                     });
                 </script>
               </form>

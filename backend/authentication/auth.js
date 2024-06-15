@@ -14,6 +14,54 @@ const fetch = require("node-fetch");
 const multer = require("multer");
 const helmet = require("helmet");
 
+/* we coming back to cache so we can see how we can efficiently use it through out the server/*/
+
+
+
+
+const apicache = require('apicache');
+let cache = apicache.middleware;
+
+
+let cacheDuration = '5 minutes'
+
+// Apply cache middleware to routes
+
+
+
+
+
+
+
+
+
+
+/*
+const limiter = rateLimit({
+const rateLimit = require('express-rate-limit');
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
+});
+app.use(limiter);
+*/
+
+
+
+
+const serveStatic = require('serve-static');
+app.use(serveStatic(path.join(__dirname, 'public')));
+
+
+const compression = require('compression');
+app.use(compression());
+
+
+
+
+
+
+
+
 
 
 
@@ -31,7 +79,7 @@ initializePassport(
   (id) => user.find((user) => user.id === id)
 );
 
-const port = 3001;
+const port = 3005;
 
 
 
@@ -54,7 +102,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.listen(port, () => {
-  console.log("server running successfully");
+  console.log(`server running successfully on ${port}`);
 });
 
 app.set("view-engine", "ejs");
@@ -137,7 +185,7 @@ app.get('/watch/movie/:movieId', checkAuthenticated, async (req, res) => {
     const response = await fetch(movieUrl);
     const movieData = await response.json();
 
-    res.render('watch-movies.ejs', { movie: movieData });
+    res.render('watch-movies.ejs', { movie: movieData,  user: req.user  });
   } catch (error) {
     console.error('Error fetching movie data:', error);
     res.status(500).send('Internal Server Error');
@@ -164,7 +212,7 @@ app.get('/watch/tv/:tvId', checkAuthenticated, async (req, res) => {
 
 let movies = [];
 
-app.get("/home", checkAuthenticated, async (req, res) => {
+app.get("/home", checkAuthenticated,  cache(cacheDuration) ,async (req, res) => {
   try {
     const [
       response,
@@ -235,7 +283,7 @@ app.get("/home", checkAuthenticated, async (req, res) => {
     const animeMoviesWithQuality = applyQuality(animeData.results);
 
     if (data.results.length > 0) {
-      movies = moviesWithQuality[3];
+      movies = moviesWithQuality[0];
       const releaseYear = data.results[1].release_date.split("-");
       res.render("home.ejs", {
         releaseYear,
@@ -247,7 +295,7 @@ app.get("/home", checkAuthenticated, async (req, res) => {
         horrorMovies: horrorMoviesWithQuality,
         ratedMovies: ratedMoviesWithQuality,
         animeMovies: animeMoviesWithQuality,
-         user: req.user 
+       user: req.user 
       });
     } else {
       res.render("home.ejs", { movies: [] });
@@ -275,7 +323,7 @@ app.get("/home", checkAuthenticated, async (req, res) => {
 });    
 */
 
-app.get("/movie/:movieId", checkAuthenticated, async (req, res) => {
+app.get("/movie/:movieId", checkAuthenticated,  async (req, res) => {
   const movieId = req.params.movieId;
   const url = `${Base_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
 
@@ -318,7 +366,8 @@ app.get("/movie/:movieId", checkAuthenticated, async (req, res) => {
       movieGenres: genres,
       duration: data.runtime,
       countries: countries,
-      languages: languages
+      languages: languages,
+      user: req.user
     });
   } catch (error) {
     console.error("Error fetching movie details:", error);
@@ -327,7 +376,7 @@ app.get("/movie/:movieId", checkAuthenticated, async (req, res) => {
 });
 
 
-app.get("/tv/:tvId", checkAuthenticated, async (req, res) => {
+app.get("/tv/:tvId", checkAuthenticated,  async (req, res) => {
   const tvId = req.params.tvId;
   //const url = `${Base_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`
   const tvUrl = `${Base_URL}/tv/${tvId}?api_key=${API_KEY}&language=en-US`;
@@ -402,7 +451,8 @@ app.get("/tv/:tvId", checkAuthenticated, async (req, res) => {
     tvgenres:genres,
     totalDuration: totalDuration,
     countries: countries,
-    languages: languages
+    languages: languages, 
+    user: req.user
     //anime: animeData
 
     /*trendingMovies:trendingData.results*/
@@ -466,7 +516,7 @@ app.post("/",(req, res) => {
         res.status(500).send("Error logging out");
         return;
     }
-    res.redirect('/'); // Redirect to login page after logout
+    res.redirect('/'); // Redirect to home page after login
 });
 });
 
@@ -477,6 +527,7 @@ app.get("/login", checkNotAuthenticated, (req, res) => {
 app.get("/register", checkNotAuthenticated, (req, res) => {
   res.render("register.ejs");
 });
+
 
 
 
@@ -494,7 +545,7 @@ const urlAdventureMovies =  `${Base_URL}/discover/movie?api_key=${API_KEY}&langu
 ;;
 const urlThrillerMovies =  `${Base_URL}/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&with_genres=53&primary_release_date.gte=2015-01-01&primary_release_date.lte=2019-12-31`;
 ;
-app.get("/movies", checkAuthenticated, async (req, res) => {
+app.get("/movies", checkAuthenticated, cache(cacheDuration), async (req, res) => {
   try {
     const response = await fetch(urlActionMovies2);
     const actionData = await response.json();
@@ -554,7 +605,8 @@ app.get("/movies", checkAuthenticated, async (req, res) => {
       dramamovies: DramaResponse.results,
       comedymovies: ComedyResponse.results,
       adventuremovies: AdventureResponse.results,
-      thrillermovies: ThrillerResponse.results
+      thrillermovies: ThrillerResponse.results,
+      user: req.user 
 
     });
   } catch (error) {
@@ -576,7 +628,7 @@ const urlKidsTVShows = `${Base_URL}/discover/tv?api_key=${API_KEY}&language=en-U
 
 
 
-app.get("/tvseries", checkAuthenticated, async (req, res) => {
+app.get("/tvseries", checkAuthenticated, cache(cacheDuration), async (req, res) => {
 
 try{
 
@@ -642,7 +694,8 @@ res.render("tvseries.ejs",{
   kdramatv: KTvResponse.results, 
   africantv: AfricanTvResponse.results,
   darktv: DarkTvRsponse.results,
-  kidstv: KidTvResponse.results
+  kidstv: KidTvResponse.results,
+  user: req.user 
 
 
 }
@@ -713,6 +766,9 @@ app.post(
 );
 
 
+
+
+
 app.post('/logout', (req, res) => {
   req.logout(err => {
       if (err) {
@@ -730,12 +786,139 @@ app.post('/change-profile',
 upload.single('image'), checkAuthenticated, (req, res) => {
   const currentUser = user.find(u => u.id === req.user.id);
   if (currentUser && req.file) {
-    currentUser.image = `/uploads/${req.file.filename}`;
+    currentUser.image = `/uploads/${req.file.filename}`;//if there is a successful upload it redirect you to the /profile page
     res.redirect("/profile");
   } else {
     res.redirect("/change-profile");
   }
 });
+
+
+/** this server is where the favourite movies of users are stored */
+
+/*
+app.get('/favourite', checkAuthenticated, (req, res) => {
+  res.render('favourite.ejs', );
+})
+
+*/
+
+app.get('/favourite', checkAuthenticated, (req, res) => {
+  const currentUser = user.find(u => u.id === req.user.id);
+  if (currentUser) {
+    // Ensure favoriteMovies and favoriteTvShows are always defined
+    currentUser.favoriteMovies = currentUser.favoriteMovies || [];
+    currentUser.favoriteTvShows = currentUser.favoriteTvShows || [];
+    
+    res.render('favourite.ejs', { user: currentUser });
+  } else {
+    res.status(404).send('User not found');
+  }
+});
+
+app.post('/add-to-favorites/movie/:movieId', checkAuthenticated, async (req, res) => {
+  const movieId = req.params.movieId;
+  const currentUser = user.find(u => u.id === req.user.id);
+
+  if (currentUser) {
+    // Initialize favoriteMovies array if it doesn't exist
+    currentUser.favoriteMovies = currentUser.favoriteMovies || [];
+
+    const movieUrl = `${Base_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US`;
+    try {
+      const response = await fetch(movieUrl);
+      if (!response.ok) throw new Error('Failed to fetch movie data');
+      
+      const movieData = await response.json();
+
+      if (!currentUser.favoriteMovies.some(movie => movie.id === movieData.id)) {
+        currentUser.favoriteMovies.push({
+          id: movieData.id,
+          title: movieData.title,
+          poster_path: movieData.poster_path
+        });
+      }
+      res.redirect('/favourite');
+    } catch (error) {
+      res.status(500).send('Error fetching movie data');
+    }
+  } else {
+    res.status(404).send('User not found');
+  }
+});
+
+
+
+
+
+
+
+app.delete('/remove-from-favorites/movie/:movieId', checkAuthenticated, (req, res) => {
+  const movieId = req.params.movieId;
+  const currentUser = user.find(u => u.id === req.user.id);
+
+  if (currentUser) {
+    currentUser.favoriteMovies = currentUser.favoriteMovies.filter(movie => movie.id != movieId);
+    res.sendStatus(200);
+  } else {
+    res.status(404).send('User not found');
+ 
+ 
+  }
+
+});
+
+
+
+
+
+
+
+
+/** adding to tv servers */
+app.post('/add-to-favorites/tv/:tvId', checkAuthenticated, async (req, res) => {
+  const tvId = req.params.tvId;
+  const currentUser = user.find(u => u.id === req.user.id);
+
+  if (currentUser) {
+    // Initialize favoriteTvShows array if it doesn't exist
+    currentUser.favoriteTvShows = currentUser.favoriteTvShows || [];
+
+    const tvUrl = `${Base_URL}/tv/${tvId}?api_key=${API_KEY}&language=en-US`;
+    const response = await fetch(tvUrl);
+    const tvData = await response.json();
+
+    if (!currentUser.favoriteTvShows.some(tv => tv.id === tvId)) {
+      currentUser.favoriteTvShows.push({
+        id: tvData.id,
+        name: tvData.name,
+        poster_path: tvData.poster_path
+      });
+    }
+    res.redirect('/favourite');
+  } else {
+    res.status(404).send('User not found');
+  }
+});
+
+
+
+app.delete('/remove-from-favorites/tv/:tvId', checkAuthenticated, (req, res) => {
+  const tvId = req.params.tvId;
+  const currentUser = user.find(u => u.id === req.user.id);
+
+  if (currentUser) {
+    currentUser.favoriteTvShows = currentUser.favoriteTvShows.filter(tv => tv.id != tvId);
+    res.sendStatus(200);
+  } else {
+    res.status(404).send('User not found');
+  }
+});
+
+
+
+
+
 
 function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
