@@ -5,170 +5,118 @@ will take place here for index files
 
 */
 
-
-
 * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* For Desktop layout */
-  @media (min-width: 1024px) {
-  
-    body {
-  
-  
-      background-color: rgb(0, 0, 0);
-  
-  
-  
-      /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* For Desktop layout */
+@media (min-width: 1024px) and (max-width: 1921px) {
+  body {
+    background-color: rgb(0, 0, 0);
+
+    /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
             color: white;*/
-  
-    }
-    
-  
-    #search-suggestions {
-      display: none;
-      color: white;
-      overflow-y: auto;
-      padding: 10px 20px 0px 20px;
-      background-color: #333;
-      position: fixed;
-      top: 4.5em;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 1;
-  
-    
-  
-  
-   
-     
-   
-      
-    }
-  
-  
-    /* Style for the images within search suggestions */
-  
-    .new img{
-      width: 20%;
-    
-      
-    }
-  
-  
-  
-  
-  
-   
-  
-  
-  
-  
-    header.header-container {
-  
-      background-color: rgb(0, 0, 0);
-      position: fixed;
-      left: 0;
-      right: 0;
-      z-index: 1;
-  
-  
-  
-  
-  
-  
-  
-    }
-  
-    nav.navbar-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0px 5px 0px 5px;
-    }
-  
-    ul.all-links {
-      display: flex;
-      gap: 1.5em;
-      justify-content: center;
-      list-style: none;
-  
-    }
-  
-   
-  
-    a.logins {
-      text-decoration: none;
-    }
-  
-    .anchor-links:hover {
-      border-bottom: 2px solid red;
-    }
-  
-  
-   .anchor-links {
+  }
+
+  #search-suggestions {
+    display: none;
+    color: white;
+    overflow-y: auto;
+    padding: 10px 20px 0px 20px;
+    background-color: #333;
+    position: fixed;
+    top: 4.5em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  /* Style for the images within search suggestions */
+
+  .new img {
+    width: 20%;
+  }
+
+  header.header-container {
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  nav.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5px 0px 5px;
+  }
+
+  ul.all-links {
+    display: flex;
+    gap: 1.5em;
+    justify-content: center;
+    list-style: none;
+  }
+
+  a.logins {
+    text-decoration: none;
+  }
+
+  .anchor-links:hover {
+    border-bottom: 2px solid red;
+  }
+
+  .anchor-links {
     text-decoration: none;
     color: rgb(255, 255, 255);
-    font-family: 'Chillax', sans-serif;
+    font-family: "Chillax", sans-serif;
   }
   /* for sport design*/
   .anchor-links-sport {
     text-decoration: none;
     color: yellow;
     border: 1px solid yellow;
-    padding: 5px 5px 5px 5px ;
-    font-family: 'Chillax', sans-serif;
+    padding: 5px 5px 5px 5px;
+    font-family: "Chillax", sans-serif;
   }
-  
-  
-  .anchor-links-sport:hover{
-    transition: all .3s ease-in;
+
+  .anchor-links-sport:hover {
+    transition: all 0.3s ease-in;
     background-color: rgba(255, 255, 0, 0.292);
   }
   .anchor-links.active::after {
-    content: '';
+    content: "";
     display: block;
     border: 1px solid red;
-   
-   
-   
   }
-  
-  
-  
-    /* styling for navigation*/
-  
-    .close-menu {
-      display: none;
-  
-  
-    }
-  
-    .open-menu {
-      display: none;
-    }
-    /* styling for new bars*/
-  
-    .fa-bars-staggered{
-      color: white;
-      font-size: 30px;
-      padding: 0px 10px 0px 0px ;
-      cursor: pointer;
-     
-    }
-   
+
+  /* styling for navigation*/
+
+  .close-menu {
+    display: none;
+  }
+
+  .open-menu {
+    display: none;
+  }
+  /* styling for new bars*/
+
+  .fa-bars-staggered {
+    color: white;
+    font-size: 30px;
+    padding: 0px 10px 0px 0px;
+    cursor: pointer;
+  }
+
   /* user info*/
-  .user-container{
-   display: list-item;
-  
-   
+  .user-container {
+    display: list-item;
   }
-  
-  .user-fast-info{
+
+  .user-fast-info {
     background-color: rgba(255, 255, 255, 0.329);
     position: fixed;
     width: 100%;
@@ -181,110 +129,664 @@ will take place here for index files
     left: 2000px;
     transition: all ease 1s;
     font-family: "Clash Display", sans-serif;
-   
-  
-    
-   
   }
-  .user-fast-info li{
-  
+  .user-fast-info li {
     list-style: none;
     padding: 2em;
     border-bottom: 1px solid white;
   }
-  
-  .user-fast-info li:hover{
+
+  .user-fast-info li:hover {
     background-color: rgba(255, 0, 0, 0.684);
     cursor: pointer;
   }
-  .user-fast-info a{
+  .user-fast-info a {
     text-decoration: none;
     color: rgb(10, 10, 10);
     font-size: 15px;
   }
-  
-  
-  .user-image{
+
+  .user-image {
     width: 7%;
     border-radius: 100%;
   }
-  
-  .user-image-mobile{
+
+  .user-image-mobile {
     display: none;
   }
-  
-  .user-mobile-content{
-  display: none;
+
+  .user-mobile-content {
+    display: none;
   }
-  
-  .fav{
+
+  .fav {
     color: yellow;
   }
+
+  /* styling for search container*/
+  .search-container {
+    padding: 1em;
+  }
+
+  .fa-magnifying-glass {
+    color: white;
+    position: relative;
+    left: 2em;
+  }
+
+  .search-bar {
+    outline: none;
+    width: 30vw;
+    padding: 5px 0px 5px 40px;
+    border: 1px solid rgb(181, 1, 1);
+
+    background-color: rgba(122, 122, 122, 0.457);
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    font-family: "Chillax", sans-serif;
+  }
+
+  .my-magnify {
+    display: none;
+  }
+
+  a.header-links {
+    color: rgb(211, 5, 5);
+    text-decoration: none;
+    font-family: "Clash Display", sans-serif;
+  }
+
+  .logins {
+    color: rgb(255, 0, 0);
+    border: 1px red solid;
+    background-color: black;
+    border-radius: 20px;
+    padding: 1em;
+    font-family: "Clash Display", sans-serif;
+  }
+
+  .fa-google-play {
+    color: white;
+    font-size: 30px;
+  }
+
+  .movie-poster:last-child {
+    border-bottom: none;
+  }
+
+  .all-fav-img {
+    width: 240px;
+
+    filter: brightness(100%);
+    transition: all ease 0.7s;
+  }
+  .all-text {
+    font-size: 20px;
+    color: white;
+    padding: 2em;
+    font-family: "Clash Display", sans-serif;
   
+  }
+
+  .all-bins-rev {
+    padding: 2em;
+    font-size: 20px;
+    cursor: pointer;
+ 
+  }
+
+ 
+  .all-movies-con{
+    display: flex;
+
+    justify-content: space-between;
+    position: relative;
+    top: 7em;
+    padding: 10px 0px 20px 40px ;
+
   
-  
-    /* styling for search container*/
-    .search-container{
-     padding: 1em;
-      
-  
-      
-  
-    }
-  
-    .fa-magnifying-glass {
-      color: white;
-      position: relative;
-      left: 2em;
-  
-  
-    }
-  
-   
-    .search-bar {
-      outline: none;
-      width: 30vw;
-      padding: 5px 0px 5px 40px;
-      border: 1px solid rgb(181, 1, 1);
-  
-      background-color: rgba(122, 122, 122, 0.457);
-      border-radius: 10px;
-      color: white;
-      font-size: 20px;
-      font-family: 'Chillax', sans-serif;
-  
-  
-    }
-  
-    .my-magnify{
-      display: none;
-    }
-  
-    a.header-links {
-      color: rgb(211, 5, 5);
-      text-decoration: none;
-      font-family: 'Clash Display', sans-serif;
-  
-    }
-  
-    .logins {
-      color: rgb(255, 0, 0);
-      border: 1px red solid;
-      background-color: black;
-      border-radius: 20px;
-      padding: 1em;
-      font-family: 'Clash Display', sans-serif;
-    }
-  
-    .fa-google-play {
-      color: white;
-      font-size: 30px;
-    }
+    
+  }
+}
+
+/****************************************
+
+********************************************
+
+
+*****************************************
+*/
 
 
 
-    .movie-poster:last-child {
-        border-bottom: none;
-      }
 
-  }  
+
+
+
+
+/* FOR MOBILE AND DESKTOP STYLING*/
+
+@media (min-width: 54px) and (max-width: 770px){
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    background-color: rgb(0, 0, 0);
+
+    /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
+          color: white;*/
+  }
+
+  #search-suggestions {
+    display: none;
+    color: white;
+    overflow-y: auto;
+    padding: 10px 20px 0px 20px;
+    background-color: #333;
+    position: fixed;
+    top: 4.5em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  /* Style for the images within search suggestions */
+
+  .new img {
+    width: 150px;
+  }
+
+  header.header-container {
+    background-color: black;
+    border-bottom: 1px solid red;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  nav.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  ul.all-links {
+    list-style: none;
+  }
+
+  .major-links {
+    border-bottom: 1px solid white;
+    padding: 1em;
+  }
+
+  a.anchor-links {
+    text-decoration: none;
+
+    color: white;
+    font-family: "Chillax", sans-serif;
+  }
+
+  a.logins {
+    text-decoration: none;
+  }
+
+  .anchor-links:hover {
+    border-bottom: 2px solid red;
+  }
+
+  a.anchor-links:active {
+    border-bottom: 2px solid red;
+  }
+
+  /* styling for search container*/
+  .search-container {
+    padding: 1em;
+  }
+
+  .fa-magnifying-glass {
+    color: white;
+    position: absolute;
+    top: 30px;
+    right: 4.2rem;
+    z-index: 1;
+    font-size: 1rem;
+  }
+
+  .search-bar {
+    outline: none;
+    width: 70%;
+    padding: 5px 0px 5px 10px;
+    border: 1px solid rgb(181, 1, 1);
+    position: absolute;
+    left: 10px;
+    top: 1em;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: "Chillax", sans-serif;
+    display: none;
+    z-index: 1;
+  }
+
+  .my-magnify-desktop {
+    display: none;
+  }
+  /* mobile user's stylings */
+  .user-container {
+    display: none;
+  }
+
+  .user-image-mobile {
+    width: 20%;
+    border-radius: 100px;
+  }
+
+  .fav {
+    display: none;
+  }
+
+  .user-mobile-con {
+    color: white;
+    list-style: none;
+    padding: 1em;
+  }
+
+  .user-mobile-con li {
+    list-style: none;
+  }
+
+  .user-mobile-con a {
+    text-decoration: none;
+
+    font-family: "Chillax", sans-serif;
+    font-weight: 400;
+  }
+
+  li .user-fav {
+    color: yellow;
+  }
+
+  .user-list {
+    padding: 30px 0px 30px 0px;
+  }
+  li .user-log {
+    color: red;
+  }
+
+  .user-list-log {
+    text-align: center;
+    border: 1px solid red;
+    padding: 5px 0px 5px 0px;
+    border-radius: 10px;
+    width: 100px;
+  }
+
+  /* STYLING FOR NAVIGATION FOR MOBILE AND TABLET LAYOUT*/
+
+  .mobile-nav {
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    padding: 1em;
+    right: 1000px;
+    /* to remove it is 1000px to add it is -30px */
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+    height: 100vh;
+    transition: all ease 1s;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    width: 5%;
+  }
+
+  .open-menu {
+    position: relative;
+
+    width: 4.5%;
+  }
+
+  a.header-links {
+    color: rgb(211, 5, 5);
+    text-decoration: none;
+    font-family: "Clash Display", sans-serif;
+  }
+
+  .logins {
+    color: rgb(255, 0, 0);
+    border: 1px red solid;
+    background-color: black;
+    position: relative;
+    text-align: center;
+    top: 1em;
+    padding: 5px;
+    font-family: "Clash Display", sans-serif;
+  }
+
+  .logo-name {
+    font-size: 16px;
+  }
+
+  .major-link-login {
+    text-align: center;
+  }
+
+  .fa-google-play {
+    color: white;
+    font-size: 16px;
+  }
+
+  .all-fav-img {
+    width: 120px;
+
+  }
+
+  .all-text {
+   font-size: 13px;
+    font-family: "Clash Display", sans-serif;
+    color: white;
+    padding: 2em;
+  
+  }
+
+  .all-bins-rev {
+  padding: 2em;
+    
+  }
+
+.all-movies-con{
+  position: relative;
+  top: 5em;
+}
+
+
+
+
+ 
+.all-movies-con{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 7em;
+  padding: 10px 0px 20px 10px ;
+
+
+  
+}
+}
+
+
+
+/* please be careful here this is for ipad air and  ipad mini*/
+
+
+
+@media (min-width: 768px) and (max-width: 912px) {
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    background-color: rgb(0, 0, 0);
+
+    /*cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='6' cy='6' r='4' fill='white'/%3E%3C/svg%3E") 6 6, auto;
+          color: white;*/
+  }
+
+  #search-suggestions {
+    display: none;
+    color: white;
+    overflow-y: auto;
+    padding: 10px 20px 0px 20px;
+    background-color: #333;
+    position: fixed;
+    top: 4.5em;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  /* Style for the images within search suggestions */
+
+  .new img {
+    width: 150px;
+  }
+
+  header.header-container {
+    background-color: black;
+    border-bottom: 1px solid red;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  nav.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  ul.all-links {
+    list-style: none;
+  }
+
+  .major-links {
+    border-bottom: 1px solid white;
+    padding: 1em;
+  }
+
+  a.anchor-links {
+    text-decoration: none;
+
+    color: white;
+    font-family: "Chillax", sans-serif;
+  }
+
+  a.logins {
+    text-decoration: none;
+  }
+
+  .anchor-links:hover {
+    border-bottom: 2px solid red;
+  }
+
+  a.anchor-links:active {
+    border-bottom: 2px solid red;
+  }
+
+  /* styling for search container*/
+  .search-container {
+    padding: 1em;
+  }
+
+  .fa-magnifying-glass {
+    color: white;
+    position: absolute;
+    top: 30px;
+    right: 4.2rem;
+    z-index: 1;
+    font-size: 1rem;
+  }
+
+  .search-bar {
+    outline: none;
+    width: 70%;
+    padding: 5px 0px 5px 10px;
+    border: 1px solid rgb(181, 1, 1);
+    position: absolute;
+    left: 10px;
+    top: 1em;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-family: "Chillax", sans-serif;
+    display: none;
+    z-index: 1;
+  }
+
+  .my-magnify-desktop {
+    display: none;
+  }
+  /* mobile user's stylings */
+  .user-container {
+    display: none;
+  }
+
+
+.user-image-mobile {
+    width: 20%;
+    border-radius: 100px;
+  }
+
+  .fav {
+    display: none;
+  }
+
+  .user-mobile-con {
+    color: white;
+    list-style: none;
+    padding: 1em;
+  }
+
+  .user-mobile-con li {
+    list-style: none;
+  }
+
+  .user-mobile-con a {
+    text-decoration: none;
+
+    font-family: "Chillax", sans-serif;
+    font-weight: 400;
+  }
+
+  li .user-fav {
+    color: yellow;
+  }
+
+  .user-list {
+    padding: 30px 0px 30px 0px;
+  }
+  li .user-log {
+    color: red;
+  }
+
+  .user-list-log {
+    text-align: center;
+    border: 1px solid red;
+    padding: 5px 0px 5px 0px;
+    border-radius: 10px;
+    width: 100px;
+  }
+
+  /* STYLING FOR NAVIGATION FOR MOBILE AND TABLET LAYOUT*/
+
+  .mobile-nav {
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    padding: 1em;
+    right: 1000px;
+    /* to remove it is 1000px to add it is -30px */
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+    height: 100vh;
+    transition: all ease 1s;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    width: 5%;
+  }
+
+  .open-menu {
+    position: relative;
+
+    width: 4.5%;
+  }
+
+  a.header-links {
+    color: rgb(211, 5, 5);
+    text-decoration: none;
+    font-family: "Clash Display", sans-serif;
+  }
+
+  .logins {
+    color: rgb(255, 0, 0);
+    border: 1px red solid;
+    background-color: black;
+    position: relative;
+    text-align: center;
+    top: 1em;
+    padding: 5px;
+    font-family: "Clash Display", sans-serif;
+  }
+
+  .logo-name {
+    font-size: 16px;
+  }
+
+  .major-link-login {
+    text-align: center;
+  }
+
+  .fa-google-play {
+    color: white;
+    font-size: 16px;
+  }
+
+  .movie-poster:last-child {
+    border-bottom: none;
+  }
+
+  .all-fav-img {
+    width: 210px;
+    filter: brightness(100%);
+    transition: all ease 0.7s;
+  }
+  .all-text {
+    font-size: 15px;
+    width: 180px;
+    font-family: "Clash Display", sans-serif;
+    color: white;
+    padding: 2em;
+
+
+  }
+
+  .all-bins-rev {
+padding: 2em;
+  }
+
+  .all-movies-con{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 7em;
+    padding: 10px 0px 20px 10px ;
+
+  
+    
+  }
+
+
+
+
+
+}

@@ -23,8 +23,7 @@ const apicache = require('apicache');
 let cache = apicache.middleware;
 
 
-let cacheDuration = '5 minutes'
-
+let cacheDuration = '5 minutes';
 // Apply cache middleware to routes
 
 
@@ -79,7 +78,7 @@ initializePassport(
   (id) => user.find((user) => user.id === id)
 );
 
-const port = 3005;
+const port = 5000;
 
 
 
@@ -212,7 +211,7 @@ app.get('/watch/tv/:tvId', checkAuthenticated, async (req, res) => {
 
 let movies = [];
 
-app.get("/home", checkAuthenticated,  cache(cacheDuration) ,async (req, res) => {
+app.get("/home", checkAuthenticated,  /*cache(cacheDuration)*/ async (req, res) => {
   try {
     const [
       response,
@@ -283,7 +282,7 @@ app.get("/home", checkAuthenticated,  cache(cacheDuration) ,async (req, res) => 
     const animeMoviesWithQuality = applyQuality(animeData.results);
 
     if (data.results.length > 0) {
-      movies = moviesWithQuality[0];
+      movies = moviesWithQuality[4];
       const releaseYear = data.results[1].release_date.split("-");
       res.render("home.ejs", {
         releaseYear,

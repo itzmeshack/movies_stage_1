@@ -670,7 +670,7 @@ display: none;
 }
 
 
-/* FOR MOBILE AND DESKTOP STYLING*/
+
 
 @media (max-width: 1020px) and (max-width: 1024px) {
   * {
@@ -752,7 +752,6 @@ display: none;
   }
 
   ul.all-links {
-
     list-style: none;
 
   }

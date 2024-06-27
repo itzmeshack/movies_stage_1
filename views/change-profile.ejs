@@ -85,7 +85,7 @@
 
 
         <ul class="all-links">
-          <li><a href="#"><img class="user-image-mobile" src="/images_files/spider.jpeg" alt=""></a></li>
+          <li><a href="/profile"><img class="user-image-mobile" src="<%= user.image %>" alt=""></a></li>
 
 
           <li class="major-links">
@@ -125,7 +125,7 @@
   </header>
 
   <div class="change">
-    <h1>Change profile picture or avatar</h1>
+    <h1 class="chg-pro">Change profile picture or avatar</h1>
     <form action="/change-profile" method="POST" enctype="multipart/form-data">
       <div class="users-done"></div>
       <div class="file-upload">
@@ -133,7 +133,7 @@
         <div class="image-containers">
 
       
-        <img id="image-preview"  alt="Image Preview">
+        <img id="image-preview"  >
 
 </div>
         <button class="btn-sub" type="submit">Upload</button>

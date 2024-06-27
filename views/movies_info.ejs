@@ -74,7 +74,7 @@
     <div onclick="closemenu()" id="sidemenu" class="mobile-nav">
 
       <ul class="all-links">
-        <li><a href="#"><img class="user-image-mobile" src="/images_files/spider.jpeg" alt=""></a></li>
+        <li><a href="/profile"><img class="user-image-mobile" src="<%= user.image %>" alt=""></a></li>
 
         <li class="major-links">
           <a class="anchor-links" href="/home">HOME</a>
@@ -94,7 +94,7 @@
           <ul class="user-mobile-con">
 
         
-          <li  class="user-list" ><a class="user-fav" href="#"><span><i class="fa-regular fa-star"></i></span> Favourite</a></li>
+          <li  class="user-list" ><a class="user-fav" href="/favourite"><span><i style="color: yellow;" class="fa-regular fa-star"></i></span> Favourite</a></li>
           <li  class="user-list-log"><a class="user-log" href="/login">Logout</a></li>
         </ul>
         </div>
@@ -246,7 +246,7 @@ function showToast(message) {
       setTimeout(() => {
         toastContainer.removeChild(toast);
       }, 500);
-    }, 3000);
+    }, 1000);
   }
 
 

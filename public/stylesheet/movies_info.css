@@ -815,4 +815,42 @@
     margin-bottom: 0.9em;
     font-family: "Clash Display", sans-serif;
   }
+
+  .fa-regular, .far {
+    font-weight: 400;
+    font-size: 20px;
+    position: relative;
+    top: 1.4em;
+}
+
+
+
+/* Add this to your CSS file */
+.toast-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 20px;
+  z-index: 1000;
+}
+
+.toast {
+  background-color: #d21010;
+
+  color: #fff;
+  padding: 15px;
+  position: relative;
+  top: 20em;
+  text-align: center; 
+  font-family: 'Chillax', sans-serif;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
 }

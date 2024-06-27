@@ -11,17 +11,13 @@
   <link rel="stylesheet" href="/stylesheet/favourite.css" />
   <link rel="icon" type="image/png" href="/images_files/file-2.ico">
 
-  <link
-    href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap"
-    rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@100,400,300,200&f[]=boska@300&f[]=chillax@500,300,400&display=swap" rel="stylesheet" />
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
- 
+
   <header class="header-container">
     <nav class="navbar-container">
       <h1 class="logo-name">
@@ -31,54 +27,50 @@
         <i class="fa-brands fa-google-play"></i>
       </h1>
       <div class="search-container">
-        <form  action="/search" method="GET" >
-          
-
-
-      <div class="mobile-search">
-        <span class="my-magnify" onclick="searchbar()">
-          <i id="mycolor" class="fa-solid fa-magnifying-glass">
-            
-        
-          </i>
-
-          
-         
-        </span>
-
-      </div>
-      
+        <form action="/search" method="GET">
 
 
 
-        <span class="my-magnify-desktop" >
-          <i id="mycolor" class="fa-solid fa-magnifying-glass">
-            
-        
-          </i>
+          <div class="mobile-search">
+            <span class="my-magnify" onclick="searchbar()">
+              <i id="mycolor" class="fa-solid fa-magnifying-glass">
 
-          
-         
-        </span>
-        
+
+              </i>
 
 
 
-        <input class="search-bar" type="text" name="query" id="search-incoming"
-          placeholder="search for movies & tv shows" autocomplete="off" />
-          
-          
+            </span>
+
+          </div>
+
+
+
+
+          <span class="my-magnify-desktop">
+            <i id="mycolor" class="fa-solid fa-magnifying-glass">
+
+
+            </i>
+
+
+
+          </span>
+
+
+
+
+          <input class="search-bar" type="text" name="query" id="search-incoming" placeholder="search for movies & tv shows" autocomplete="off" />
+
+
         </form>
 
-        
 
-    
+
+
       </div>
 
-   
 
-
-  
 
 
 
@@ -87,7 +79,7 @@
 
 
         <ul class="all-links">
-          <li><a href="/profile"><img class="user-image-mobile"  alt=""></a></li>
+          <li><a href="/profile"><img class="user-image-mobile" src="<%= user.image %>" alt=""></a></li>
 
 
           <li class="major-links">
@@ -105,10 +97,10 @@
           <div class="user-mobile-content">
             <ul class="user-mobile-con">
 
-          
-            <li  class="user-list" ><a class="user-fav" href="#"><span><i class="fa-regular fa-star"></i></span> Favourite</a></li>
-            <li  class="user-list-log"><a class="user-log" href="/login">Logout</a></li>
-          </ul>
+
+              <li class="user-list"><a class="user-fav" href="/favourite"><span><i class="fa-regular fa-star"></i></span> Favourite</a></li>
+              <li class="user-list-log"><a class="user-log" href="/login">Logout</a></li>
+            </ul>
           </div>
           <span class="fav" onclick="favmenuside()">
             <i class="fa-solid fa-bars-staggered"></i>
@@ -122,37 +114,37 @@
       <img id="open" onclick="openmenu()" class="open-menu" src="/images_files/white-open.png" alt="">
 
     </nav>
-  
+
 
   </header>
   <div class="new-image">
 
 
-  <div  class="new" id="search-suggestions">
-    <div class="cos">
-      
+    <div class="new" id="search-suggestions">
+      <div class="cos">
+
+      </div>
     </div>
+
   </div>
 
-</div>
-
-<div class="user-container" >
+  <div class="user-container">
     <ul class="user-fast-info" id="usercontent">
       <li><a href="/profile"><img class="user-image" src="<%= user.image %>" alt=""></a></li>
-      <li><a style="color: yellow;" href="/favourite"><span><i  style="padding:0px 5px 0px 5px"; class="fa-regular fa-star"></i></span>Favourite</a></li>
+      <li><a style="color: yellow;" href="/favourite"><span><i style="padding:0px 5px 0px 5px" ; class="fa-regular fa-star"></i></span>Favourite</a></li>
       <li>
         <form action="/logout" method="POST" id="logoutForm">
- 
+
           <a style="color: rgb(255, 255, 255);" href="#" id="logoutLink"><span><i style="padding:0px 5px 0px 5px; color: rgb(231, 158, 155);" class="fa-solid fa-arrow-right-from-bracket"></i></span>Logout</a>
 
-         <!--this helps submit a form when you click on logout -->
+          <!--this helps submit a form when you click on logout -->
           <script>
             document.getElementById('logoutLink').addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent the default anchor behavior
-                document.getElementById('logoutForm').submit(); // Submit the form
+              event.preventDefault(); // Prevent the default anchor behavior
+              document.getElementById('logoutForm').submit(); // Submit the form
             });
-        </script>
-      </form>
+          </script>
+        </form>
       </li>
     </ul>
   </div>
@@ -160,116 +152,129 @@
 
 
 
- 
 
-<div>
-
+  <div>
 
 
 
-  <h2 style="color: white; text-align: center; position: relative; top: 3em;   font-family:'Chillax', sans-serif; font-weight: 100; "> Your Favourite list </h2>
-  <div style="position: relative; top: 4em; ">
-  <ul style="padding: 2em; " class="unorder-movies">
-    <% user.favoriteMovies.forEach(function(movie) { %>
-      <div id="movie-<%= movie.id %>">
+
+    <h2 style="color: white; text-align: center; padding: 1em; position: relative; top: 3em;   font-family:'Chillax', sans-serif; font-weight: 100; "> Your Favourite list </h2>
+    <div>
+      <div class="unorder-movies">
+        <% user.favoriteMovies.forEach(function(movie) { %>
+        <div id="movie-<%= movie.id %>" class="all-movies-con">
 
    
-      <li  class="movie-poster" style="list-style: none;  padding: 10px 0px 0px 0px; border-bottom:  solid white; ">
-        <a href="/movie/<%= movie.id %>" style="text-decoration: none; color: white;    font-family: Clash Display, sans-serif; font-size: 20px; " >
+          <a href="/movie/<%= movie.id %>" style="text-decoration: none; color: white;    font-family: Clash Display, sans-serif; font-size: 20px; ">
 
 
-  
-        <img   style="width: 286px; padding: 0px 0px 10px 0px; border-radius: 10px; filter: brightness(100%); transition:  all ease .7s;;" 
+
+            <img class="all-fav-img" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="<%= movie.title %> poster" onmouseover="this.style.filter = 'brightness(60%)';" onmouseout="this.style.filter = 'brightness(100%)'; ">
+
+
+          </a>
+
+
+          <p class="all-text"> <%= movie.title %></p>
+          <span class="all-bins-rev"><i class="fa-regular fa-trash-can" style="color: red" onclick="removeFromFavorites('<%= movie.id %>')"></i></span>
+       
+        </div>
+
+
+
+
+
+
+
+          
+
+
+
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+        <% }); %>
+      </div>
+
+
+      <script>
+        function removeFromFavorites(movieId) {
+          fetch(`/remove-from-favorites/movie/${movieId}`, {
+            method: 'DELETE'
+          }).then(response => {
+            if (response.ok) {
+              const movieElement = document.getElementById(`movie-${movieId}`);
+              if (movieElement) {
+                movieElement.remove();
+              }
+              const storageKey = 'favorite_' + movieId;
+              localStorage.setItem(storageKey, 'false');
+
+            } else {
+              console.error('Failed to remove movie from favorites');
+            }
+          }).catch(error => {
+            console.error('Error removing movie from favorites:', error);
+          });
+        }
+      </script>
+
+<div  class="unorder-tvshows">
+        <% user.favoriteTvShows.forEach(function(tv) { %>
+        <div id="tv-<%= tv.id %>" class="all-movies-con">
+            <a href="/tv/<%= tv.id %>" style="text-decoration: none; color: white; font-family: Clash Display, sans-serif; font-size: 20px;">
+              <img  class="all-fav-img"  src="https://image.tmdb.org/t/p/original/<%= tv.poster_path %>" alt="<%= tv.title %> poster" onmouseover="this.style.filter = 'brightness(60%)';" onmouseout="this.style.filter = 'brightness(100%)'; ">
+           
+            </a>
+            <p class="all-text" ><%= tv.name %></p>
+            <span class="all-bins-rev"><i class="fa-regular fa-trash-can" style="color: red;" onclick="removeFromFavoritestv('<%= tv.id %>')"></i></span>
         
-     src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" 
-     alt="<%= movie.title %> poster" 
-     onmouseover="this.style.filter = 'brightness(60%)';" 
-     onmouseout="this.style.filter = 'brightness(100%)'; ">
-
-     <p style="text-align: center; position: relative;top: -18em;"> <%= movie.title %></p>
+        </div>
+        <% }); %>
+</div>
     
-
-
-         
-        </a>
-
-        <p style="display: flex; justify-content: end; font-size: 30px; cursor: pointer;  position: relative; top: -12em; text-align: center;  "    ><i class="fa-regular fa-trash-can" style="color: red"   onclick="removeFromFavorites('<%= movie.id %>')"  ></i></p>
-     
-
-
-
-      </li>
-
+    
+    
+    
     </div>
 
 
-    
 
 
-    <% }); %>
-  </ul>
 
 
-  <script>
-    function removeFromFavorites(movieId) {
-  fetch(`/remove-from-favorites/movie/${movieId}`, {
-      method: 'DELETE'
-  }).then(response => {
-      if (response.ok) {
-          const movieElement = document.getElementById(`movie-${movieId}`);
-          if (movieElement) {
-              movieElement.remove();
-          }
-          const storageKey = 'favorite_' + movieId;
-          localStorage.setItem(storageKey, 'false');
-         
-      } else {
-          console.error('Failed to remove movie from favorites');
-      }
-  }).catch(error => {
-      console.error('Error removing movie from favorites:', error);
-  });
-}
-  </script>
-  
-    <ul style="padding: 2em;" class="unorder-tvshows">
-      <% user.favoriteTvShows.forEach(function(tv) { %>
-        <div id="tv-<%= tv.id %>">
-          <li class="tv-poster" style="list-style: none; padding: 10px 0px 0px 0px; border-bottom: solid white;">
-            <a href="/tv/<%= tv.id %>" style="text-decoration: none; color: white; font-family: Clash Display, sans-serif; font-size: 20px;">
-              <img   style="width: 286px; padding: 0px 0px 10px 0px; border-radius: 10px; filter: brightness(100%); transition:  all ease .7s;;" 
-        
-              src="https://image.tmdb.org/t/p/original/<%= tv.poster_path %>" 
-              alt="<%= tv.title %> poster" 
-              onmouseover="this.style.filter = 'brightness(60%)';" 
-              onmouseout="this.style.filter = 'brightness(100%)'; ">              <p style="text-align: center; position: relative;top: -18em;"><%= tv.name %></p>
-            </a>
-            <p style="display: flex; justify-content: end; font-size: 30px; cursor: pointer; position: relative; top: -12em; text-align: center;"><i class="fa-regular fa-trash-can" style="color: red;" onclick="removeFromFavoritestv('<%= tv.id %>')"></i></p>
-          </li>
-        </div>
-      <% }); %>
-    </ul>
-  </div>
-  <script>
-    function removeFromFavoritestv(tvId) {
-      fetch(`/remove-from-favorites/tv/${tvId}`, {
-        method: 'DELETE'
-  }).then(response => {
-      if (response.ok) {
-          const tvElement = document.getElementById(`tv-${tvId}`);
-          if (tvElement) {
+    <script>
+      function removeFromFavoritestv(tvId) {
+        fetch(`/remove-from-favorites/tv/${tvId}`, {
+          method: 'DELETE'
+        }).then(response => {
+          if (response.ok) {
+            const tvElement = document.getElementById(`tv-${tvId}`);
+            if (tvElement) {
               tvElement.remove();
+            }
+            const storageKey = 'favorite_' + tvId;
+            localStorage.setItem(storageKey, 'false');
+
+          } else {
+            console.error('Failed to remove movie from favorites');
           }
-          const storageKey = 'favorite_' + tvId;
-          localStorage.setItem(storageKey, 'false');
-         
-      } else {
-          console.error('Failed to remove movie from favorites');
+        }).catch(error => {
+          console.error('Error removing movie from favorites:', error);
+        });
       }
-  }).catch(error => {
-      console.error('Error removing movie from favorites:', error);
-  });
-}
-  </script>
+    </script>
 </body>
+
 </html>
