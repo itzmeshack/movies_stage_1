@@ -165,7 +165,7 @@
         <div id="movie-<%= movie.id %>" class="all-movies-con">
 
    
-          <a href="/movie/<%= movie.id %>" style="text-decoration: none; color: white;    font-family: Clash Display, sans-serif; font-size: 20px; ">
+          <a href="/watch/movie/<%= movie.id %>" style="text-decoration: none; color: white;    font-family: Clash Display, sans-serif; font-size: 20px; ">
 
 
 
@@ -233,7 +233,7 @@
 <div  class="unorder-tvshows">
         <% user.favoriteTvShows.forEach(function(tv) { %>
         <div id="tv-<%= tv.id %>" class="all-movies-con">
-            <a href="/tv/<%= tv.id %>" style="text-decoration: none; color: white; font-family: Clash Display, sans-serif; font-size: 20px;">
+            <a href="/watch/tv/<%= tv.id %>" style="text-decoration: none; color: white; font-family: Clash Display, sans-serif; font-size: 20px;">
               <img  class="all-fav-img"  src="https://image.tmdb.org/t/p/original/<%= tv.poster_path %>" alt="<%= tv.title %> poster" onmouseover="this.style.filter = 'brightness(60%)';" onmouseout="this.style.filter = 'brightness(100%)'; ">
            
             </a>

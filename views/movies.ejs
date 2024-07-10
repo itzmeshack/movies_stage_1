@@ -25,8 +25,9 @@
   <header class="header-container">
     <nav class="navbar-container">
       <h1 class="logo-name">
-        <a class="header-links" href="/">CHILLFLIX</a>
-        <i class="fa-brands fa-google-play"></i>
+        <form id="chillflixForm" action="/" method="POST" style="display: inline;">
+          <a id="chillflixLink" class="header-links" href="/" onclick="document.getElementById('chillflixForm').submit(); return false;">CHILLFLIX</a>
+        </form>        <i class="fa-brands fa-google-play"></i>
       </h1>
       <div class="search-container">
         <form  action="/search" method="GET" >
@@ -1151,7 +1152,7 @@
         </p>
       </div>
 
-      <div class="footer-links">
+      <!--div class="footer-links">
         <h4 class="link-sec"> Links</h4>
         <a href="/" class="cat-links">Movies</a>
         <a href="/" class="cat-links">Tv series</a>
@@ -1163,7 +1164,7 @@
         <a href="/" class="cat-links">Mystry</a>
         <a href="/" class="cat-links">Fantasy</a>
 
-      </div>
+      </div-->
     </footer>
 
     </div>

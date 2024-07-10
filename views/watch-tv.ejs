@@ -25,7 +25,9 @@
   <header class="header-container">
     <nav class="navbar-container">
       <h1 class="logo-name">
-        <a class="header-links" href="/">CHILLFLIX</a>
+        <form id="chillflixForm" action="/" method="POST" style="display: inline;">
+          <a id="chillflixLink" class="header-links" href="/" onclick="document.getElementById('chillflixForm').submit(); return false;">CHILLFLIX</a>
+        </form>
         <i class="fa-brands fa-google-play"></i>
       </h1>
       <div class="search-container">
@@ -85,6 +87,9 @@
 
 
         <ul class="all-links">
+          <li><a href="/profile"><img class="user-image-mobile" src="<%= user.image %>" alt=""></a></li>
+
+
           <li class="major-links">
             <a class="anchor-links" href="/home">HOME</a>
           </li>
@@ -97,9 +102,17 @@
           <li class="major-links">
             <a class="anchor-links-sport" href="/topimdb">Sport +</a>
           </li>
-          <li class="major-link-login">
-            <a class="logins" href="/login">Logout</a>
-          </li>
+          <div class="user-mobile-content">
+            <ul class="user-mobile-con">
+
+          
+            <li  class="user-list" ><a class="user-fav" href="/favourite"><span><i class="fa-regular fa-star"></i></span> Favourite</a></li>
+            <li  class="user-list-log"><a class="user-log" href="/login">Logout</a></li>
+          </ul>
+          </div>
+          <span class="fav" onclick="favmenuside()">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </span>
         </ul>
         <img onclick="closemenu()" class="close-menu" src="/images_files/white-close.png" alt="close-menu-list">
 
@@ -112,6 +125,38 @@
   
 
   </header>
+
+
+
+
+  <div class="user-container" >
+    <ul class="user-fast-info" id="usercontent">
+      <li><a href="/profile"><img class="user-image" src="<%= user.image %>" alt=""></a></li>
+
+
+        <li><a  style="color: yellow;" href="/favourite"><span><i  style="padding:0px 5px 0px 5px"; class="fa-regular fa-star"></i></span>Favourite</a></li>
+
+   
+      <li>
+        <form action="/logout" method="POST" id="logoutForm">
+ 
+          <a style="color: rgb(255, 255, 255);" href="#" id="logoutLink"><span><i style="padding:0px 5px 0px 5px; color: rgb(231, 158, 155);" class="fa-solid fa-arrow-right-from-bracket"></i></span>Logout</a>
+
+         <!--this helps submit a form when you click on logout -->
+          <script>
+            document.getElementById('logoutLink').addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default anchor behavior
+                document.getElementById('logoutForm').submit(); // Submit the form
+
+
+
+                
+            });
+        </script>
+      </form>
+      </li>
+    </ul>
+  </div>
 
 
 

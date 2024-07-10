@@ -224,7 +224,7 @@ app.get('/watch/tv/:tvId', checkAuthenticated, async (req, res) => {
     const response = await fetch(tvUrl);
     const tvData = await response.json();
 
-    res.render('watch-tv.ejs', {tvshow: tvData})
+    res.render('watch-tv.ejs', {tvshow: tvData, user: req.user })
   } catch (error) {
     console.error('Error fetching movie data:', error);
     res.status(500).send('Internal Server Error');
